@@ -28,5 +28,8 @@ namespace ChristmasVillageIFAC
 
         [OperationContract]
         Boolean checkConnexion();
+
+        [OperationContract]
+        Boolean checkUniqueUsername(UserBO user);
     }
 }

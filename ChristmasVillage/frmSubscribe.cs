@@ -16,5 +16,10 @@ namespace ChristmasVillage
         {
             InitializeComponent();
         }
+
+        private void frmSubscribe_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
     }
 }

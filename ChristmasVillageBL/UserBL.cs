@@ -75,8 +75,8 @@ namespace ChristmasVillageIFAC
             {
                 UserBO result = new UserBO();
                 UserDAL dal = new UserDAL(CUtil.GetConnexion());
-                user = (UserBO)dal.UserBO_FindByName(user.username);
-                return user;
+                result = (UserBO)dal.UserBO_FindByName(user.username);
+                return result;
             }
             catch (Exception)
             {

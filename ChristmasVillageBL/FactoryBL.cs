@@ -63,10 +63,6 @@ namespace ChristmasVillageIFAC
             try
             {
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                if (CUtil.checkCapital)
-                {
-                    
-                }
                 dal.FactoryBO_Delete(id_factory);
             }
             catch (Exception)

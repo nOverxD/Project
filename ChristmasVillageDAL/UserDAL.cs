@@ -18,9 +18,9 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[User.Insert]")]
         public ISingleResult<UserBO> UserBO_Insert(
-            [Parameter(Name = "@username", DbType = "varchar(10)")] string Username,
-            [Parameter(Name = "@password", DbType = "varchar(10)")] string UserPassword,
-            [Parameter(Name = "@email", DbType = "varchar(10)")] string UserMail,
+            [Parameter(Name = "@username", DbType = "varchar(20)")] string Username,
+            [Parameter(Name = "@password", DbType = "varchar(20)")] string UserPassword,
+            [Parameter(Name = "@email", DbType = "varchar(60)")] string UserMail,
             [Parameter(Name = "@capital", DbType = "int")] int UserCapital,
             [Parameter(Name = "@connexion", DbType = "int")] int UserConnexion,
             [Parameter(Name = "@status", DbType = "varchar(5)")] Boolean UserStatus
@@ -34,9 +34,9 @@ namespace ChristmasVillageIFAC
         [Function(Name = "[dbo].[User.Update]")]
         public ISingleResult<FactoryBO> UserBO_Update(
             [Parameter(Name = "@id_user", DbType = "int")] int UserId,
-            [Parameter(Name = "@username", DbType = "varchar(10)")] string Username,
-            [Parameter(Name = "@password", DbType = "varchar(10)")] string UserPassword,
-            [Parameter(Name = "@email", DbType = "varchar(10)")] string UserMail,
+            [Parameter(Name = "@username", DbType = "varchar(20)")] string Username,
+            [Parameter(Name = "@password", DbType = "varchar(20)")] string UserPassword,
+            [Parameter(Name = "@email", DbType = "varchar(60)")] string UserMail,
             [Parameter(Name = "@capital", DbType = "int")] int UserCapital,
             [Parameter(Name = "@connexion", DbType = "int")] int UserConnexion,
             [Parameter(Name = "@status", DbType = "varchar(5)")] Boolean UserStatus
@@ -57,7 +57,7 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[User.FindByName]")]
         public ISingleResult<FactoryBO> UserBO_FindByName(
-            [Parameter(Name = "@name", DbType = "varchar(10)")] string Username)
+            [Parameter(Name = "@name", DbType = "varchar(20)")] string Username)
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), Username);
             return ((ISingleResult<FactoryBO>)(result.ReturnValue));

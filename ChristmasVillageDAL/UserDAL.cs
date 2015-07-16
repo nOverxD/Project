@@ -23,7 +23,7 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@email", DbType = "varchar(10)")] string UserMail,
             [Parameter(Name = "@capital", DbType = "int")] int UserCapital,
             [Parameter(Name = "@connexion", DbType = "int")] int UserConnexion,
-            [Parameter(Name = "@status", DbType = "varchar(5)")] Boolean UserStatus
+            [Parameter(Name = "@status", DbType = "varchar(5)")] string UserStatus
              )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
@@ -39,7 +39,7 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@email", DbType = "varchar(10)")] string UserMail,
             [Parameter(Name = "@capital", DbType = "int")] int UserCapital,
             [Parameter(Name = "@connexion", DbType = "int")] int UserConnexion,
-            [Parameter(Name = "@status", DbType = "varchar(5)")] Boolean UserStatus
+            [Parameter(Name = "@status", DbType = "varchar(5)")] string UserStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),

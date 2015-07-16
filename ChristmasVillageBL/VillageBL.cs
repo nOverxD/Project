@@ -10,34 +10,18 @@ namespace ChristmasVillageIFAC
 {
     public class VillageBL
     {
-        public static void Insert(int userId)
+        public static void Insert(VillageBO village)
         {
             try
             {
-                VillageBO village = new VillageBO();
-                village.name = CUtil.villageName;
-                village.location = CUtil.locationDefault;
-
                 VillageDAL dalVillage = new VillageDAL(CUtil.GetConnexion());
                 dalVillage.VillageBO_Insert(
                     village.name,
                     village.location
                     );
-
-                ManageVillageBO manageVillage = new ManageVillageBO();
-                manageVillage.id_user = userId;
-                //Get id of village
-                //manageVillage.id_village = ;
-
-                ManageVillageDAL dalManageVillage = new ManageVillageDAL(CUtil.GetConnexion());
-                dalManageVillage.ManageVillageBO_Insert(
-                    manageVillage.id_user,
-                    manageVillage.id_village
-                    );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -54,8 +38,22 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
+            {                
+                throw;
+            }
+        }
+
+        public static List<VillageBO> Search(String villageName)
+        {
+            try
             {
-                
+                List<VillageBO> listVillage = new List<VillageBO>();
+                VillageDAL dal = new VillageDAL(CUtil.GetConnexion());
+                listVillage = dal.VillageBO_Search(villageName).ToList();
+                return listVillage;
+            }
+            catch (Exception)
+            {               
                 throw;
             }
         }

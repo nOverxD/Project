@@ -27,7 +27,7 @@ namespace ChristmasVillageIFAC
         void salesProduct(FactoryBO factory);
 
         [OperationContract]
-        Boolean checkStatus(FactoryBO factory);
+        bool checkStatus(FactoryBO factory);
 
         [OperationContract]
         int productionResult(FactoryBO factory);

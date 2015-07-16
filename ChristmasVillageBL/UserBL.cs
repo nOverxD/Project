@@ -25,8 +25,7 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -47,8 +46,7 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -63,8 +61,7 @@ namespace ChristmasVillageIFAC
                 return user;
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -79,21 +76,7 @@ namespace ChristmasVillageIFAC
                 return result;
             }
             catch (Exception)
-            {
-                
-                throw;
-            }
-        }
-
-        public static Boolean checkCapital(int capital)
-        {
-            try
-            {
-                return CUtil.checkCapital(capital);
-            }
-            catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -115,8 +98,7 @@ namespace ChristmasVillageIFAC
                 }
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }

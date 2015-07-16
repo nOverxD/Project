@@ -11,22 +11,26 @@ namespace ChristmasVillageIFAC
     {
         public void createVillage(VillageBO village)
         {
-            throw new NotImplementedException();
+            try
+            {
+                VillageBL.Insert(village);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public bool checkEmptyLocation(VillageBO village)
+        public void updateLocation(VillageBO village)
         {
-            throw new NotImplementedException();
-        }
-
-        public void addLocation(VillageBO village)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void deleteLocation(VillageBO village)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                VillageBL.Update(village);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

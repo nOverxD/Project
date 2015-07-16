@@ -25,7 +25,7 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@toy_production_price", DbType = "int")] int FactoryToyProductionPrice,
             [Parameter(Name = "@toy_prodcution_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
             [Parameter(Name = "@toy_sales_price", DbType = "int")] int FactoryToySalesPrice,
-            [Parameter(Name = "@status", DbType = "varchar(5)")] Boolean FactoryStatus
+            [Parameter(Name = "@status", DbType = "varchar(5)")] string FactoryStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
@@ -43,7 +43,7 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@toy_production_price", DbType = "int")] int FactoryToyProductionPrice,
             [Parameter(Name = "@toy_prodcution_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
             [Parameter(Name = "@toy_sales_price", DbType = "int")] int FactoryToySalesPrice,
-            [Parameter(Name = "@status", DbType = "varchar(5)")] Boolean FactoryStatus
+            [Parameter(Name = "@status", DbType = "varchar(5)")] string FactoryStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),

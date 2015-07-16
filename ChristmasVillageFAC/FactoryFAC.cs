@@ -15,7 +15,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                FactoryBL.InsertFactory(factory);
+                FactoryBL.Insert(factory);
             }
             catch (Exception)
             {                
@@ -27,7 +27,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                FactoryBL.DeleteFactory(id_Factory);
+                FactoryBL.Delete(id_Factory);
             }
             catch (Exception)
             {                
@@ -39,7 +39,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                factoryFAC = FactoryBL.SearchFactory(id_factory);
+                factoryFAC = FactoryBL.Search(id_factory);
                 return factoryFAC;
             }
             catch (Exception)
@@ -52,7 +52,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                FactoryBL.UpdateFactory(factory);
+                FactoryBL.Update(factory);
             }
             catch (Exception)
             {
@@ -64,7 +64,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                FactoryBL.UpdateFactory(factory);
+                FactoryBL.Update(factory);
             }
             catch (Exception)
             {                
@@ -72,11 +72,11 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public Boolean checkStatus(FactoryBO factory)
+        public bool checkStatus(FactoryBO factory)
         {
             try
             {
-                return FactoryBL.CheckStatusFactory(factory);
+                return FactoryBL.CheckStatus(factory);
             }
             catch (Exception)
             {
@@ -88,7 +88,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                return FactoryBL.productionResultFactory(factory);
+                return FactoryBL.productionResult(factory);
             }
             catch (Exception)
             {                

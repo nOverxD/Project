@@ -15,7 +15,7 @@ namespace ChristmasVillageIFAC
         void createUser(UserBO user);
 
         [OperationContract]
-        UserBO connexion(UserBO user);
+        bool connexion(UserBO user);
 
         [OperationContract]
         void disconnect(UserBO user);
@@ -24,12 +24,9 @@ namespace ChristmasVillageIFAC
         void updateUser(UserBO user);
         
         [OperationContract]
-        Boolean checkCapital(int capital);
+        bool checkConnexion();
 
         [OperationContract]
-        Boolean checkConnexion();
-
-        [OperationContract]
-        Boolean checkUniqueUsername(UserBO user);
+        bool checkUniqueUsername(UserBO user);
     }
 }

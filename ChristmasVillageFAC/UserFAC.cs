@@ -1,4 +1,5 @@
-﻿using ChristmasVillageBO;
+﻿using ChristmasVillageBL;
+using ChristmasVillageBO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +18,43 @@ namespace ChristmasVillageIFAC
             {
                 UserBL.Insert(user);
                 userFAC = UserBL.SearchByName(user);
-                VillageBL.Insert(userFAC.id_user);
+
+                VillageBO village = new VillageBO();
+                village.name = Utilities.villageName + userFAC.id_user.ToString();
+                village.location = Utilities.locationDefault;
+                VillageBL.Insert(village);
+                
+                List<VillageBO> listVillage = VillageBL.Search(village.name);
+                foreach (VillageBO item in listVillage)
+    	        {
+		            village.id_village = item.id_village;
+	            }
+
+                ManageVillageBO manageVillage = new ManageVillageBO();
+                manageVillage.id_user = userFAC.id_user;
+                manageVillage.id_village = village.id_village;
             }
             catch (Exception)
             {                
                 throw;
             }
-            throw new NotImplementedException();
         }
 
-        public UserBO connexion(UserBO user)
+        public bool connexion(UserBO user)
         {
             try
             {
                 userFAC = UserBL.SearchByName(user);
-                return userFAC;
+                if (user.username == userFAC.username && user.password == userFAC.password)
+                {
+                    userFAC.status = "true";
+                    UserBL.Update(userFAC);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception)
             {               
@@ -43,7 +66,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                user.status = false;
+                user.status = "false";
                 UserBL.Update(user);
             }
             catch (Exception)
@@ -64,19 +87,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public Boolean checkCapital(int capital)
-        {
-            try
-            {
-                return UserBL.checkCapital(capital);
-            }
-            catch (Exception)
-            {                
-                throw;
-            }
-        }
-
-        public Boolean checkConnexion()
+        public bool checkConnexion()
         {
             try
             {
@@ -88,7 +99,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public Boolean checkUniqueUsername(UserBO user)
+        public bool checkUniqueUsername(UserBO user)
         {
             try
             {

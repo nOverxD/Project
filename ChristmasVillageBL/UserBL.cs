@@ -84,5 +84,41 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
+
+        public static Boolean checkCapital(int capital)
+        {
+            try
+            {
+                return CUtil.checkCapital(capital);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public static Boolean checkUniqueUsername(UserBO user)
+        {
+            try
+            {
+                UserBO result = new UserBO();
+                UserDAL dal = new UserDAL(CUtil.GetConnexion());
+                result = (UserBO)dal.UserBO_FindByName(user.username);
+                if (result != null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

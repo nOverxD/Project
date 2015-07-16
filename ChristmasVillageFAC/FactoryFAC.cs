@@ -9,40 +9,91 @@ namespace ChristmasVillageIFAC
 {
     public class FactoryFAC : FactoryIFAC
     {
-        public FactoryBO createFactory(FactoryBO factory)
+        private FactoryBO factoryFAC = new FactoryBO();
+
+        public void createFactory(FactoryBO factory)
         {
-            FactoryBO result = FactoryBL.InsertFactory(factory);
+            try
+            {
+                FactoryBL.InsertFactory(factory);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
         public void deleteFactory(int id_Factory)
         {
-            FactoryBL.DeleteFactory(id_Factory);
-
+            try
+            {
+                FactoryBL.DeleteFactory(id_Factory);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
         public FactoryBO findFactory(int id_factory)
         {
-            FactoryBL.SearchFactory(id_factory);
+            try
+            {
+                factoryFAC = FactoryBL.SearchFactory(id_factory);
+                return factoryFAC;
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
         public void productToys(FactoryBO factory)
         {
-            FactoryBL.UpdateFactory(factory);
+            try
+            {
+                FactoryBL.UpdateFactory(factory);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void salesProduct(FactoryBO factory)
         {
-            FactoryBL.UpdateFactory(factory);
+            try
+            {
+                FactoryBL.UpdateFactory(factory);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
-        public bool checkStatus(FactoryBO factory)
+        public Boolean checkStatus(FactoryBO factory)
         {
-            FactoryBL.CheckStatusFactory(factory);
+            try
+            {
+                return FactoryBL.CheckStatusFactory(factory);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public int productionResult(FactoryBO factory)
         {
-            FactoryBL.UpdateFactory(factory);
+            try
+            {
+                return FactoryBL.productionResultFactory(factory);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
     }
 }

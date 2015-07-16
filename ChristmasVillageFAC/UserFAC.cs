@@ -16,10 +16,11 @@ namespace ChristmasVillageIFAC
             try
             {
                 UserBL.Insert(user);
+                userFAC = UserBL.SearchByName(user);
+                VillageBL.Insert(userFAC.id_user);
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
             throw new NotImplementedException();
@@ -29,11 +30,11 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                return UserBL.SearchByName(user);
+                userFAC = UserBL.SearchByName(user);
+                return userFAC;
             }
             catch (Exception)
-            {
-                
+            {               
                 throw;
             }
         }
@@ -46,8 +47,7 @@ namespace ChristmasVillageIFAC
                 UserBL.Update(user);
             }
             catch (Exception)
-            {
-                
+            {               
                 throw;
             }
         }
@@ -59,33 +59,45 @@ namespace ChristmasVillageIFAC
                 UserBL.Update(user);
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
 
-        public bool checkCapital(int capital)
+        public Boolean checkCapital(int capital)
         {
             try
             {
-                U
+                return UserBL.checkCapital(capital);
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
 
-        public bool checkConnexion()
+        public Boolean checkConnexion()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return true;
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
-        public bool checkUniqueUsername(UserBO user)
+        public Boolean checkUniqueUsername(UserBO user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return UserBL.checkUniqueUsername(user);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
     }
 }

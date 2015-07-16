@@ -15,7 +15,7 @@ namespace ChristmasVillageIFAC
         void createUser(UserBO user);
 
         [OperationContract]
-        void connexion(UserBO user);
+        UserBO connexion(UserBO user);
 
         [OperationContract]
         void disconnect(UserBO user);

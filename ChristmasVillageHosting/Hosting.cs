@@ -22,6 +22,7 @@ namespace ChristmasVillageHosting
             ServiceFactory.Open();
             Console.WriteLine("Service : Factory Started ");
 
+            /*
             ServiceManage = new ServiceHost(typeof(ManageVillageFAC));
             ServiceManage.Open();
             Console.WriteLine("Service : Manage Started ");
@@ -29,7 +30,8 @@ namespace ChristmasVillageHosting
             ServiceOwn = new ServiceHost(typeof(ManageFactoryFAC));
             ServiceOwn.Open();
             Console.WriteLine("Service : Own Started ");
-
+            */
+            
             ServiceUser = new ServiceHost(typeof(UserFAC));
             ServiceUser.Open();
             Console.WriteLine("Service : User Started ");

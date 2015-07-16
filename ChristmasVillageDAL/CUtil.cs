@@ -10,8 +10,10 @@ namespace ChristmasVillageDAL
 {
     public static class CUtil
     {
+        public static String villageName = "ChristmasVillage";
+        public static int locationDefault = 4;
         private static int minimumCapital = 1075;
-        private static int location = 0;
+        private static int locationMin = 0;
 
         public static String GetConnexion()
         {
@@ -45,7 +47,7 @@ namespace ChristmasVillageDAL
 
         public static Boolean checkEmptyLocation (int locations)
         {
-            if (locations > location)
+            if (locations > locationMin)
             {
                 return true;
             }

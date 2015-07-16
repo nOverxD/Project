@@ -10,9 +10,6 @@ namespace ChristmasVillageDAL
 {
     public static class CUtil
     {
-        private static int minimumCapital = 1075;
-        private static int location = 0;
-
         public static String GetConnexion()
         {
             String connexion;
@@ -29,30 +26,6 @@ namespace ChristmasVillageDAL
                 throw;
             }
             return builder.ConnectionString;
-        }
-
-        public static Boolean checkCapital(int userCapital)
-        {
-            if (userCapital >= minimumCapital)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            };
-        }
-
-        public static Boolean checkEmptyLocation (int locations)
-        {
-            if (locations > location)
-            {
-                return true;
-            }
-            else
-	        {
-                return false;
-	        }
         }
     }
 }

@@ -11,12 +11,13 @@ namespace ChristmasVillageBO
     public class VillageBO
     {
         private int _id_village;
-        private String _name;
+        private string _name;
         private int _location;
 
         public VillageBO() {}
 
-        public VillageBO(int VillageId, String VillageName, int VillageLocation) : this()
+        public VillageBO(int VillageId, string VillageName, int VillageLocation)
+            : this()
         {
             _id_village = VillageId;
             _name = VillageName;
@@ -31,7 +32,7 @@ namespace ChristmasVillageBO
         }
 
         [DataMember(Name = "name")]
-        public String name
+        public string name
         {
             get { return _name; }
             set { _name = value; }

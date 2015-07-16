@@ -16,11 +16,12 @@ namespace ChristmasVillageBO
         private string _email;
         private int _capital;
         private int _connexion;
-        private Boolean _status;
+        private string _status;
 
         public UserBO() {}
 
-        public UserBO(int UserId, String UserName, String UserPassword, String UserEmail, int UserCapital, int UserConnexion, Boolean UserStatus) : this()
+        public UserBO(int UserId, string UserName, string UserPassword, string UserEmail, int UserCapital, int UserConnexion, string UserStatus)
+            : this()
         {
             _id_user = UserId;
             _username = UserName;
@@ -74,7 +75,7 @@ namespace ChristmasVillageBO
         }
 
         [DataMember(Name = "status")]
-        public Boolean status
+        public string status
         {
             get { return _status; }
             set { _status = value; }

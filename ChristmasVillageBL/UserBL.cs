@@ -25,8 +25,7 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -47,8 +46,7 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -63,8 +61,7 @@ namespace ChristmasVillageIFAC
                 return user;
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -75,12 +72,33 @@ namespace ChristmasVillageIFAC
             {
                 UserBO result = new UserBO();
                 UserDAL dal = new UserDAL(CUtil.GetConnexion());
-                user = (UserBO)dal.UserBO_FindByName(user.username);
-                return user;
+                result = (UserBO)dal.UserBO_FindByName(user.username);
+                return result;
             }
             catch (Exception)
+            {                
+                throw;
+            }
+        }
+
+        public static Boolean checkUniqueUsername(UserBO user)
+        {
+            try
             {
-                
+                UserBO result = new UserBO();
+                UserDAL dal = new UserDAL(CUtil.GetConnexion());
+                result = (UserBO)dal.UserBO_FindByName(user.username);
+                if (result != null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {                
                 throw;
             }
         }

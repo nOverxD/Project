@@ -1,4 +1,5 @@
-﻿using ChristmasVillageBO;
+﻿using ChristmasVillageBL;
+using ChristmasVillageBO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,34 +10,105 @@ namespace ChristmasVillageIFAC
 {
     public class UserFAC : UserIFAC
     {
+        private UserBO userFAC = new UserBO();
+
         public void createUser(UserBO user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                UserBL.Insert(user);
+                userFAC = UserBL.SearchByName(user);
+
+                VillageBO village = new VillageBO();
+                village.name = Utilities.villageName + userFAC.id_user.ToString();
+                village.location = Utilities.locationDefault;
+                VillageBL.Insert(village);
+                
+                List<VillageBO> listVillage = VillageBL.Search(village.name);
+                foreach (VillageBO item in listVillage)
+    	        {
+		            village.id_village = item.id_village;
+	            }
+
+                ManageVillageBO manageVillage = new ManageVillageBO();
+                manageVillage.id_user = userFAC.id_user;
+                manageVillage.id_village = village.id_village;
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
-        public void connexion(UserBO user)
+        public bool connexion(UserBO user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                userFAC = UserBL.SearchByName(user);
+                if (user.username == userFAC.username && user.password == userFAC.password)
+                {
+                    userFAC.status = "true";
+                    UserBL.Update(userFAC);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {               
+                throw;
+            }
         }
 
         public void disconnect(UserBO user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                user.status = "false";
+                UserBL.Update(user);
+            }
+            catch (Exception)
+            {               
+                throw;
+            }
         }
 
         public void updateUser(UserBO user)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool checkCapital(int capital)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                UserBL.Update(user);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
 
         public bool checkConnexion()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return true;
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
+        }
+
+        public bool checkUniqueUsername(UserBO user)
+        {
+            try
+            {
+                return UserBL.checkUniqueUsername(user);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
     }
 }

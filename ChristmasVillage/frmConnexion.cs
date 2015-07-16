@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChristmasVillageBO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace ChristmasVillage
 {
     public partial class frmConnexion : Form
     {
+        private UserBO user;
+
         public frmConnexion()
         {
             InitializeComponent();
@@ -22,11 +25,29 @@ namespace ChristmasVillage
             
             frmSubscribe objfrmSubscribe = new frmSubscribe();
             objfrmSubscribe.ShowDialog();
+            this.Dispose();
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-
+            /*
+            try
+            {
+                using (UserIFACClient proxy = new UserIFACClient())
+                {
+                    user = new UserBO();
+                    user.username = tbxUsername.Text;
+                    user.password = tbxPassword.Text;
+                }
+                proxy.connexion(user);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            */
+            this.Dispose();
         }
 
         private void frmConnexion_Load(object sender, EventArgs e)

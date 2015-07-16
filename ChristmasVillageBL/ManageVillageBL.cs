@@ -21,8 +21,7 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -37,8 +36,7 @@ namespace ChristmasVillageIFAC
                 return manageVillage;
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }

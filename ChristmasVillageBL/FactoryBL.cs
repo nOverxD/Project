@@ -10,7 +10,7 @@ namespace ChristmasVillageIFAC
 {
     public class FactoryBL
     {
-        public static FactoryBO InsertFactory(FactoryBO factory)
+        public static FactoryBO Insert(FactoryBO factory)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static void UpdateFactory(FactoryBO factory)
+        public static void Update(FactoryBO factory)
         {
             try
             {
@@ -58,15 +58,11 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static void DeleteFactory(int id_factory)
+        public static void Delete(int id_factory)
         {
             try
             {
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                if (CUtil.checkCapital)
-                {
-                    
-                }
                 dal.FactoryBO_Delete(id_factory);
             }
             catch (Exception)
@@ -76,7 +72,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static FactoryBO SearchFactory(int id_factory)
+        public static FactoryBO Search(int id_factory)
         {
             try
             {
@@ -92,7 +88,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static void ProductToysFactory(FactoryBO factory)
+        public static void ProductToys(FactoryBO factory)
         {
             try
             {
@@ -105,7 +101,7 @@ namespace ChristmasVillageIFAC
 
                 newFactory.toy_current_production = randomNumber;
                 newFactory.toy_production_time = currentTime;
-                newFactory.status = true;
+                newFactory.status = "true";
 
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
                 dal.FactoryBO_Update(
@@ -127,7 +123,7 @@ namespace ChristmasVillageIFAC
             }
         }
         
-        public static void SalesProductFactory(FactoryBO factory)
+        public static void SalesProduct(FactoryBO factory)
         {
             try
             {
@@ -147,7 +143,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static bool CheckStatusFactory(FactoryBO factory)
+        public static bool CheckStatus(FactoryBO factory)
         {
             try
             {
@@ -155,7 +151,7 @@ namespace ChristmasVillageIFAC
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
                 factoryResult = (FactoryBO)dal.FactoryBO_FindById(factory.id_factory);
 
-                if (factoryResult.status != true && factoryResult != null)
+                if (factoryResult.status != "true" && factoryResult != null)
                 {
                     return true;
                 }
@@ -171,15 +167,14 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static int productionResultFactory(FactoryBO factory)
+        public static int productionResult(FactoryBO factory)
         {
             try
             {
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
                 FactoryBO newFactory = new FactoryBO();
                 newFactory = (FactoryBO)dal.FactoryBO_FindById(factory.id_factory);
-                int productionResult = newFactory.toy_current_production;
-                return productionResult;
+                return newFactory.toy_current_production;
             }
             catch (Exception)
             {

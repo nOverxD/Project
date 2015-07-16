@@ -14,15 +14,14 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                VillageDAL dal = new VillageDAL(CUtil.GetConnexion());
-                dal.VillageBO_Insert(
+                VillageDAL dalVillage = new VillageDAL(CUtil.GetConnexion());
+                dalVillage.VillageBO_Insert(
                     village.name,
                     village.location
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -39,8 +38,22 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
+            {                
+                throw;
+            }
+        }
+
+        public static List<VillageBO> Search(String villageName)
+        {
+            try
             {
-                
+                List<VillageBO> listVillage = new List<VillageBO>();
+                VillageDAL dal = new VillageDAL(CUtil.GetConnexion());
+                listVillage = dal.VillageBO_Search(villageName).ToList();
+                return listVillage;
+            }
+            catch (Exception)
+            {               
                 throw;
             }
         }

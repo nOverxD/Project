@@ -19,11 +19,12 @@ namespace ChristmasVillageBO
         private int _toy_current_production;
         private DateTime _toy_production_time;
         private int _toy_sales_price;
-        private Boolean _status;
+        private string _status;
 
         public FactoryBO() {}
 
-        public FactoryBO(string FactoryName, int FactoryStock, int FactoryPrice, int FactoryLocation, int FactoryToyProductionPrice, int FactoryToyCurrentProduction, DateTime FactoryToyProductionTime, int FactoryToySalesPrice, Boolean FactoryStatus) : this()
+        public FactoryBO(string FactoryName, int FactoryStock, int FactoryPrice, int FactoryLocation, int FactoryToyProductionPrice, int FactoryToyCurrentProduction, DateTime FactoryToyProductionTime, int FactoryToySalesPrice, string FactoryStatus)
+            : this()
         {
             _type = FactoryName;
             _factory_stock = FactoryStock;
@@ -100,7 +101,7 @@ namespace ChristmasVillageBO
         }
 
         [DataMember(Name = "status")]
-        public Boolean status
+        public string status
         {
             get { return _status; }
             set { _status = value; }

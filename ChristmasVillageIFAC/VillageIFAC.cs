@@ -15,12 +15,6 @@ namespace ChristmasVillageIFAC
         void createVillage(VillageBO village);
 
         [OperationContract]
-        Boolean checkEmptyLocation(VillageBO village);
-
-        [OperationContract]
-        void addLocation(VillageBO village);
-
-        [OperationContract]
-        void deleteLocation(VillageBO village);
+        void updateLocation(VillageBO village);
     }
 }

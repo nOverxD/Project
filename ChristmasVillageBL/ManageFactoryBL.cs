@@ -21,8 +21,7 @@ namespace ChristmasVillageIFAC
                     );
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -35,8 +34,7 @@ namespace ChristmasVillageIFAC
                 dal.ManageFactoryBO_Delete(id_own);
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
         }
@@ -51,8 +49,7 @@ namespace ChristmasVillageIFAC
                 return listManageFactories;
             }
             catch (Exception)
-            {
-                
+            {               
                 throw;
             }
         }

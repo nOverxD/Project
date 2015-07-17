@@ -18,7 +18,7 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[Village.Insert]")]
         public ISingleResult<VillageBO> VillageBO_Insert(
-            [Parameter(Name = "@name", DbType = "varchar(10)")] string VillageName,
+            [Parameter(Name = "@name", DbType = "varchar(20)")] string VillageName,
             [Parameter(Name = "@location", DbType = "int")] int VillageLocations
             )
         {
@@ -29,7 +29,7 @@ namespace ChristmasVillageIFAC
         [Function(Name = "[dbo].[Village.Update]")]
         public ISingleResult<VillageBO> VillageBO_Update(
             [Parameter(Name = "@id_village", DbType = "int")] int VillageId,
-            [Parameter(Name = "@name", DbType = "varchar(10)")] string VillageName,
+            [Parameter(Name = "@name", DbType = "varchar(20)")] string VillageName,
             [Parameter(Name = "@location", DbType = "int")] int VillageLocations
             )
         {
@@ -39,7 +39,7 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[Village.Search]")]
         public ISingleResult<VillageBO> VillageBO_Search(
-            [Parameter(Name = "@name", DbType = "varchar(10)")] string VillageName
+            [Parameter(Name = "@name", DbType = "varchar(20)")] string VillageName
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), VillageName);

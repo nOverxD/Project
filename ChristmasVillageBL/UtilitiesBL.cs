@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageBL
 {
-    public class Utilities
+    public class UtilitiesBL
     {
         public static string villageName = "ChristmasVillage";
         public static int locationDefault = 4;
         private static int minimumCapital = 1075;
         private static int locationMin = 0;
 
-        public bool checkCapital(int userCapital)
+        public static bool checkCapital(int userCapital)
         {
             if (userCapital >= minimumCapital)
             {
@@ -25,7 +25,7 @@ namespace ChristmasVillageBL
             };
         }
 
-        public bool checkEmptyLocation(int locations)
+        public static bool checkEmptyLocation(int locations)
         {
             if (locations > locationMin)
             {

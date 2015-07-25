@@ -8,8 +8,12 @@ namespace ChristmasVillageBL
 {
     public class UtilitiesBL
     {
+        /// <summary>
+        /// All default vaules for the game
+        /// </summary>
         public static string villageName = "ChristmasVillage";
         public static int locationDefault = 4;
+
         private static int minimumCapital = 1075;
         private static int locationMin = 0;
 
@@ -35,6 +39,25 @@ namespace ChristmasVillageBL
             {
                 return false;
             }
+        }
+
+        public static String getDate()
+        {
+            DateTime time = new DateTime();
+            return time.ToString();
+        }
+
+        public static string getRandomInt()
+        {
+            // Create random number between 50-100
+            Random random = new Random();
+            random.Next(50, 100);
+            return random.ToString();
+        }
+
+        public static void setTimer()
+        {
+            //bla bla bla bla
         }
     }
 }

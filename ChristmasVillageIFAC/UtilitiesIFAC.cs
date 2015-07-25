@@ -15,5 +15,11 @@ namespace ChristmasVillageIFAC
 
         [OperationContract]
         bool checkEmptyLocation(int locations);
+
+        [OperationContract]
+        int getRandomNumber();
+
+        [OperationContract]
+        string getDate();
     }
 }

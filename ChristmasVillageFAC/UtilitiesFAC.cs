@@ -33,5 +33,30 @@ namespace ChristmasVillageFAC
                 throw;
             }
         }
+
+        public int getRandomNumber()
+        {
+            try
+            {
+                return UtilitiesBL.getRandomInt();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public string getDate()
+        {
+            try
+            {
+                return UtilitiesBL.getDate();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

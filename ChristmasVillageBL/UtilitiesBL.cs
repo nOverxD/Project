@@ -8,9 +8,6 @@ namespace ChristmasVillageBL
 {
     public class UtilitiesBL
     {
-        /// <summary>
-        /// All default vaules for the game
-        /// </summary>
         public static string villageName = "ChristmasVillage";
         public static int locationDefault = 4;
 
@@ -41,18 +38,17 @@ namespace ChristmasVillageBL
             }
         }
 
-        public static String getDate()
+        public static string getDate()
         {
             DateTime time = new DateTime();
             return time.ToString();
         }
 
-        public static string getRandomInt()
+        public static int getRandomInt()
         {
-            // Create random number between 50-100
             Random random = new Random();
-            random.Next(50, 100);
-            return random.ToString();
+            int number = random.Next(50, 100);
+            return number;
         }
 
         public static void setTimer()

@@ -16,7 +16,11 @@ namespace ChristmasVillage
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmWelcome_Load(object sender, EventArgs e)
         {
             //Create a new instance of the MDI child template form

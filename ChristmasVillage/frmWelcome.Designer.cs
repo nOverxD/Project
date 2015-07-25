@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(817, 335);
             this.IsMdiContainer = true;
             this.Name = "frmWelcome";
-            this.Text = "Christmas Village";
+            this.Text = "Christmas Village ";
             this.Load += new System.EventHandler(this.frmWelcome_Load);
             this.ResumeLayout(false);
 

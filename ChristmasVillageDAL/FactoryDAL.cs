@@ -18,36 +18,32 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[Factory.Insert]")]
         public ISingleResult<FactoryBO> FactoryBO_Insert(
-            [Parameter(Name = "@type", DbType = "varchar(10)")] string FactoryName,
+            [Parameter(Name = "@type", DbType = "int")] int FactoryType,
             [Parameter(Name = "@factory_stock", DbType = "int")] int FactoryStock,
-            [Parameter(Name = "@factory_price", DbType = "int")] int FactoryPrice,
             [Parameter(Name = "@factory_location", DbType = "int")] int FactoryLocation,
-            [Parameter(Name = "@toy_production_price", DbType = "int")] int FactoryToyProductionPrice,
-            [Parameter(Name = "@toy_prodcution_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
-            [Parameter(Name = "@toy_sales_price", DbType = "int")] int FactoryToySalesPrice,
+            [Parameter(Name = "@toy_production_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
+            [Parameter(Name = "@toy_current_production", DbType = "int")] int FactoryToyCurrentProduction,
             [Parameter(Name = "@status", DbType = "varchar(5)")] string FactoryStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
-                FactoryName, FactoryStock, FactoryPrice, FactoryLocation, FactoryToyProductionPrice, FactoryToyProductionTime, FactoryToySalesPrice, FactoryStatus);
+                FactoryType, FactoryStock, FactoryLocation, FactoryToyProductionTime, FactoryStatus);
             return ((ISingleResult<FactoryBO>)result.ReturnValue);
         }
 
         [Function(Name = "[dbo].[Factory.Update]")]
         public ISingleResult<FactoryBO> FactoryBO_Update(
             [Parameter(Name = "@id_factory", DbType = "int")] int FactoryId,
-            [Parameter(Name = "@type", DbType = "varchar(10)")] string FactoryName,
+            [Parameter(Name = "@type", DbType = "int")] int FactoryType,
             [Parameter(Name = "@factory_stock", DbType = "int")] int FactoryStock,
-            [Parameter(Name = "@factory_price", DbType = "int")] int FactoryPrice,
             [Parameter(Name = "@factory_location", DbType = "int")] int FactoryLocation,
-            [Parameter(Name = "@toy_production_price", DbType = "int")] int FactoryToyProductionPrice,
-            [Parameter(Name = "@toy_prodcution_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
-            [Parameter(Name = "@toy_sales_price", DbType = "int")] int FactoryToySalesPrice,
+            [Parameter(Name = "@toy_production_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
+            [Parameter(Name = "@toy_current_production", DbType = "int")] int FactoryToyCurrentProduction,
             [Parameter(Name = "@status", DbType = "varchar(5)")] string FactoryStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
-                FactoryId, FactoryName, FactoryStock, FactoryPrice, FactoryLocation, FactoryToyProductionPrice, FactoryToyProductionTime, FactoryToySalesPrice, FactoryStatus);
+                FactoryId, FactoryType, FactoryStock, FactoryLocation, FactoryToyProductionTime, FactoryStatus);
             return ((ISingleResult<FactoryBO>)result.ReturnValue);
         }
 

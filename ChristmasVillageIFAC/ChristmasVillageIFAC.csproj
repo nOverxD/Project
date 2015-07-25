@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FactoryIFAC.cs" />
+    <Compile Include="FactoryTypeIFAC.cs" />
     <Compile Include="ManageFactoryIFAC.cs" />
     <Compile Include="ManageVillageIFAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

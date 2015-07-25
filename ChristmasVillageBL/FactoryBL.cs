@@ -17,12 +17,10 @@ namespace ChristmasVillageIFAC
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
                 dal.FactoryBO_Insert(
                     factory.type,
-                    factory.factory_stock = 0,
-                    factory.factory_price,
+                    factory.factory_stock,
                     factory.factory_location,
-                    factory.toy_production_price,
                     factory.toy_production_time,
-                    factory.toy_sales_price,
+                    factory.toy_current_production,
                     factory.status
                     );
                 return factory;
@@ -43,11 +41,9 @@ namespace ChristmasVillageIFAC
                     factory.id_factory,
                     factory.type,
                     factory.factory_stock,
-                    factory.factory_price,
                     factory.factory_location,
-                    factory.toy_production_price,
                     factory.toy_production_time,
-                    factory.toy_sales_price,
+                    factory.toy_current_production,
                     factory.status
                     );
             }
@@ -92,28 +88,15 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                FactoryBO newFactory = factory;
-
-                // Check Math for random number
-                int randomNumber = 0;
-                DateTime currentTime = DateTime.Now;
-                
-
-                newFactory.toy_current_production = randomNumber;
-                newFactory.toy_production_time = currentTime;
-                newFactory.status = "true";
-
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
                 dal.FactoryBO_Update(
-                        newFactory.id_factory,
-                        newFactory.type,
-                        newFactory.factory_stock,
-                        newFactory.factory_price,
-                        newFactory.factory_location,
-                        newFactory.toy_production_price,
-                        newFactory.toy_production_time,
-                        newFactory.toy_sales_price,
-                        newFactory.status
+                        factory.id_factory,
+                        factory.type,
+                        factory.factory_stock,
+                        factory.factory_location,
+                        factory.toy_production_time,
+                        factory.toy_current_production,
+                        factory.status
                         );
             }
             catch (Exception)
@@ -128,13 +111,15 @@ namespace ChristmasVillageIFAC
             try
             {
                 FactoryDAL dalFactory = new FactoryDAL(CUtil.GetConnexion());
-                FactoryBO newFactory = (FactoryBO) dalFactory.FactoryBO_FindById(factory.id_factory);
-                int sales = newFactory.factory_stock * newFactory.toy_production_price;
-                int reset = 0;
-                newFactory.factory_stock = reset;
-
-                //Update Capital User 
-                UserDAL dalUser = new UserDAL(CUtil.GetConnexion());
+                dalFactory.FactoryBO_Update(
+                        factory.id_factory,
+                        factory.type,
+                        factory.factory_stock,
+                        factory.factory_location,
+                        factory.toy_production_time,
+                        factory.toy_current_production,
+                        factory.status
+                    );
             }
             catch (Exception)
             {

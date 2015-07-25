@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FactoryBL.cs" />
+    <Compile Include="FactoryTypeBL.cs" />
     <Compile Include="ManageVillageBL.cs" />
     <Compile Include="ManageFactoryBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

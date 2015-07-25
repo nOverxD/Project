@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CUtil.cs" />
     <Compile Include="FactoryDAL.cs" />
+    <Compile Include="FactoryTypeDAL.cs" />
     <Compile Include="ManageVillageDAL.cs" />
     <Compile Include="ManageFactoryDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

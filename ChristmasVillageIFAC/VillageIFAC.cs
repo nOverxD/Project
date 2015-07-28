@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageIFAC
 {
-    [ServiceContract(Namespace = "urn:ChristmanVillageIFAC/VillageIFAC")]
+    [ServiceContract(Namespace = "urn:ChristmasVillageIFAC/VillageIFAC")]
     public interface VillageIFAC
     {
         [OperationContract]

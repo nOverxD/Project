@@ -24,5 +24,20 @@ namespace ChristmasVillageBL
                 throw;
             }
         }
+
+        public static FactoryTypeBO FindById(int factoryTypeId)
+        {
+            try
+            {
+                FactoryTypeBO factoryType = new FactoryTypeBO();
+                FactoryTypeDAL dal = new FactoryTypeDAL(CUtil.GetConnexion());
+                factoryType = (FactoryTypeBO) dal.FactoryTypeBO_FindById(factoryTypeId);
+                return factoryType;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

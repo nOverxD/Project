@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageIFAC
 {
-    [ServiceContract(Namespace = "urn:ChristmanVillageIFAC/FactoryIFAC")]
+    [ServiceContract(Namespace = "urn:ChristmasVillageIFAC/FactoryIFAC")]
     public interface FactoryIFAC
     {
         [OperationContract]
@@ -21,15 +21,17 @@ namespace ChristmasVillageIFAC
         FactoryBO findFactory(int id_factory);
 
         [OperationContract]
-        void productToys(FactoryBO factory);
+        void productToys(FactoryBO factory, UserBO user);
 
         [OperationContract]
-        void salesProduct(FactoryBO factory);
+        void salesProduct(FactoryBO factory, UserBO user);
 
         [OperationContract]
         bool checkStatus(FactoryBO factory);
 
+        /*
         [OperationContract]
         int productionResult(FactoryBO factory);
+        */
     }
 }

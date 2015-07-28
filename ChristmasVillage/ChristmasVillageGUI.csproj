@@ -95,6 +95,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxies\FactoryIFAC.cs" />
+    <Compile Include="Proxies\ManageFactoryIFAC.cs" />
+    <Compile Include="Proxies\ManageVillageIFAC.cs" />
+    <Compile Include="Proxies\UserIFAC.cs" />
+    <Compile Include="Proxies\UtilitiesIFAC.cs" />
+    <Compile Include="Proxies\VillageIFAC.cs" />
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,9 +138,7 @@
       <Name>ChristmasVillageBO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Proxies\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

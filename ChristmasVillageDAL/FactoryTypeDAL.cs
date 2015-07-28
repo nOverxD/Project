@@ -22,5 +22,13 @@ namespace ChristmasVillageDAL
             IExecuteResult result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
             return ((ISingleResult<FactoryTypeBO>)(result.ReturnValue));
         }
+
+        [Function(Name = "[dbo].[FactoryType.FindById]")]
+        public ISingleResult<FactoryTypeBO> FactoryTypeBO_FindById(
+            [Parameter(Name = "@id_factoryType", DbType = "int")] int FactoryTypeId)
+        {
+            IExecuteResult result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
+            return ((ISingleResult<FactoryTypeBO>)(result.ReturnValue));
+        }
     }
 }

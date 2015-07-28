@@ -1,4 +1,5 @@
-﻿using ChristmasVillageBO;
+﻿using ChristmasVillageBL;
+using ChristmasVillageBO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,6 @@ namespace ChristmasVillageIFAC
 {
     public class FactoryFAC : FactoryIFAC
     {
-        private FactoryBO factoryFAC = new FactoryBO();
-
         public void createFactory(FactoryBO factory)
         {
             try
@@ -47,10 +46,19 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public void productToys(FactoryBO factory)
+        public void productToys(FactoryBO factory, UserBO user)
         {
             try
             {
+                FactoryTypeBO factoryType = new FactoryTypeBO();
+                factoryType = FactoryTypeBL.FindById(factory.type);
+
+                int newCapital = user.capital - factoryType.toy_production_price;
+                user.capital = newCapital;
+                UserBL.Update(user);
+
+                factory.toy_current_production = UtilitiesBL.getRandomInt();
+                factory.status = "true";
                 FactoryBL.Update(factory);
             }
             catch (Exception)
@@ -59,10 +67,18 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public void salesProduct(FactoryBO factory)
+        public void salesProduct(FactoryBO factory, UserBO user)
         {
             try
             {
+                FactoryTypeBO factoryType = new FactoryTypeBO();
+                factoryType = FactoryTypeBL.FindById(factory.type);
+
+                int newCapital = user.capital + factory.factory_stock * factoryType.toy_sales_price;
+                user.capital = newCapital;
+                UserBL.Update(user);
+
+                factory.factory_stock = 0;
                 FactoryBL.Update(factory);
             }
             catch (Exception)
@@ -83,6 +99,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        /*
         public int productionResult(FactoryBO factory)
         {
             try
@@ -94,5 +111,6 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
+        */
     }
 }

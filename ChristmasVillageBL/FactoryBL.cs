@@ -84,50 +84,6 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static void ProductToys(FactoryBO factory)
-        {
-            try
-            {
-                FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                dal.FactoryBO_Update(
-                        factory.id_factory,
-                        factory.type,
-                        factory.factory_stock,
-                        factory.factory_location,
-                        factory.toy_production_time,
-                        factory.toy_current_production,
-                        factory.status
-                        );
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
-        
-        public static void SalesProduct(FactoryBO factory)
-        {
-            try
-            {
-                FactoryDAL dalFactory = new FactoryDAL(CUtil.GetConnexion());
-                dalFactory.FactoryBO_Update(
-                        factory.id_factory,
-                        factory.type,
-                        factory.factory_stock,
-                        factory.factory_location,
-                        factory.toy_production_time,
-                        factory.toy_current_production,
-                        factory.status
-                    );
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
-
         public static bool CheckStatus(FactoryBO factory)
         {
             try
@@ -152,6 +108,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        /*
         public static int productionResult(FactoryBO factory)
         {
             try
@@ -167,5 +124,50 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
+
+        public static void ProductToys(FactoryBO factory)
+        {
+            try
+            {
+                FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
+                dal.FactoryBO_Update(
+                        factory.id_factory,
+                        factory.type,
+                        factory.factory_stock,
+                        factory.factory_location,
+                        factory.toy_production_time,
+                        factory.toy_current_production,
+                        factory.status
+                        );
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void SalesProduct(FactoryBO factory)
+        {
+            try
+            {
+                FactoryDAL dalFactory = new FactoryDAL(CUtil.GetConnexion());
+                dalFactory.FactoryBO_Update(
+                        factory.id_factory,
+                        factory.type,
+                        factory.factory_stock,
+                        factory.factory_location,
+                        factory.toy_production_time,
+                        factory.toy_current_production,
+                        factory.status
+                    );
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        */
     }
 }

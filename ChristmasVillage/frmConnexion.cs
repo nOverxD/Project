@@ -1,4 +1,5 @@
 ﻿using ChristmasVillageBO;
+using ChristmasVillageGUI.Proxies;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,15 +23,20 @@ namespace ChristmasVillage
 
         private void btnSubscribe_Click(object sender, EventArgs e)
         {
-            
-            frmSubscribe objfrmSubscribe = new frmSubscribe();
-            objfrmSubscribe.ShowDialog();
-            this.Dispose();
+            try
+            {
+                frmSubscribe objfrmSubscribe = new frmSubscribe();
+                objfrmSubscribe.ShowDialog();
+                this.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            /*
             try
             {
                 using (UserIFACClient proxy = new UserIFACClient())
@@ -38,15 +44,21 @@ namespace ChristmasVillage
                     user = new UserBO();
                     user.username = tbxUsername.Text;
                     user.password = tbxPassword.Text;
+                    if (proxy.connexion(user))
+                    {
+                        UserBO newUser = new UserBO();
+                        newUser = proxy.searchUser(user);
+
+                        frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
+                        frmVillage objfrmVillage = new frmVillage(newUser);
+                    }
                 }
-                proxy.connexion(user);
             }
             catch (Exception)
             {
                 
                 throw;
             }
-            */
             this.Dispose();
         }
 

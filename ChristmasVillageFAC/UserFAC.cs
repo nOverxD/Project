@@ -23,6 +23,30 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
+        public bool checkUniqueUsername(UserBO user)
+        {
+            try
+            {
+                return UserBL.checkUniqueUsername(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public UserBO searchUser(UserBO user)
+        {
+            try
+            {
+                userFAC = new UserBO();
+                userFAC = UserBL.SearchByName(user);
+                return userFAC;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public bool connexion(UserBO user)
         {
@@ -77,18 +101,6 @@ namespace ChristmasVillageIFAC
             try
             {
                 return true;
-            }
-            catch (Exception)
-            {                
-                throw;
-            }
-        }
-
-        public bool checkUniqueUsername(UserBO user)
-        {
-            try
-            {
-                return UserBL.checkUniqueUsername(user);
             }
             catch (Exception)
             {                

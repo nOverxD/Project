@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChristmasVillageBO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace ChristmasVillage
 {
     public partial class frmVillageLoad : Form
     {
+        private UserBO newUser;
+
         public frmVillageLoad()
         {
             InitializeComponent();
+        }
+
+        public frmVillageLoad(ChristmasVillageBO.UserBO newUser)
+        {
+            // TODO: Complete member initialization
+            this.newUser = newUser;
         }
     }
 }

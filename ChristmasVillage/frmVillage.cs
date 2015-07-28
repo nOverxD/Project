@@ -12,9 +12,17 @@ namespace ChristmasVillage
 {
     public partial class frmVillage : Form
     {
+        private ChristmasVillageBO.UserBO newUser;
+
         public frmVillage()
         {
             InitializeComponent();
+        }
+
+        public frmVillage(ChristmasVillageBO.UserBO newUser)
+        {
+            // TODO: Complete member initialization
+            this.newUser = newUser;
         }
     }
 }

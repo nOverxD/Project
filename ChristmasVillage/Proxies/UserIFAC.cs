@@ -25,6 +25,22 @@ namespace ChristmasVillageGUI.Proxies
         
         void EndcreateUser(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsername", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsernameResponse")]
+        bool checkUniqueUsername(ChristmasVillageBO.UserBO user);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsername", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsernameResponse")]
+        System.IAsyncResult BegincheckUniqueUsername(ChristmasVillageBO.UserBO user, System.AsyncCallback callback, object asyncState);
+        
+        bool EndcheckUniqueUsername(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/searchUser", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/searchUserResponse")]
+        ChristmasVillageBO.UserBO searchUser(ChristmasVillageBO.UserBO user);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/searchUser", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/searchUserResponse")]
+        System.IAsyncResult BeginsearchUser(ChristmasVillageBO.UserBO user, System.AsyncCallback callback, object asyncState);
+        
+        ChristmasVillageBO.UserBO EndsearchUser(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/connexion", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/connexionResponse")]
         bool connexion(ChristmasVillageBO.UserBO user);
         
@@ -56,14 +72,6 @@ namespace ChristmasVillageGUI.Proxies
         System.IAsyncResult BegincheckConnexion(System.AsyncCallback callback, object asyncState);
         
         bool EndcheckConnexion(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsername", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsernameResponse")]
-        bool checkUniqueUsername(ChristmasVillageBO.UserBO user);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsername", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/checkUniqueUsernameResponse")]
-        System.IAsyncResult BegincheckUniqueUsername(ChristmasVillageBO.UserBO user, System.AsyncCallback callback, object asyncState);
-        
-        bool EndcheckUniqueUsername(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -113,6 +121,36 @@ namespace ChristmasVillageGUI.Proxies
         public void EndcreateUser(System.IAsyncResult result)
         {
             base.Channel.EndcreateUser(result);
+        }
+        
+        public bool checkUniqueUsername(ChristmasVillageBO.UserBO user)
+        {
+            return base.Channel.checkUniqueUsername(user);
+        }
+        
+        public System.IAsyncResult BegincheckUniqueUsername(ChristmasVillageBO.UserBO user, System.AsyncCallback callback, object asyncState)
+        {
+            return base.Channel.BegincheckUniqueUsername(user, callback, asyncState);
+        }
+        
+        public bool EndcheckUniqueUsername(System.IAsyncResult result)
+        {
+            return base.Channel.EndcheckUniqueUsername(result);
+        }
+        
+        public ChristmasVillageBO.UserBO searchUser(ChristmasVillageBO.UserBO user)
+        {
+            return base.Channel.searchUser(user);
+        }
+        
+        public System.IAsyncResult BeginsearchUser(ChristmasVillageBO.UserBO user, System.AsyncCallback callback, object asyncState)
+        {
+            return base.Channel.BeginsearchUser(user, callback, asyncState);
+        }
+        
+        public ChristmasVillageBO.UserBO EndsearchUser(System.IAsyncResult result)
+        {
+            return base.Channel.EndsearchUser(result);
         }
         
         public bool connexion(ChristmasVillageBO.UserBO user)
@@ -173,21 +211,6 @@ namespace ChristmasVillageGUI.Proxies
         public bool EndcheckConnexion(System.IAsyncResult result)
         {
             return base.Channel.EndcheckConnexion(result);
-        }
-        
-        public bool checkUniqueUsername(ChristmasVillageBO.UserBO user)
-        {
-            return base.Channel.checkUniqueUsername(user);
-        }
-        
-        public System.IAsyncResult BegincheckUniqueUsername(ChristmasVillageBO.UserBO user, System.AsyncCallback callback, object asyncState)
-        {
-            return base.Channel.BegincheckUniqueUsername(user, callback, asyncState);
-        }
-        
-        public bool EndcheckUniqueUsername(System.IAsyncResult result)
-        {
-            return base.Channel.EndcheckUniqueUsername(result);
         }
     }
 }

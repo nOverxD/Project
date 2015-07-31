@@ -21,5 +21,12 @@ namespace ChristmasVillage
         {
             this.WindowState = FormWindowState.Maximized;
         }
+
+        private void btnValidate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

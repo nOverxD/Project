@@ -12,12 +12,15 @@ namespace ChristmasVillage
 {
     public partial class frmWelcome : Form
     {
+        /// <summary>
+        /// Constructeur principale
+        /// </summary>
         public frmWelcome()
         {
-            InitializeComponent();
+            InitializeComponent(); //Initialisation des composents de la winform
         }
         /// <summary>
-        /// 
+        /// Fonction priver :: chargement
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

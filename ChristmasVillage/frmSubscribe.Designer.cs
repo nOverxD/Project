@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,14 +38,15 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnValidate
             // 
-            this.button1.Location = new System.Drawing.Point(89, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Validate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnValidate.Location = new System.Drawing.Point(89, 90);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(75, 23);
+            this.btnValidate.TabIndex = 0;
+            this.btnValidate.Text = "Validate";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // button2
             // 
@@ -117,7 +118,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnValidate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSubscribe";
             this.Text = "frmSubscribe";
@@ -130,7 +131,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label label1;

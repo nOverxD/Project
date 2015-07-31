@@ -16,7 +16,7 @@ namespace ChristmasVillageIFAC
 
         public ManageVillageDAL(string connection) : base(connection, mappingSource) { }
 
-        [Function(Name = "[dbo].[ManageFactory.Insert]")]
+        [Function(Name = "[dbo].[ManageVillage.Insert]")]
         public ISingleResult<ManageVillageBO> ManageVillageBO_Insert(
             [Parameter(Name = "@id_user", DbType = "int")] int UserId,
             [Parameter(Name = "@id_village", DbType = "int")] int VillageId
@@ -26,7 +26,7 @@ namespace ChristmasVillageIFAC
             return ((ISingleResult<ManageVillageBO>)result.ReturnValue);
         }
 
-        [Function(Name = "[dbo].[ManageFactory.FindByUserId]")]
+        [Function(Name = "[dbo].[ManageVillage.FindByUserId]")]
         public ISingleResult<ManageVillageBO> ManageVillageBO_FindByUserId(
             [Parameter(Name = "@id_user", DbType = "int")] int UserId)
         {

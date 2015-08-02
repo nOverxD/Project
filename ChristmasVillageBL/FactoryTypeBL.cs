@@ -29,10 +29,12 @@ namespace ChristmasVillageBL
         {
             try
             {
-                FactoryTypeBO factoryType = new FactoryTypeBO();
+                List<FactoryTypeBO> listResult = new List<FactoryTypeBO>();
+                FactoryTypeBO result = new FactoryTypeBO();
                 FactoryTypeDAL dal = new FactoryTypeDAL(CUtil.GetConnexion());
-                factoryType = (FactoryTypeBO) dal.FactoryTypeBO_FindById(factoryTypeId);
-                return factoryType;
+                listResult = dal.FactoryTypeBO_FindById(factoryTypeId).ToList();
+                result = listResult.FirstOrDefault();
+                return result;
             }
             catch (Exception)
             {

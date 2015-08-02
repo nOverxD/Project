@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ChristmasVillageBO;
+using ChristmasVillageGUI.Proxies;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,16 +19,44 @@ namespace ChristmasVillage
             InitializeComponent();
         }
 
-        private void frmSubscribe_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
         private void btnValidate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(tbxUsername.Text) && !string.IsNullOrWhiteSpace(tbxPassword.Text) && !string.IsNullOrWhiteSpace(tbxEmail.Text))
+                {
+                    using (UserIFACClient proxy = new UserIFACClient())
+                    {
+                        UserBO user = new UserBO();
+                        user.username = tbxUsername.Text;
+                        user.password = tbxPassword.Text;
+                        user.email = tbxEmail.Text;
 
+                        if (proxy.checkUniqueUsername(user))
+                        {
+                            proxy.createUser(user);
+                        }
+                        else
+                        {
+                            MessageBox.Show("L'username existe déjà.");
+                        }
+                    }
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez remplir les champs.");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-       
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }       
     }
 }

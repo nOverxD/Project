@@ -15,10 +15,13 @@ namespace ChristmasVillage
     public partial class frmConnexion : Form
     {
         private UserBO user;
+        private frmWelcome objfrmWelcome;
 
-        public frmConnexion()
+        public frmConnexion(frmWelcome objfrmWelcome)
         {
             InitializeComponent();
+            this.objfrmWelcome = objfrmWelcome;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void btnSubscribe_Click(object sender, EventArgs e)
@@ -26,8 +29,9 @@ namespace ChristmasVillage
             try
             {
                 frmSubscribe objfrmSubscribe = new frmSubscribe();
-                objfrmSubscribe.ShowDialog();
-                this.Dispose();
+                //objfrmSubscribe.ControlBox = false;
+                objfrmSubscribe.MdiParent = objfrmWelcome;
+                objfrmSubscribe.Show();
             }
             catch (Exception)
             {
@@ -39,32 +43,34 @@ namespace ChristmasVillage
         {
             try
             {
-                using (UserIFACClient proxy = new UserIFACClient())
+                if (!string.IsNullOrWhiteSpace(tbxUsername.Text) && !string.IsNullOrWhiteSpace(tbxPassword.Text))
                 {
-                    user = new UserBO();
-                    user.username = tbxUsername.Text;
-                    user.password = tbxPassword.Text;
-                    if (proxy.connexion(user))
+                    using (UserIFACClient proxy = new UserIFACClient())
                     {
-                        UserBO newUser = new UserBO();
-                        newUser = proxy.searchUser(user);
+                        user = new UserBO();
+                        user.username = tbxUsername.Text;
+                        user.password = tbxPassword.Text;
+                        String message = proxy.connexion(user);
+                        
+                        {
+                            UserBO newUser = new UserBO();
+                            newUser = proxy.searchUser(user);
 
-                        frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
-                        frmVillage objfrmVillage = new frmVillage(newUser);
+                            frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
+                            frmVillage objfrmVillage = new frmVillage(newUser);
+                        }
                     }
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez remplir les champs.");
                 }
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            this.Dispose();
-        }
-
-        private void frmConnexion_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

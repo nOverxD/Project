@@ -32,7 +32,7 @@ namespace ChristmasVillageIFAC
         }
 
         [Function(Name = "[dbo].[User.Update]")]
-        public ISingleResult<FactoryBO> UserBO_Update(
+        public ISingleResult<UserBO> UserBO_Update(
             [Parameter(Name = "@id_user", DbType = "int")] int UserId,
             [Parameter(Name = "@username", DbType = "varchar(20)")] string Username,
             [Parameter(Name = "@password", DbType = "varchar(20)")] string UserPassword,
@@ -44,23 +44,23 @@ namespace ChristmasVillageIFAC
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
                 UserId, Username, UserPassword, UserMail, UserCapital, UserConnexion, UserStatus);
-            return ((ISingleResult<FactoryBO>)result.ReturnValue);
+            return ((ISingleResult<UserBO>)result.ReturnValue);
         }
 
         [Function(Name = "[dbo].[User.FindById]")]
-        public ISingleResult<FactoryBO> UserBO_FindById(
+        public ISingleResult<UserBO> UserBO_FindById(
             [Parameter(Name = "@id_user", DbType = "int")] int UserId)
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), UserId);
-            return ((ISingleResult<FactoryBO>)(result.ReturnValue));
+            return ((ISingleResult<UserBO>)(result.ReturnValue));
         }
 
         [Function(Name = "[dbo].[User.FindByName]")]
-        public ISingleResult<FactoryBO> UserBO_FindByName(
+        public ISingleResult<UserBO> UserBO_FindByName(
             [Parameter(Name = "@name", DbType = "varchar(20)")] string Username)
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), Username);
-            return ((ISingleResult<FactoryBO>)(result.ReturnValue));
+            return ((ISingleResult<UserBO>)(result.ReturnValue));
         }
     }
 }

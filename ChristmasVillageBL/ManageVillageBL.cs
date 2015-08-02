@@ -30,10 +30,12 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                ManageVillageBO manageVillage = new ManageVillageBO();
+                List<ManageVillageBO> listResult = new List<ManageVillageBO>();
+                ManageVillageBO result = new ManageVillageBO();
                 ManageVillageDAL dal = new ManageVillageDAL(CUtil.GetConnexion());
-                manageVillage = (ManageVillageBO)dal.ManageVillageBO_FindByUserId(id_user);
-                return manageVillage;
+                listResult = dal.ManageVillageBO_FindByUserId(id_user).ToList();
+                result = listResult.FirstOrDefault();
+                return result;
             }
             catch (Exception)
             {                

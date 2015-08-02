@@ -11,11 +11,15 @@ namespace ChristmasVillageIFAC
     public class UserFAC : UserIFAC
     {
         private UserBO userFAC;
+        private String USER_STATUS_OK = "true";
+        private String USER_STATUS_NOK = "false";
 
         public void createUser(UserBO user)
         {
             try
             {
+                user.capital = UtilitiesBL.capitalDefault;
+                user.status = USER_STATUS_NOK;
                 UserBL.Insert(user);
             }
             catch (Exception)
@@ -48,21 +52,33 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public bool connexion(UserBO user)
+        public String connexion(UserBO user)
         {
             try
             {
                 userFAC = new UserBO();
                 userFAC = UserBL.SearchByName(user);
-                if (user.username == userFAC.username && user.password == userFAC.password)
+                if (userFAC.username == null)
                 {
-                    userFAC.status = "true";
+                    return "Utilisateur inconnu.";
+                }
+                else if (user.username == userFAC.username && user.password == userFAC.password && user.status == USER_STATUS_NOK)
+                {
+                    userFAC.status = USER_STATUS_OK;
                     UserBL.Update(userFAC);
-                    return true;
+                    return "Ok";
+                }
+                else if (user.status == USER_STATUS_OK)
+                {
+                    return "Utilisateur déjà connecté.";
+                }
+                else if (user.username == userFAC.username && user.password != userFAC.password)
+                {
+                    return "Mot de passe erroné";
                 }
                 else
                 {
-                    return false;
+                    return "Default";
                 }
             }
             catch (Exception)
@@ -75,7 +91,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                user.status = "false";
+                user.status = USER_STATUS_NOK;
                 UserBL.Update(user);
             }
             catch (Exception)

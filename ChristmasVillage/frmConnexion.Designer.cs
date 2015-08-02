@@ -94,7 +94,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(306, 111);
-            this.ControlBox = false;
             this.Controls.Add(this.btnSubscribe);
             this.Controls.Add(this.btnConnexion);
             this.Controls.Add(this.tbxPassword);
@@ -102,10 +101,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConnexion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "| Connexion";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmConnexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

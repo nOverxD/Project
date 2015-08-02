@@ -68,14 +68,17 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static FactoryBO Search(int id_factory)
+        public static FactoryBO SearchById(int id_factory)
         {
             try
             {
-                FactoryBO factory = new FactoryBO();
+                List<FactoryBO> listResult = new List<FactoryBO>();
+                FactoryBO result = new FactoryBO();
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                factory = (FactoryBO) dal.FactoryBO_FindById(id_factory);
-                return factory;
+                
+                listResult = dal.FactoryBO_FindById(id_factory).ToList();
+                result = listResult.FirstOrDefault();
+                return result;
             }
             catch (Exception)
             {
@@ -88,11 +91,14 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                FactoryBO factoryResult = new FactoryBO();
+                List<FactoryBO> listResult = new List<FactoryBO>();
+                FactoryBO result = new FactoryBO();
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                factoryResult = (FactoryBO)dal.FactoryBO_FindById(factory.id_factory);
 
-                if (factoryResult.status != "true" && factoryResult != null)
+                listResult = dal.FactoryBO_FindById(factory.id_factory).ToList();
+                result = listResult.FirstOrDefault();
+
+                if (result.status != "true" && result != null)
                 {
                     return true;
                 }

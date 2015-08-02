@@ -38,7 +38,7 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                return FactoryBL.Search(id_factory);
+                return FactoryBL.SearchById(id_factory);
             }
             catch (Exception)
             {                

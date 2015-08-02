@@ -55,10 +55,13 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                UserBO user = new UserBO();
+                List<UserBO> listResult = new List<UserBO>();
+                UserBO result = new UserBO();
                 UserDAL dal = new UserDAL(CUtil.GetConnexion());
-                user = (UserBO) dal.UserBO_FindById(id_user);
-                return user;
+
+                listResult = dal.UserBO_FindById(id_user).ToList();
+                result = listResult.FirstOrDefault();
+                return result;
             }
             catch (Exception)
             {                
@@ -70,9 +73,12 @@ namespace ChristmasVillageIFAC
         {
             try
             {
+                List<UserBO> listResult = new List<UserBO>();
                 UserBO result = new UserBO();
                 UserDAL dal = new UserDAL(CUtil.GetConnexion());
-                result = (UserBO)dal.UserBO_FindByName(user.username);
+
+                listResult = dal.UserBO_FindByName(user.username).ToList();
+                result = listResult.FirstOrDefault();
                 return result;
             }
             catch (Exception)
@@ -85,10 +91,11 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                UserBO result = new UserBO();
+                List<UserBO> listResult = new List<UserBO>();
                 UserDAL dal = new UserDAL(CUtil.GetConnexion());
-                result = (UserBO)dal.UserBO_FindByName(user.username);
-                if (result != null)
+
+                listResult = dal.UserBO_FindByName(user.username).ToList();
+                if (listResult.Count() < 0)
                 {
                     return false;
                 }

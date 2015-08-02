@@ -10,6 +10,7 @@ namespace ChristmasVillageBL
     {
         public static string villageName = "ChristmasVillage";
         public static int locationDefault = 4;
+        public static int capitalDefault = 2000;
 
         private static int minimumCapital = 1075;
         private static int locationMin = 0;
@@ -41,7 +42,7 @@ namespace ChristmasVillageBL
         public static string getDate()
         {
             DateTime time = new DateTime();
-            return time.ToString();
+            return time.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         public static int getRandomInt()

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.btnValidate = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnValidate
@@ -48,21 +48,22 @@
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(201, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(201, 90);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // textBoxUsername
+            // tbxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(89, 12);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(187, 20);
-            this.textBoxUsername.TabIndex = 2;
+            this.tbxUsername.Location = new System.Drawing.Point(89, 12);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(187, 20);
+            this.tbxUsername.TabIndex = 2;
             // 
             // label1
             // 
@@ -91,19 +92,19 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Email :";
             // 
-            // textBoxPassword
+            // tbxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(89, 38);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(187, 20);
-            this.textBoxPassword.TabIndex = 7;
+            this.tbxPassword.Location = new System.Drawing.Point(89, 38);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(187, 20);
+            this.tbxPassword.TabIndex = 7;
             // 
-            // textBoxEmail
+            // tbxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(89, 64);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(187, 20);
-            this.textBoxEmail.TabIndex = 8;
+            this.tbxEmail.Location = new System.Drawing.Point(89, 64);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(187, 20);
+            this.tbxEmail.TabIndex = 8;
             // 
             // frmSubscribe
             // 
@@ -111,19 +112,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(318, 133);
-            this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.tbxEmail);
+            this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxUsername);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.tbxUsername);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSubscribe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmSubscribe";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmSubscribe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,12 +132,12 @@
         #endregion
 
         private System.Windows.Forms.Button btnValidate;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.TextBox tbxEmail;
     }
 }

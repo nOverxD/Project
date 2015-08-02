@@ -21,7 +21,7 @@ namespace ChristmasVillageIFAC
         UserBO searchUser(UserBO user);
 
         [OperationContract]
-        bool connexion(UserBO user);
+        String connexion(UserBO user);
 
         [OperationContract]
         void disconnect(UserBO user);

@@ -43,14 +43,16 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static List<VillageBO> Search(String villageName)
+        public static VillageBO Search(int id_village)
         {
             try
             {
                 List<VillageBO> listVillage = new List<VillageBO>();
+                VillageBO result = new VillageBO();
                 VillageDAL dal = new VillageDAL(CUtil.GetConnexion());
-                listVillage = dal.VillageBO_Search(villageName).ToList();
-                return listVillage;
+                listVillage = dal.VillageBO_Search(id_village).ToList();
+                result = listVillage.FirstOrDefault();
+                return result;
             }
             catch (Exception)
             {               

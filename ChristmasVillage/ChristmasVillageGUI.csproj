@@ -102,6 +102,7 @@
     <Compile Include="Proxies\FactoryTypeIFAC.cs" />
     <Compile Include="Proxies\ManageFactoryIFAC.cs" />
     <Compile Include="Proxies\ManageVillageIFAC.cs" />
+    <Compile Include="Proxies\UserIFAC.cs" />
     <Compile Include="Proxies\UtilitiesIFAC.cs" />
     <Compile Include="Proxies\VillageIFAC.cs" />
     <EmbeddedResource Include="frmConnexion.resx">

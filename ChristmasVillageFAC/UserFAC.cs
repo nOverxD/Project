@@ -58,21 +58,21 @@ namespace ChristmasVillageIFAC
             {
                 userFAC = new UserBO();
                 userFAC = UserBL.SearchByName(user);
-                if (userFAC.username == null)
+                if (userFAC == null)
                 {
                     return "Utilisateur inconnu.";
                 }
-                else if (user.username == userFAC.username && user.password == userFAC.password && user.status == USER_STATUS_NOK)
+                else if (userFAC.username == user.username && userFAC.password == user.password && userFAC.status == USER_STATUS_NOK)
                 {
                     userFAC.status = USER_STATUS_OK;
                     UserBL.Update(userFAC);
                     return "Ok";
                 }
-                else if (user.status == USER_STATUS_OK)
+                else if (userFAC.status == USER_STATUS_OK)
                 {
                     return "Utilisateur déjà connecté.";
                 }
-                else if (user.username == userFAC.username && user.password != userFAC.password)
+                else if (userFAC.username == user.username && userFAC.password != user.password)
                 {
                     return "Mot de passe erroné";
                 }

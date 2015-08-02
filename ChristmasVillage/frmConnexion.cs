@@ -52,15 +52,20 @@ namespace ChristmasVillage
                         user.password = tbxPassword.Text;
                         String message = proxy.connexion(user);
                         
+                        if (message == "Ok")
                         {
                             UserBO newUser = new UserBO();
                             newUser = proxy.searchUser(user);
 
-                            frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
-                            frmVillage objfrmVillage = new frmVillage(newUser);
+                            //frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
+                            //frmVillage objfrmVillage = new frmVillage(newUser);
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erreur: " + message);
                         }
                     }
-                    this.Dispose();
                 }
                 else
                 {

@@ -1,4 +1,5 @@
-﻿using ChristmasVillageBO;
+﻿using ChristmasVillageBL;
+using ChristmasVillageBO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace ChristmasVillageIFAC
         {
             try
             {
+                village.name = UtilitiesBL.villageName + village.id_village.ToString();
+                village.location = UtilitiesBL.locationDefault;
                 VillageBL.Insert(village);
             }
             catch (Exception)
@@ -29,6 +32,19 @@ namespace ChristmasVillageIFAC
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public VillageBO findVillage (int id_village)
+        {
+            try
+            {
+                return VillageBL.Search(id_village);
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

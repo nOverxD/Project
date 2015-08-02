@@ -18,6 +18,6 @@ namespace ChristmasVillageIFAC
         void updateLocation(VillageBO village);
 
         [OperationContract]
-        VillageBO findVillage(int id_village);
+        VillageBO findVillage(string villageName);
     }
 }

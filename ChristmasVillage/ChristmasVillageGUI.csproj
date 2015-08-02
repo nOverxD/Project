@@ -111,6 +111,9 @@
     <EmbeddedResource Include="frmSubscribe.resx">
       <DependentUpon>frmSubscribe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVillage.resx">
+      <DependentUpon>frmVillage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmWelcome.resx">
       <DependentUpon>frmWelcome.cs</DependentUpon>
     </EmbeddedResource>

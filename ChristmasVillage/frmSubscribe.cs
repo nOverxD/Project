@@ -14,6 +14,8 @@ namespace ChristmasVillage
 {
     public partial class frmSubscribe : Form
     {
+        private static string nameVillage = "ChristmasVillage";
+
         public frmSubscribe()
         {
             InitializeComponent();
@@ -42,11 +44,19 @@ namespace ChristmasVillage
                             using (VillageIFACClient proxyVillage = new VillageIFACClient())
                             {
                                 VillageBO village = new VillageBO();
-                                village.id_village = newUser.id_user;
+                                village.name = nameVillage + newUser.id_user.ToString();
                                 proxyVillage.createVillage(village);
 
                                 VillageBO newVillage = new VillageBO();
-                                //newVillage = proxyVillage.
+                                newVillage = proxyVillage.findVillage(village.name);
+
+                                using (ManageVillageIFACClient proxyManageVillage = new ManageVillageIFACClient())
+                                {
+                                    ManageVillageBO manageVillage = new ManageVillageBO();
+                                    manageVillage.id_user = newUser.id_user;
+                                    manageVillage.id_village = newVillage.id_village;
+                                    proxyManageVillage.createManageVillage(manageVillage);
+                                }
                             }
                         }
                         else
@@ -61,9 +71,9 @@ namespace ChristmasVillage
                     MessageBox.Show("Veuillez remplir les champs.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 

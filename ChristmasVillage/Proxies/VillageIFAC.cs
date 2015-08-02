@@ -32,6 +32,14 @@ namespace ChristmasVillageGUI.Proxies
         System.IAsyncResult BeginupdateLocation(ChristmasVillageBO.VillageBO village, System.AsyncCallback callback, object asyncState);
         
         void EndupdateLocation(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/findVillage", ReplyAction="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/findVillageResponse")]
+        ChristmasVillageBO.VillageBO findVillage(string villageName);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/findVillage", ReplyAction="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/findVillageResponse")]
+        System.IAsyncResult BeginfindVillage(string villageName, System.AsyncCallback callback, object asyncState);
+        
+        ChristmasVillageBO.VillageBO EndfindVillage(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -96,6 +104,21 @@ namespace ChristmasVillageGUI.Proxies
         public void EndupdateLocation(System.IAsyncResult result)
         {
             base.Channel.EndupdateLocation(result);
+        }
+        
+        public ChristmasVillageBO.VillageBO findVillage(string villageName)
+        {
+            return base.Channel.findVillage(villageName);
+        }
+        
+        public System.IAsyncResult BeginfindVillage(string villageName, System.AsyncCallback callback, object asyncState)
+        {
+            return base.Channel.BeginfindVillage(villageName, callback, asyncState);
+        }
+        
+        public ChristmasVillageBO.VillageBO EndfindVillage(System.IAsyncResult result)
+        {
+            return base.Channel.EndfindVillage(result);
         }
     }
 }

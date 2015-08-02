@@ -58,7 +58,7 @@ namespace ChristmasVillage
                             newUser = proxy.searchUser(user);
 
                             //frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
-                            //frmVillage objfrmVillage = new frmVillage(newUser);
+                            frmVillage objfrmVillage = new frmVillage(newUser);
                             this.Dispose();
                         }
                         else

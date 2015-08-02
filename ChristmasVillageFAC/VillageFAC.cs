@@ -14,7 +14,6 @@ namespace ChristmasVillageIFAC
         {
             try
             {
-                village.name = UtilitiesBL.villageName + village.id_village.ToString();
                 village.location = UtilitiesBL.locationDefault;
                 VillageBL.Insert(village);
             }
@@ -36,11 +35,11 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public VillageBO findVillage (int id_village)
+        public VillageBO findVillage (string villageName)
         {
             try
             {
-                return VillageBL.Search(id_village);
+                return VillageBL.Search(villageName);
             }
             catch (Exception)
             {

@@ -11,9 +11,8 @@ namespace ChristmasVillageBL
         public static string villageName = "ChristmasVillage";
         public static int locationDefault = 4;
         public static int capitalDefault = 2000;
-
-        private static int minimumCapital = 1075;
-        private static int locationMin = 0;
+        public static int minimumCapital = 1075;
+        public static int locationMin = 0;
 
         public static bool checkCapital(int userCapital)
         {

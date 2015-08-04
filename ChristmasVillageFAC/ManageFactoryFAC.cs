@@ -22,7 +22,7 @@ namespace ChristmasVillageFAC
             }
         }
 
-        public List<ManageFactoryBO> findFacotyByVillage(int id_Village)
+        public List<ManageFactoryBO> findFactoryByVillage(int id_Village)
         {
             try
             {

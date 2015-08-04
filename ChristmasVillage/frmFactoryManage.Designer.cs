@@ -1,6 +1,6 @@
 ﻿namespace ChristmasVillage
 {
-    partial class frmVillageLoad
+    partial class frmFactoryManage
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "frmLoadVillage";
+            this.Text = "frmFactorySaleToys";
         }
 
         #endregion

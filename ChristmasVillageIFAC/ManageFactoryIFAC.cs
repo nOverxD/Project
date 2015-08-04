@@ -15,6 +15,6 @@ namespace ChristmasVillageIFAC
         void createManageFactory(ManageFactoryBO village);
 
         [OperationContract]
-        List<ManageFactoryBO> findFacotyByVillage(int id_Village);
+        List<ManageFactoryBO> findFactoryByVillage(int id_Village);
     }
 }

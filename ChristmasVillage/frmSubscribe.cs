@@ -15,10 +15,13 @@ namespace ChristmasVillage
     public partial class frmSubscribe : Form
     {
         private static string nameVillage = "ChristmasVillage";
+        private frmWelcome objfrmWelcome;
 
-        public frmSubscribe()
+        public frmSubscribe(frmWelcome objfrmWelcome)
         {
             InitializeComponent();
+            this.objfrmWelcome = objfrmWelcome;
+            
         }
 
         private void btnValidate_Click(object sender, EventArgs e)

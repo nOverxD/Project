@@ -120,7 +120,7 @@
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimizeBox = false;
             this.Name = "frmSubscribe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmSubscribe";

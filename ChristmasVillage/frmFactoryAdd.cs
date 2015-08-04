@@ -12,9 +12,14 @@ namespace ChristmasVillage
 {
     public partial class frmFactoryAdd : Form
     {
-        public frmFactoryAdd()
+        private int id_user;
+        private int id_village;
+
+        public frmFactoryAdd(int id_user, int id_village)
         {
             InitializeComponent();
+            this.id_user = id_user;
+            this.id_village = id_village;
         }
     }
 }

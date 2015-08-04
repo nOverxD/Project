@@ -27,15 +27,17 @@ namespace ChristmasVillageGUI.Proxies
         
         void EndcreateManageFactory(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFacotyByVillage", ReplyAction="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFacotyByVillageR" +
-            "esponse")]
-        System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> findFacotyByVillage(int id_Village);
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFactoryByVillage" +
+            "", ReplyAction="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFactoryByVillage" +
+            "Response")]
+        System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> findFactoryByVillage(int id_Village);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFacotyByVillage", ReplyAction="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFacotyByVillageR" +
-            "esponse")]
-        System.IAsyncResult BeginfindFacotyByVillage(int id_Village, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFactoryByVillage" +
+            "", ReplyAction="urn:ChristmasVillageIFAC/ManageFactoryIFAC/ManageFactoryIFAC/findFactoryByVillage" +
+            "Response")]
+        System.IAsyncResult BeginfindFactoryByVillage(int id_Village, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> EndfindFacotyByVillage(System.IAsyncResult result);
+        System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> EndfindFactoryByVillage(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -87,19 +89,19 @@ namespace ChristmasVillageGUI.Proxies
             base.Channel.EndcreateManageFactory(result);
         }
         
-        public System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> findFacotyByVillage(int id_Village)
+        public System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> findFactoryByVillage(int id_Village)
         {
-            return base.Channel.findFacotyByVillage(id_Village);
+            return base.Channel.findFactoryByVillage(id_Village);
         }
         
-        public System.IAsyncResult BeginfindFacotyByVillage(int id_Village, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginfindFactoryByVillage(int id_Village, System.AsyncCallback callback, object asyncState)
         {
-            return base.Channel.BeginfindFacotyByVillage(id_Village, callback, asyncState);
+            return base.Channel.BeginfindFactoryByVillage(id_Village, callback, asyncState);
         }
         
-        public System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> EndfindFacotyByVillage(System.IAsyncResult result)
+        public System.Collections.Generic.List<ChristmasVillageBO.ManageFactoryBO> EndfindFactoryByVillage(System.IAsyncResult result)
         {
-            return base.Channel.EndfindFacotyByVillage(result);
+            return base.Channel.EndfindFactoryByVillage(result);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ChristmasVillageBO;
+using ChristmasVillageGUI.Proxies;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,26 +15,62 @@ namespace ChristmasVillage
     public partial class frmWelcome : Form
     {
         frmWelcome objfrmWelcome;
-        /// <summary>
-        /// Constructeur principale
-        /// </summary>
+
         public frmWelcome()
         {
-            InitializeComponent(); //Initialisation des composents de la winform
+            InitializeComponent();
             objfrmWelcome = this;
+            deconnectMenuItem.Visible = false;
         }
 
         private void frmWelcome_Load(object sender, EventArgs e)
         {
-            //Create a new instance of the MDI child template form
             frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
-            //Set parent form for the child window 
             objfrmConnexion.MdiParent = this;
-            //objfrmWelcome.StartPosition = FormStartPosition.CenterParent;
-            //Display the child window
-            //objfrmConnexion.WindowState = FormWindowState.Maximized;
-            //objfrmConnexion.ControlBox = false;
+            objfrmConnexion.WindowState = FormWindowState.Maximized;
             objfrmConnexion.Show();
+        }
+
+        private void connexionMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
+            objfrmConnexion.MdiParent = this;
+            objfrmConnexion.WindowState = FormWindowState.Maximized;
+            objfrmConnexion.Show();
+        }
+
+        private void subscribeMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSubscribe objfrmSubscribe = new frmSubscribe(objfrmWelcome);
+            objfrmSubscribe.MdiParent = this;
+            objfrmSubscribe.WindowState = FormWindowState.Maximized;
+            objfrmSubscribe.Show();
+        }
+
+        private void deconnectMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form activeChild = this.ActiveMdiChild;
+                frmVillage objfrmVillage = (frmVillage)activeChild;
+
+                UserBO user = new UserBO();
+                user = objfrmVillage.newUser;
+
+                using (UserIFACClient proxy = new UserIFACClient())
+                {
+                    proxy.disconnect(user);
+                }
+
+                objfrmVillage.Dispose();
+                deconnectMenuItem.Visible = false;
+                connexionMenuItem.Visible = true;
+                subscribeMenuItem.Visible = true;
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
         }
     }
 }

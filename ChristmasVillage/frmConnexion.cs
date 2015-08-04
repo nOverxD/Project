@@ -21,22 +21,6 @@ namespace ChristmasVillage
         {
             InitializeComponent();
             this.objfrmWelcome = objfrmWelcome;
-            this.StartPosition = FormStartPosition.CenterParent;
-        }
-
-        private void btnSubscribe_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmSubscribe objfrmSubscribe = new frmSubscribe();
-                //objfrmSubscribe.ControlBox = false;
-                objfrmSubscribe.MdiParent = objfrmWelcome;
-                objfrmSubscribe.Show();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)
@@ -57,18 +41,25 @@ namespace ChristmasVillage
                             UserBO newUser = new UserBO();
                             newUser = proxy.searchUser(user);
 
-                            //frmVillageLoad objfrmVillageLoad = new frmVillageLoad(newUser);
-                            frmVillage objfrmVillage = new frmVillage(newUser);
+                            frmVillage objfrmVillage = new frmVillage(newUser, objfrmWelcome);
+                            objfrmVillage.MdiParent = objfrmWelcome;
+                            objfrmVillage.Show();
+
                             this.Dispose();
+                            MessageBox.Show("Welcome back " + newUser.username + " !");
                         }
                         else
                         {
+                            tbxUsername.Clear();
+                            tbxPassword.Clear();
                             MessageBox.Show("Erreur: " + message);
                         }
                     }
                 }
                 else
                 {
+                    tbxUsername.Clear();
+                    tbxPassword.Clear();
                     MessageBox.Show("Veuillez remplir les champs.");
                 }
             }

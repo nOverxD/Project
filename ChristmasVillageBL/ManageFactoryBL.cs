@@ -45,7 +45,7 @@ namespace ChristmasVillageIFAC
             {
                 List<ManageFactoryBO> listManageFactories = new List<ManageFactoryBO>();
                 ManageFactoryDAL dal = new ManageFactoryDAL(CUtil.GetConnexion());
-                listManageFactories = (List<ManageFactoryBO>)dal.ManageFactoryBO_FindFactories(id_village);
+                listManageFactories = dal.ManageFactoryBO_FindFactories(id_village).ToList();
                 return listManageFactories;
             }
             catch (Exception)

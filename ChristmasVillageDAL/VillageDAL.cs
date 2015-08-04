@@ -37,12 +37,21 @@ namespace ChristmasVillageIFAC
             return ((ISingleResult<VillageBO>)result.ReturnValue);
         }
 
-        [Function(Name = "[dbo].[Village.FindById]")]
+        [Function(Name = "[dbo].[Village.Search]")]
         public ISingleResult<VillageBO> VillageBO_Search(
             [Parameter(Name = "@village_name", DbType = "varchar(20)")] string VillageName
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), VillageName);
+            return ((ISingleResult<VillageBO>)result.ReturnValue);
+        }
+
+        [Function(Name = "[dbo].[Village.FindById]")]
+        public ISingleResult<VillageBO> VillageBO_Search(
+            [Parameter(Name = "@id_village", DbType = "int")] int VillageId
+            )
+        {
+            var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), VillageId);
             return ((ISingleResult<VillageBO>)result.ReturnValue);
         }
     }

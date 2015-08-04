@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ChristmasVillage
 {
-    public partial class frmFactorySaleToys : Form
+    public partial class frmFactoryManage : Form
     {
-        public frmFactorySaleToys()
+        public frmFactoryManage()
         {
             InitializeComponent();
         }

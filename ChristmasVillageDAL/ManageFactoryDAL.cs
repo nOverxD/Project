@@ -39,7 +39,7 @@ namespace ChristmasVillageIFAC
         public ISingleResult<ManageFactoryBO> ManageFactoryBO_FindFactories(
             [Parameter(Name = "@id_village", DbType = "int")] int VillageId)
         {
-            var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), VillageId);
+            var result = ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), VillageId);
             return ((ISingleResult<ManageFactoryBO>)(result.ReturnValue));
         }
     }

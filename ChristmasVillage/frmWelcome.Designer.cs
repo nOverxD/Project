@@ -30,7 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.connexionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subscribeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deconnectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -39,7 +38,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connexionMenuItem,
-            this.subscribeMenuItem,
             this.deconnectMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -53,13 +51,6 @@
             this.connexionMenuItem.Size = new System.Drawing.Size(64, 20);
             this.connexionMenuItem.Text = "Connect";
             this.connexionMenuItem.Click += new System.EventHandler(this.connexionMenuItem_Click);
-            // 
-            // subscribeMenuItem
-            // 
-            this.subscribeMenuItem.Name = "subscribeMenuItem";
-            this.subscribeMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.subscribeMenuItem.Text = "Subscribe";
-            this.subscribeMenuItem.Click += new System.EventHandler(this.subscribeMenuItem_Click);
             // 
             // deconnectMenuItem
             // 
@@ -90,7 +81,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripMenuItem connexionMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem subscribeMenuItem;
         public System.Windows.Forms.ToolStripMenuItem deconnectMenuItem;
 
     }

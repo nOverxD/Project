@@ -68,5 +68,13 @@ namespace ChristmasVillage
                 throw;
             }
         }
+
+        private void btnSubscribe_Click(object sender, EventArgs e)
+        {
+            frmSubscribe objfrmSubscribe = new frmSubscribe(objfrmWelcome);
+            //objfrmSubscribe.MdiParent = this;
+            //objfrmSubscribe.WindowState = FormWindowState.Maximized;
+            objfrmSubscribe.ShowDialog();
+        }
     }
 }

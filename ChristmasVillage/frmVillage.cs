@@ -25,7 +25,7 @@ namespace ChristmasVillage
             InitializeComponent();
             objfrmWelcome.deconnectMenuItem.Visible = true;
             objfrmWelcome.connexionMenuItem.Visible = false;
-            objfrmWelcome.subscribeMenuItem.Visible = false;
+            //objfrmWelcome.subscribeMenuItem.Visible = false;
         }
 
         public frmVillage(UserBO newUser, frmWelcome objfrmWelcome)
@@ -35,7 +35,7 @@ namespace ChristmasVillage
             this.objfrmWelcome = objfrmWelcome;
             objfrmWelcome.deconnectMenuItem.Visible = true;
             objfrmWelcome.connexionMenuItem.Visible = false;
-            objfrmWelcome.subscribeMenuItem.Visible = false;
+            //objfrmWelcome.subscribeMenuItem.Visible = false;
         }
 
         private void frmVillage_Load(object sender, EventArgs e)

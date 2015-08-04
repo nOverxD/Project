@@ -33,6 +33,7 @@
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnConnexion = new System.Windows.Forms.Button();
+            this.btnSubscribe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -77,11 +78,22 @@
             this.btnConnexion.UseVisualStyleBackColor = true;
             this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
+            // btnSubscribe
+            // 
+            this.btnSubscribe.Location = new System.Drawing.Point(82, 68);
+            this.btnSubscribe.Name = "btnSubscribe";
+            this.btnSubscribe.Size = new System.Drawing.Size(75, 23);
+            this.btnSubscribe.TabIndex = 5;
+            this.btnSubscribe.Text = "Subscribe";
+            this.btnSubscribe.UseVisualStyleBackColor = true;
+            this.btnSubscribe.Click += new System.EventHandler(this.btnSubscribe_Click);
+            // 
             // frmConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 111);
+            this.Controls.Add(this.btnSubscribe);
             this.Controls.Add(this.btnConnexion);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUsername);
@@ -103,5 +115,6 @@
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnConnexion;
+        private System.Windows.Forms.Button btnSubscribe;
     }
 }

@@ -25,10 +25,11 @@ namespace ChristmasVillage
 
         private void frmWelcome_Load(object sender, EventArgs e)
         {
-            frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
+            //Ne pas afficher connection car sinon la personne va ouvrir trop de fenêtre
+            /*frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
             objfrmConnexion.MdiParent = this;
             objfrmConnexion.WindowState = FormWindowState.Maximized;
-            objfrmConnexion.Show();
+            objfrmConnexion.Show();*/
         }
 
         private void connexionMenuItem_Click(object sender, EventArgs e)
@@ -36,16 +37,20 @@ namespace ChristmasVillage
             frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
             objfrmConnexion.MdiParent = this;
             objfrmConnexion.WindowState = FormWindowState.Maximized;
+            //objfrmConnexion.ShowDialog();
             objfrmConnexion.Show();
         }
 
-        private void subscribeMenuItem_Click(object sender, EventArgs e)
+        /*private void subscribeMenuItem_Click(object sender, EventArgs e)
         {
+            //Desactiver cette fonctionnalité sinon on donne la possibilité d'avoir plusieurs fenêtre.
+            //Cette fonction a été transporé dans la fenêtre frmconnexion
             frmSubscribe objfrmSubscribe = new frmSubscribe(objfrmWelcome);
             objfrmSubscribe.MdiParent = this;
             objfrmSubscribe.WindowState = FormWindowState.Maximized;
-            objfrmSubscribe.Show();
-        }
+            objfrmSubscribe.ShowDialog();
+            //objfrmSubscribe.Show();
+        }*/
 
         private void deconnectMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,7 +70,7 @@ namespace ChristmasVillage
                 objfrmVillage.Dispose();
                 deconnectMenuItem.Visible = false;
                 connexionMenuItem.Visible = true;
-                subscribeMenuItem.Visible = true;
+                //subscribeMenuItem.Visible = true;
             }
             catch (Exception)
             {                

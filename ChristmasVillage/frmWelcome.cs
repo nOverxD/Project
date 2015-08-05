@@ -14,7 +14,19 @@ namespace ChristmasVillage
 {
     public partial class frmWelcome : Form
     {
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+
         frmWelcome objfrmWelcome;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
 
         public frmWelcome()
         {
@@ -25,11 +37,10 @@ namespace ChristmasVillage
 
         private void frmWelcome_Load(object sender, EventArgs e)
         {
-            //Ne pas afficher connection car sinon la personne va ouvrir trop de fenêtre
-            /*frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
+            frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
             objfrmConnexion.MdiParent = this;
             objfrmConnexion.WindowState = FormWindowState.Maximized;
-            objfrmConnexion.Show();*/
+            objfrmConnexion.Show();
         }
 
         private void connexionMenuItem_Click(object sender, EventArgs e)
@@ -37,20 +48,8 @@ namespace ChristmasVillage
             frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
             objfrmConnexion.MdiParent = this;
             objfrmConnexion.WindowState = FormWindowState.Maximized;
-            //objfrmConnexion.ShowDialog();
             objfrmConnexion.Show();
         }
-
-        /*private void subscribeMenuItem_Click(object sender, EventArgs e)
-        {
-            //Desactiver cette fonctionnalité sinon on donne la possibilité d'avoir plusieurs fenêtre.
-            //Cette fonction a été transporé dans la fenêtre frmconnexion
-            frmSubscribe objfrmSubscribe = new frmSubscribe(objfrmWelcome);
-            objfrmSubscribe.MdiParent = this;
-            objfrmSubscribe.WindowState = FormWindowState.Maximized;
-            objfrmSubscribe.ShowDialog();
-            //objfrmSubscribe.Show();
-        }*/
 
         private void deconnectMenuItem_Click(object sender, EventArgs e)
         {
@@ -70,12 +69,17 @@ namespace ChristmasVillage
                 objfrmVillage.Dispose();
                 deconnectMenuItem.Visible = false;
                 connexionMenuItem.Visible = true;
-                //subscribeMenuItem.Visible = true;
+                quitMenuItem.Visible = true;
             }
             catch (Exception)
             {                
                 throw;
             }
+        }
+
+        private void quitMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

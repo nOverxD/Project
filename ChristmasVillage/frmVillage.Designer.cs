@@ -31,6 +31,7 @@
             this.lblCapital = new System.Windows.Forms.Label();
             this.labelCapital = new System.Windows.Forms.Label();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCapitalUser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCapital
@@ -63,11 +64,20 @@
             this.tableLayoutPanel.Size = new System.Drawing.Size(523, 403);
             this.tableLayoutPanel.TabIndex = 7;
             // 
+            // lblCapitalUser
+            // 
+            this.lblCapitalUser.AutoSize = true;
+            this.lblCapitalUser.Location = new System.Drawing.Point(520, 8);
+            this.lblCapitalUser.Name = "lblCapitalUser";
+            this.lblCapitalUser.Size = new System.Drawing.Size(0, 13);
+            this.lblCapitalUser.TabIndex = 8;
+            // 
             // frmVillage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 439);
+            this.Controls.Add(this.lblCapitalUser);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.labelCapital);
             this.Controls.Add(this.lblCapital);
@@ -84,5 +94,6 @@
         private System.Windows.Forms.Label lblCapital;
         private System.Windows.Forms.Label labelCapital;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.Label lblCapitalUser;
     }
 }

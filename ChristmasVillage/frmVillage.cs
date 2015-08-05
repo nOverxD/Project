@@ -14,18 +14,22 @@ namespace ChristmasVillage
 {
     public partial class frmVillage : Form
     {
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+
         public UserBO newUser;
         public frmFactory objfrmFactory;
         public ManageVillageBO manageVillage;
         public FactoryBO factory;
         private frmWelcome objfrmWelcome;
 
-        public frmVillage()
+        protected override CreateParams CreateParams
         {
-            InitializeComponent();
-            objfrmWelcome.deconnectMenuItem.Visible = true;
-            objfrmWelcome.connexionMenuItem.Visible = false;
-            //objfrmWelcome.subscribeMenuItem.Visible = false;
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
         }
 
         public frmVillage(UserBO newUser, frmWelcome objfrmWelcome)
@@ -35,13 +39,15 @@ namespace ChristmasVillage
             this.objfrmWelcome = objfrmWelcome;
             objfrmWelcome.deconnectMenuItem.Visible = true;
             objfrmWelcome.connexionMenuItem.Visible = false;
-            //objfrmWelcome.subscribeMenuItem.Visible = false;
+            objfrmWelcome.quitMenuItem.Visible = false;
         }
 
         private void frmVillage_Load(object sender, EventArgs e)
         {
             try
             {
+                lblCapitalUser.Text = newUser.capital.ToString();
+
                 List<ManageFactoryBO> manageFactoryList;
                 List<FactoryBO> factoryList = new List<FactoryBO>();
 
@@ -59,7 +65,7 @@ namespace ChristmasVillage
 
                 if (manageFactoryList.Count == 0)
 	            {
-                    for (int i = 1; i < 4; i++)
+                    for (int i = 1; i <= 4; i++)
                     {
                         objfrmFactory = new frmFactory(this);
                         objfrmFactory.Parent = this;
@@ -67,16 +73,16 @@ namespace ChristmasVillage
                         switch (position)
                         {
                             case 1:
-                                tableLayoutPanel.Controls.Add(objfrmFactory, 1, 0);
+                                tableLayoutPanel.Controls.Add(objfrmFactory, 0, 0);
                                 break;
                             case 2:
-                                tableLayoutPanel.Controls.Add(objfrmFactory, 2, 0);
+                                tableLayoutPanel.Controls.Add(objfrmFactory, 0, 1);
                                 break;
                             case 3:
-                                tableLayoutPanel.Controls.Add(objfrmFactory, 1, 1);
+                                tableLayoutPanel.Controls.Add(objfrmFactory, 1, 0);
                                 break;
                             case 4:
-                                tableLayoutPanel.Controls.Add(objfrmFactory, 2, 2);
+                                tableLayoutPanel.Controls.Add(objfrmFactory, 1, 1);
                                 break;
                         }
                     }
@@ -108,16 +114,16 @@ namespace ChristmasVillage
                             switch (position)
                             {
                                 case 1:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 0);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 0, 0);
                                     break;
                                 case 2:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 2, 0);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 0, 1);
                                     break;
                                 case 3:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 1);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 0);
                                     break;
                                 case 4:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 2, 2);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 1);
                                     break;
                             }
                         }
@@ -129,16 +135,16 @@ namespace ChristmasVillage
                             switch (position)
                             {
                                 case 1:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 0);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 0, 0);
                                     break;
                                 case 2:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 2, 0);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 0, 1);
                                     break;
                                 case 3:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 1);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 0);
                                     break;
                                 case 4:
-                                    tableLayoutPanel.Controls.Add(objfrmFactory, 2, 2);
+                                    tableLayoutPanel.Controls.Add(objfrmFactory, 1, 1);
                                     break;
                             }
                         }

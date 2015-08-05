@@ -19,7 +19,7 @@ namespace ChristmasVillageDAL
         [Function(Name = "[dbo].[FactoryType.SelectAll]")]
         public ISingleResult<FactoryTypeBO> FactoryTypeBO_SelectAll()
         {
-            IExecuteResult result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
+            IExecuteResult result = ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
             return ((ISingleResult<FactoryTypeBO>)(result.ReturnValue));
         }
 

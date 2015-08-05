@@ -74,7 +74,7 @@ namespace ChristmasVillageIFAC
                 FactoryTypeBO factoryType = new FactoryTypeBO();
                 factoryType = FactoryTypeBL.FindById(factory.type);
 
-                int newCapital = user.capital + factory.factory_stock * factoryType.toy_sales_price;
+                int newCapital = user.capital + factory.factory_stock * factoryType.toy_sales_prices;
                 user.capital = newCapital;
                 UserBL.Update(user);
 

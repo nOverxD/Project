@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.connexionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deconnectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +39,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connexionMenuItem,
-            this.deconnectMenuItem});
+            this.deconnectMenuItem,
+            this.quitMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -54,10 +56,19 @@
             // 
             // deconnectMenuItem
             // 
+            this.deconnectMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.deconnectMenuItem.Name = "deconnectMenuItem";
             this.deconnectMenuItem.Size = new System.Drawing.Size(62, 20);
             this.deconnectMenuItem.Text = "Log Out";
             this.deconnectMenuItem.Click += new System.EventHandler(this.deconnectMenuItem_Click);
+            // 
+            // quitMenuItem
+            // 
+            this.quitMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.quitMenuItem.Name = "quitMenuItem";
+            this.quitMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.quitMenuItem.Text = "Quit";
+            this.quitMenuItem.Click += new System.EventHandler(this.quitMenuItem_Click);
             // 
             // frmWelcome
             // 
@@ -82,6 +93,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripMenuItem connexionMenuItem;
         public System.Windows.Forms.ToolStripMenuItem deconnectMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem quitMenuItem;
 
     }
 }

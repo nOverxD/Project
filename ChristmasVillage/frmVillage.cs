@@ -68,9 +68,9 @@ namespace ChristmasVillage
 	            {
                     for (int i = 1; i <= 4; i++)
                     {
-                        objfrmFactory = new frmFactory(this);
-                        objfrmFactory.Parent = this;
                         int position = i;
+                        objfrmFactory = new frmFactory(this, position);
+                        objfrmFactory.Parent = this;
                         switch (position)
                         {
                             case 1:
@@ -105,13 +105,13 @@ namespace ChristmasVillage
 
                     int locationNumber = 1;
 
-                    foreach (FactoryBO item in factoryList)
+                    foreach (FactoryBO factory in factoryList)
                     {
-                        if (item.factory_location == locationNumber)
+                        if (factory.factory_location == locationNumber)
                         {
-                            objfrmFactory = new frmFactory(this, item);
+                            objfrmFactory = new frmFactory(this, factory);
                             objfrmFactory.Parent = this;
-                            int position = item.factory_location;
+                            int position = factory.factory_location;
                             switch (position)
                             {
                                 case 1:
@@ -130,7 +130,7 @@ namespace ChristmasVillage
                         }
                         else
                         {
-                            objfrmFactory = new frmFactory(this);
+                            objfrmFactory = new frmFactory(this, locationNumber);
                             objfrmFactory.Parent = this;
                             int position = locationNumber;
                             switch (position)

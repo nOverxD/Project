@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChristmasVillageBO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace ChristmasVillage
 {
     public partial class frmFactoryManage : Form
     {
-        public frmFactoryManage()
+        private ChristmasVillageBO.FactoryBO factory;
+        private ChristmasVillageBO.UserBO user;
+
+        public frmFactoryManage(UserBO user, FactoryBO factory)
         {
             InitializeComponent();
+            this.user = user;
+            this.factory = factory;
         }
     }
 }

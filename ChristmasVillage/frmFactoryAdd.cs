@@ -16,15 +16,17 @@ namespace ChristmasVillage
     {
         private int id_user;
         private int id_village;
+        private int position;
         private FactoryTypeBO factoryType;
         private List<FactoryTypeBO> actoryTypeList;
         private List<ManageFactoryBO> manageFactoryList;
 
-        public frmFactoryAdd(int id_user, int id_village)
+        public frmFactoryAdd(int id_user, int id_village, int position)
         {
             InitializeComponent();
             this.id_user = id_user;
             this.id_village = id_village;
+            this.position = position;
         }
 
         private void frmFactoryAdd_Load(object sender, EventArgs e)
@@ -61,7 +63,14 @@ namespace ChristmasVillage
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void cbxFactoryType_SelectedIndexChanged(object sender, EventArgs e)

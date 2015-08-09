@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChristmasVillageGUI.Proxies;
 using ChristmasVillageBO;
+using System.IO;
+using System.Reflection;
 
 namespace ChristmasVillage
 {
@@ -26,6 +28,11 @@ namespace ChristmasVillage
             btnManage.Visible = false;
             btnDelete.Visible = false;
             lblFactory.Visible = false;
+
+            //MessageBox.Show(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
+
+            pictureBox.ImageLocation = @"C:\Users\nOverxD\Source\Repos\Project\ChristmasVillage\Img\ForSale.png";
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         public frmFactory(frmVillage frmVillage, FactoryBO factory)
@@ -36,6 +43,10 @@ namespace ChristmasVillage
             user = frmVillage.newUser;
 
             btnAdd.Visible = false;
+
+            pictureBox.Image = Image.FromFile(@"Img\Factory.png");
+            //pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

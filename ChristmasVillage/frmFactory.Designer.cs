@@ -47,7 +47,9 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(3, 21);
+            this.pictureBox.Location = new System.Drawing.Point(1, 20);
+            this.pictureBox.MaximumSize = new System.Drawing.Size(186, 135);
+            this.pictureBox.MinimumSize = new System.Drawing.Size(186, 135);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(186, 135);
             this.pictureBox.TabIndex = 1;
@@ -87,13 +89,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnManage);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.lblFactory);
             this.Name = "frmFactory";
-            this.Size = new System.Drawing.Size(192, 198);
+            this.Size = new System.Drawing.Size(190, 196);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

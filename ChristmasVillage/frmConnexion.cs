@@ -21,6 +21,7 @@ namespace ChristmasVillage
         {
             InitializeComponent();
             this.objfrmWelcome = objfrmWelcome;
+            tbxPassword.PasswordChar = '*';
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)

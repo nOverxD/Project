@@ -37,6 +37,7 @@ namespace ChristmasVillage
             InitializeComponent();
             this.newUser = newUser;
             this.objfrmWelcome = objfrmWelcome;
+
             objfrmWelcome.deconnectMenuItem.Visible = true;
             objfrmWelcome.connexionMenuItem.Visible = false;
             objfrmWelcome.quitMenuItem.Visible = false;

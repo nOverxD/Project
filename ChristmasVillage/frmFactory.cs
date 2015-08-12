@@ -56,7 +56,7 @@ namespace ChristmasVillage
                 int id_village = frmVillage.manageVillage.id_village;
                 int id_user = frmVillage.manageVillage.id_user;
 
-                frmFactoryAdd objfrmFactoryAdd = new frmFactoryAdd(id_user, id_village, position);
+                frmFactoryAdd objfrmFactoryAdd = new frmFactoryAdd(frmVillage, id_user, id_village, position);
                 objfrmFactoryAdd.ShowDialog();
             }
             catch (Exception)

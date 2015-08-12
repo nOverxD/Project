@@ -45,6 +45,11 @@ namespace ChristmasVillage
 
         private void frmVillage_Load(object sender, EventArgs e)
         {
+            reload(newUser);
+        }
+
+        public void reload(UserBO user)
+        {
             try
             {
                 lblCapitalUser.Text = newUser.capital.ToString();
@@ -65,7 +70,7 @@ namespace ChristmasVillage
                 }
 
                 if (manageFactoryList.Count == 0)
-	            {
+                {
                     for (int i = 1; i <= 4; i++)
                     {
                         int position = i;
@@ -88,7 +93,7 @@ namespace ChristmasVillage
                         }
                     }
                 }
-		            
+
                 else if (manageFactoryList.Count > 0)
                 {
                     foreach (ManageFactoryBO item in manageFactoryList)

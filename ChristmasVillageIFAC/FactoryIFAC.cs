@@ -15,6 +15,9 @@ namespace ChristmasVillageIFAC
         void createFactory(FactoryBO factory);
 
         [OperationContract]
+        int getId();
+
+        [OperationContract]
         void deleteFactory(int id_Factory);
 
         [OperationContract]

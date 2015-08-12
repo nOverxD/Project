@@ -14,20 +14,20 @@ namespace ChristmasVillageBO
         private int _type;
         private int _factory_stock;
         private int _factory_location;
+        private Nullable<System.DateTime> _toy_production_time;
         private int _toy_current_production;
-        private DateTime _toy_production_time;
         private string _status;
 
         public FactoryBO() {}
 
-        public FactoryBO(int FactoryType, int FactoryStock, int FactoryLocation, int FactoryToyCurrentProduction, DateTime FactoryToyProductionTime, string FactoryStatus)
+        public FactoryBO(int FactoryType, int FactoryStock, int FactoryLocation, Nullable<System.DateTime> FactoryToyProductionTime, int FactoryToyCurrentProduction, string FactoryStatus)
             : this()
         {
             _type = FactoryType;
             _factory_stock = FactoryStock;
             _factory_location = FactoryLocation;
-            _toy_current_production = FactoryToyCurrentProduction;
             _toy_production_time = FactoryToyProductionTime;
+            _toy_current_production = FactoryToyCurrentProduction;
             _status = FactoryStatus;
         }
 
@@ -59,18 +59,18 @@ namespace ChristmasVillageBO
             set { _factory_location = value; }
         }
 
+        [DataMember(Name = "toy_production_time")]
+        public Nullable<System.DateTime> toy_production_time
+        {
+            get { return _toy_production_time; }
+            set { _toy_production_time = value; }
+        }
+
         [DataMember(Name = "toy_current_production")]
         public int toy_current_production
         {
             get { return _toy_current_production; }
             set { _toy_current_production = value; }
-        }
-
-        [DataMember(Name = "toy_production_time")]
-        public DateTime toy_production_time
-        {
-            get { return _toy_production_time; }
-            set { _toy_production_time = value; }
         }
 
         [DataMember(Name = "status")]

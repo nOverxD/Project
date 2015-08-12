@@ -21,6 +21,9 @@ namespace ChristmasVillageIFAC
         UserBO searchUser(UserBO user);
 
         [OperationContract]
+        UserBO findById(int id_user);
+
+        [OperationContract]
         String connexion(UserBO user);
 
         [OperationContract]

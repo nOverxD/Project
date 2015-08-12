@@ -25,6 +25,14 @@ namespace ChristmasVillageGUI.Proxies
         
         void EndcreateFactory(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getId", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getIdResponse")]
+        int getId();
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getId", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getIdResponse")]
+        System.IAsyncResult BegingetId(System.AsyncCallback callback, object asyncState);
+        
+        int EndgetId(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/deleteFactory", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/deleteFactoryResponse")]
         void deleteFactory(int id_Factory);
         
@@ -113,6 +121,21 @@ namespace ChristmasVillageGUI.Proxies
         public void EndcreateFactory(System.IAsyncResult result)
         {
             base.Channel.EndcreateFactory(result);
+        }
+        
+        public int getId()
+        {
+            return base.Channel.getId();
+        }
+        
+        public System.IAsyncResult BegingetId(System.AsyncCallback callback, object asyncState)
+        {
+            return base.Channel.BegingetId(callback, asyncState);
+        }
+        
+        public int EndgetId(System.IAsyncResult result)
+        {
+            return base.Channel.EndgetId(result);
         }
         
         public void deleteFactory(int id_Factory)

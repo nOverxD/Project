@@ -41,6 +41,14 @@ namespace ChristmasVillageGUI.Proxies
         
         ChristmasVillageBO.UserBO EndsearchUser(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/findById", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/findByIdResponse")]
+        ChristmasVillageBO.UserBO findById(int id_user);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/findById", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/findByIdResponse")]
+        System.IAsyncResult BeginfindById(int id_user, System.AsyncCallback callback, object asyncState);
+        
+        ChristmasVillageBO.UserBO EndfindById(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/connexion", ReplyAction="urn:ChristmasVillageIFAC/UserIFAC/UserIFAC/connexionResponse")]
         string connexion(ChristmasVillageBO.UserBO user);
         
@@ -151,6 +159,21 @@ namespace ChristmasVillageGUI.Proxies
         public ChristmasVillageBO.UserBO EndsearchUser(System.IAsyncResult result)
         {
             return base.Channel.EndsearchUser(result);
+        }
+        
+        public ChristmasVillageBO.UserBO findById(int id_user)
+        {
+            return base.Channel.findById(id_user);
+        }
+        
+        public System.IAsyncResult BeginfindById(int id_user, System.AsyncCallback callback, object asyncState)
+        {
+            return base.Channel.BeginfindById(id_user, callback, asyncState);
+        }
+        
+        public ChristmasVillageBO.UserBO EndfindById(System.IAsyncResult result)
+        {
+            return base.Channel.EndfindById(result);
         }
         
         public string connexion(ChristmasVillageBO.UserBO user)

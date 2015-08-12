@@ -21,13 +21,13 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@type", DbType = "int")] int FactoryType,
             [Parameter(Name = "@factory_stock", DbType = "int")] int FactoryStock,
             [Parameter(Name = "@factory_location", DbType = "int")] int FactoryLocation,
-            [Parameter(Name = "@toy_production_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
+            [Parameter(Name = "@toy_production_time", DbType = "datetime")] Nullable<System.DateTime> FactoryToyProductionTime,
             [Parameter(Name = "@toy_current_production", DbType = "int")] int FactoryToyCurrentProduction,
             [Parameter(Name = "@status", DbType = "varchar(5)")] string FactoryStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
-                FactoryType, FactoryStock, FactoryLocation, FactoryToyProductionTime, FactoryStatus);
+                FactoryType, FactoryStock, FactoryLocation, FactoryToyProductionTime, FactoryToyCurrentProduction, FactoryStatus);
             return ((ISingleResult<FactoryBO>)result.ReturnValue);
         }
 
@@ -37,13 +37,13 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@type", DbType = "int")] int FactoryType,
             [Parameter(Name = "@factory_stock", DbType = "int")] int FactoryStock,
             [Parameter(Name = "@factory_location", DbType = "int")] int FactoryLocation,
-            [Parameter(Name = "@toy_production_time", DbType = "Datetime")] DateTime FactoryToyProductionTime,
+            [Parameter(Name = "@toy_production_time", DbType = "datetime")] Nullable<System.DateTime> FactoryToyProductionTime,
             [Parameter(Name = "@toy_current_production", DbType = "int")] int FactoryToyCurrentProduction,
             [Parameter(Name = "@status", DbType = "varchar(5)")] string FactoryStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
-                FactoryId, FactoryType, FactoryStock, FactoryLocation, FactoryToyProductionTime, FactoryStatus);
+                FactoryId, FactoryType, FactoryStock, FactoryLocation, FactoryToyProductionTime, FactoryToyCurrentProduction, FactoryStatus);
             return ((ISingleResult<FactoryBO>)result.ReturnValue);
         }
 
@@ -61,6 +61,13 @@ namespace ChristmasVillageIFAC
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), FactoryId);
             return ((ISingleResult<FactoryBO>)(result.ReturnValue));
+        }
+
+        [Function(Name = "[dbo].[Factory.FindLastId]")]
+        public ISingleResult<int> FactoryBO_FindLastId()
+        {
+            var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
+            return ((ISingleResult<int>)(result.ReturnValue));
         }
     }
 }

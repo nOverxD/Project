@@ -22,6 +22,18 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        public int getId()
+        {
+            try
+            {
+                return FactoryBL.FindLastId();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void deleteFactory(int id_Factory)
         {
             try

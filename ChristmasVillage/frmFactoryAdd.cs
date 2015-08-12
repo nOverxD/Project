@@ -18,12 +18,14 @@ namespace ChristmasVillage
         private int id_village;
         private int position;
         private FactoryTypeBO factoryType;
-        private List<FactoryTypeBO> actoryTypeList;
+        private List<FactoryTypeBO> factoryTypeList;
         private List<ManageFactoryBO> manageFactoryList;
+        private frmVillage frmVillage;
 
-        public frmFactoryAdd(int id_user, int id_village, int position)
+        public frmFactoryAdd(frmVillage frmVillage, int id_user, int id_village, int position)
         {
             InitializeComponent();
+            this.frmVillage = frmVillage;
             this.id_user = id_user;
             this.id_village = id_village;
             this.position = position;
@@ -33,11 +35,11 @@ namespace ChristmasVillage
         {
             try
             {
-                actoryTypeList = new List<FactoryTypeBO>();
+                factoryTypeList = new List<FactoryTypeBO>();
                 using (FactoryTypeIFACClient proxyFactoryType = new FactoryTypeIFACClient())
                 {
-                    actoryTypeList = proxyFactoryType.selectAll();
-                    cbxFactoryType.DataSource = actoryTypeList;
+                    factoryTypeList = proxyFactoryType.selectAll();
+                    cbxFactoryType.DataSource = factoryTypeList;
                     cbxFactoryType.DisplayMember = "name";
                     cbxFactoryType.ValueMember = "id_factory_type";
                     cbxFactoryType.Text = " - Choose - ";
@@ -65,7 +67,38 @@ namespace ChristmasVillage
         {
             try
             {
+                FactoryBO factory = new FactoryBO();
+                ManageFactoryBO manageFactory = new ManageFactoryBO();
+                List<ManageVillageBO> manageVillageList = new List<ManageVillageBO>();
+                UserBO user = new UserBO();
+                int price = Int32.Parse(lblFactoryPrice.Text);
+                int capital;
 
+                using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
+                {
+                    factory.type = Int32.Parse(cbxFactoryType.SelectedValue.ToString());
+                    factory.factory_location = position;
+                    factory.toy_production_time = DateTime.Now;
+                    factory.status = "false";
+                    proxyFactory.createFactory(factory);
+                    factory.id_factory = proxyFactory.getId();
+                }
+
+                using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
+                {
+                    manageFactory.id_village = id_village;
+                    manageFactory.id_factory = factory.id_factory;
+                    proxyManageFactory.createManageFactory(manageFactory);
+                }
+
+                using (UserIFACClient proxyUser = new UserIFACClient())
+                {
+                    user = proxyUser.findById(id_user);
+                    capital = user.capital - price;
+                    proxyUser.updateUser(user);
+                    frmVillage.reload(user);
+                }
+                this.Dispose();
             }
             catch (Exception)
             {
@@ -81,7 +114,7 @@ namespace ChristmasVillage
                 int id_FactoryType;
                 if (Int32.TryParse(cbxFactoryType.SelectedValue.ToString(), out id_FactoryType))
                 {
-                    factoryType = actoryTypeList.Find(c => c.id_factory_type == id_FactoryType);
+                    factoryType = factoryTypeList.Find(c => c.id_factory_type == id_FactoryType);
                     lblFactoryPrice.Text = factoryType.price.ToString();
                     lblPriceProduction.Text = factoryType.toy_production_price.ToString();
                     lblSalePrice.Text = factoryType.toy_sales_prices.ToString();

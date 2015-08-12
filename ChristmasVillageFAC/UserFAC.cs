@@ -52,6 +52,20 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        public UserBO findById(int id_user)
+        {
+            try
+            {
+                userFAC = new UserBO();
+                userFAC = UserBL.SearchById(id_user);
+                return userFAC;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public String connexion(UserBO user)
         {
             try

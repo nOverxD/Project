@@ -45,18 +45,5 @@ namespace ChristmasVillageFAC
                 throw;
             }
         }
-
-
-        public string getDate()
-        {
-            try
-            {
-                return UtilitiesBL.getDate();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

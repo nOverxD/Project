@@ -22,11 +22,11 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public int getId()
+        public FactoryBO getLastFactory()
         {
             try
             {
-                return FactoryBL.FindLastId();
+                return FactoryBL.FindLast();
             }
             catch (Exception)
             {

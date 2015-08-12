@@ -46,6 +46,7 @@ namespace ChristmasVillage
             btnAdd.Visible = false;
 
             pictureBox.ImageLocation = @"C:\Users\nOverxD\Source\Repos\Project\ChristmasVillage\Img\Factory.png";
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             //pictureBox.ImageLocation = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"\Img\Factory.png");
         }
 

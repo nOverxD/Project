@@ -18,8 +18,5 @@ namespace ChristmasVillageIFAC
 
         [OperationContract]
         int getRandomNumber();
-
-        [OperationContract]
-        string getDate();
     }
 }

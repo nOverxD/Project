@@ -25,13 +25,13 @@ namespace ChristmasVillageGUI.Proxies
         
         void EndcreateFactory(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getId", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getIdResponse")]
-        int getId();
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getLastFactory", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getLastFactoryResponse")]
+        ChristmasVillageBO.FactoryBO getLastFactory();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getId", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getIdResponse")]
-        System.IAsyncResult BegingetId(System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getLastFactory", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/getLastFactoryResponse")]
+        System.IAsyncResult BegingetLastFactory(System.AsyncCallback callback, object asyncState);
         
-        int EndgetId(System.IAsyncResult result);
+        ChristmasVillageBO.FactoryBO EndgetLastFactory(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/deleteFactory", ReplyAction="urn:ChristmasVillageIFAC/FactoryIFAC/FactoryIFAC/deleteFactoryResponse")]
         void deleteFactory(int id_Factory);
@@ -123,19 +123,19 @@ namespace ChristmasVillageGUI.Proxies
             base.Channel.EndcreateFactory(result);
         }
         
-        public int getId()
+        public ChristmasVillageBO.FactoryBO getLastFactory()
         {
-            return base.Channel.getId();
+            return base.Channel.getLastFactory();
         }
         
-        public System.IAsyncResult BegingetId(System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BegingetLastFactory(System.AsyncCallback callback, object asyncState)
         {
-            return base.Channel.BegingetId(callback, asyncState);
+            return base.Channel.BegingetLastFactory(callback, asyncState);
         }
         
-        public int EndgetId(System.IAsyncResult result)
+        public ChristmasVillageBO.FactoryBO EndgetLastFactory(System.IAsyncResult result)
         {
-            return base.Channel.EndgetId(result);
+            return base.Channel.EndgetLastFactory(result);
         }
         
         public void deleteFactory(int id_Factory)

@@ -81,7 +81,7 @@ namespace ChristmasVillage
                     factory.toy_production_time = DateTime.Now;
                     factory.status = "false";
                     proxyFactory.createFactory(factory);
-                    factory.id_factory = proxyFactory.getId();
+                    factory = proxyFactory.getLastFactory();
                 }
 
                 using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
@@ -95,6 +95,7 @@ namespace ChristmasVillage
                 {
                     user = proxyUser.findById(id_user);
                     capital = user.capital - price;
+                    user.capital = capital;
                     proxyUser.updateUser(user);
                     frmVillage.reload(user);
                 }

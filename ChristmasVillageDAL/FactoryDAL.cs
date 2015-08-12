@@ -63,11 +63,11 @@ namespace ChristmasVillageIFAC
             return ((ISingleResult<FactoryBO>)(result.ReturnValue));
         }
 
-        [Function(Name = "[dbo].[Factory.FindLastId]")]
-        public ISingleResult<int> FactoryBO_FindLastId()
+        [Function(Name = "[dbo].[Factory.FindLast]")]
+        public ISingleResult<FactoryBO> FactoryBO_FindLast()
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
-            return ((ISingleResult<int>)(result.ReturnValue));
+            return ((ISingleResult<FactoryBO>)(result.ReturnValue));
         }
     }
 }

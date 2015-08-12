@@ -52,7 +52,7 @@ namespace ChristmasVillage
         {
             try
             {
-                lblCapitalUser.Text = newUser.capital.ToString();
+                lblCapitalUser.Text = user.capital.ToString();
 
                 List<ManageFactoryBO> manageFactoryList;
                 List<FactoryBO> factoryList = new List<FactoryBO>();
@@ -60,7 +60,7 @@ namespace ChristmasVillage
                 using (ManageVillageIFACClient proxyManageVillage = new ManageVillageIFACClient())
                 {
                     manageVillage = new ManageVillageBO();
-                    manageVillage = proxyManageVillage.findVillageByUser(newUser.id_user);
+                    manageVillage = proxyManageVillage.findVillageByUser(user.id_user);
                 }
 
                 using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
@@ -96,12 +96,12 @@ namespace ChristmasVillage
 
                 else if (manageFactoryList.Count > 0)
                 {
-                    foreach (ManageFactoryBO item in manageFactoryList)
+                    foreach (ManageFactoryBO manageFactory in manageFactoryList)
                     {
                         using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
                         {
                             factory = new FactoryBO();
-                            factory = proxyFactory.findFactory(item.id_factory);
+                            factory = proxyFactory.findFactory(manageFactory.id_factory);
                             factoryList.Add(factory);
                         }
                     }
@@ -110,10 +110,14 @@ namespace ChristmasVillage
 
                     int locationNumber = 1;
 
-                    foreach (FactoryBO factory in factoryList)
+                    for (int i = 1; i <= 4; i++)
                     {
-                        if (factory.factory_location == locationNumber)
+                        FactoryBO factory = new FactoryBO();
+
+                        if (factoryList.Any(c => c.factory_location == locationNumber))
                         {
+                            factory = factoryList.Find(fact => fact.factory_location == locationNumber);
+
                             objfrmFactory = new frmFactory(this, factory);
                             objfrmFactory.Parent = this;
                             int position = factory.factory_location;

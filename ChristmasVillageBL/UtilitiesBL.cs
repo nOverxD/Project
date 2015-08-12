@@ -38,22 +38,11 @@ namespace ChristmasVillageBL
             }
         }
 
-        public static string getDate()
-        {
-            DateTime time = new DateTime();
-            return time.ToString("dd/MM/yyyy HH:mm:ss");
-        }
-
         public static int getRandomInt()
         {
             Random random = new Random();
             int number = random.Next(50, 100);
             return number;
-        }
-
-        public static void setTimer()
-        {
-            //bla bla bla bla
         }
     }
 }

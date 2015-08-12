@@ -87,12 +87,13 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static int FindLastId()
+        public static FactoryBO FindLast()
         {
             try
             {
+                FactoryBO result = new FactoryBO();
                 FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                int result = dal.FactoryBO_FindLastId().FirstOrDefault();
+                result = dal.FactoryBO_FindLast().FirstOrDefault();
                 return result;
             }
             catch (Exception)

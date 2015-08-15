@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageBO
 {
+    /*
+     * Classe FactoryType, déclarations variables avec getter et setter et constructeurs
+     */
+
     [DataContract(Namespace = "urn:ChristmasVillageBO.FactoryTypeBO")]
     public class FactoryTypeBO
     {

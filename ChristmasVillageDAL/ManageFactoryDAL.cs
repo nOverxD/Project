@@ -28,7 +28,7 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[ManageFactory.Delete]")]
         public ISingleResult<ManageFactoryBO> ManageFactoryBO_Delete(
-            [Parameter(Name = "@id_own", DbType = "int")] int ManageFactoryId
+            [Parameter(Name = "@id_factory", DbType = "int")] int ManageFactoryId
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), ManageFactoryId);

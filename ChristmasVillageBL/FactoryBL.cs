@@ -10,6 +10,7 @@ namespace ChristmasVillageIFAC
 {
     public class FactoryBL
     {
+        // Méthode Insert Factory
         public static FactoryBO Insert(FactoryBO factory)
         {
             try
@@ -32,6 +33,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode Update Factory
         public static void Update(FactoryBO factory)
         {
             try
@@ -54,6 +56,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode Delete Factory
         public static void Delete(int id_factory)
         {
             try
@@ -68,6 +71,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode retourne la Factory par ID Factory
         public static FactoryBO SearchById(int id_factory)
         {
             try
@@ -87,6 +91,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode qui retourne la dernière Factory créée
         public static FactoryBO FindLast()
         {
             try
@@ -102,6 +107,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode 
         public static bool CheckStatus(FactoryBO factory)
         {
             try

@@ -16,5 +16,8 @@ namespace ChristmasVillageIFAC
 
         [OperationContract]
         List<ManageFactoryBO> findFactoryByVillage(int id_Village);
+
+        [OperationContract]
+        void deleteManageFactory(int id_factory);
     }
 }

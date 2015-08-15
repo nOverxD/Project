@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageBO
 {
+    /*
+     * Classe Village, déclarations variables avec getter et setter et constructeurs
+     */
+
     [DataContract(Namespace = "urn:ChristmasVillageBO.VillageBO")]
     public class VillageBO
     {

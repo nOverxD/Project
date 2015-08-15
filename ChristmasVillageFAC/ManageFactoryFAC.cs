@@ -33,5 +33,17 @@ namespace ChristmasVillageFAC
                 throw;
             }
         }
+
+        public void deleteManageFactory(int id_factory)
+        {
+            try
+            {
+                ManageFactoryBL.Delete(id_factory);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

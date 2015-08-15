@@ -14,6 +14,11 @@ namespace ChristmasVillage
 {
     public partial class frmFactoryAdd : Form
     {
+        /*
+         * Déclaration des variables
+         */
+        private static int MINIMUM_CAPITAL = 500;
+
         private int id_user;
         private int id_village;
         private int position;
@@ -22,6 +27,9 @@ namespace ChristmasVillage
         private List<ManageFactoryBO> manageFactoryList;
         private frmVillage frmVillage;
 
+        /*
+         * Initialisation de la Form FactoryAdd
+         */
         public frmFactoryAdd(frmVillage frmVillage, int id_user, int id_village, int position)
         {
             InitializeComponent();
@@ -31,6 +39,10 @@ namespace ChristmasVillage
             this.position = position;
         }
 
+        /*
+         * Chargement de la Form FactoryAdd
+         * Population de la combobox avec la liste de FactoryType
+         */
         private void frmFactoryAdd_Load(object sender, EventArgs e)
         {
             try
@@ -58,11 +70,17 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Fermeture de la From FactoryAdd
+         */
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        /*
+         * Ajout d'une factory
+         */
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -74,31 +92,54 @@ namespace ChristmasVillage
                 int price = Int32.Parse(lblFactoryPrice.Text);
                 int capital;
 
-                using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
-                {
-                    factory.type = Int32.Parse(cbxFactoryType.SelectedValue.ToString());
-                    factory.factory_location = position;
-                    factory.toy_production_time = DateTime.Now;
-                    factory.status = "false";
-                    proxyFactory.createFactory(factory);
-                    factory = proxyFactory.getLastFactory();
-                }
-
-                using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
-                {
-                    manageFactory.id_village = id_village;
-                    manageFactory.id_factory = factory.id_factory;
-                    proxyManageFactory.createManageFactory(manageFactory);
-                }
-
+                // Récupération de l'user et calcul du capital final
                 using (UserIFACClient proxyUser = new UserIFACClient())
                 {
                     user = proxyUser.findById(id_user);
                     capital = user.capital - price;
-                    user.capital = capital;
-                    proxyUser.updateUser(user);
-                    frmVillage.reload(user);
                 }
+
+                /*
+                 * Si capital calculé plus grand que la capital minimum (500)
+                 * True: Création factory, création lien factory->village, update user
+                 * False: Afficher message "Plus assez d'argent..."
+                 */
+                if (capital > MINIMUM_CAPITAL)
+                {
+                    // Création et récupération factory
+                    using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
+                    {
+                        factory.type = Int32.Parse(cbxFactoryType.SelectedValue.ToString());
+                        factory.factory_location = position;
+                        factory.toy_production_time = DateTime.Now;
+                        factory.status = "false";
+                        proxyFactory.createFactory(factory);
+                        factory = proxyFactory.getLastFactory();
+                    }
+
+                    // Création du lien factory->village
+                    using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
+                    {
+                        manageFactory.id_village = id_village;
+                        manageFactory.id_factory = factory.id_factory;
+                        proxyManageFactory.createManageFactory(manageFactory);
+                    }
+
+                    // Update de l'user et rechargement de la Form Village
+                    using (UserIFACClient proxyUser = new UserIFACClient())
+                    {
+                        user.capital = capital;
+                        proxyUser.updateUser(user);
+                        frmVillage.reload(user);
+                    }
+
+                    MessageBox.Show("Factory successfully created.");
+                }
+                else
+                {
+                    MessageBox.Show("Vous n'avez plus assez d'argent, économisez !");
+                }
+
                 this.Dispose();
             }
             catch (Exception)
@@ -107,6 +148,9 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Permet d'afficher les infos de FactoryType en fonction du choix
+         */
         private void cbxFactoryType_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

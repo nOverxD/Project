@@ -26,12 +26,12 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static void Delete(int id_own)
+        public static void Delete(int id_factory)
         {
             try
             {
                 ManageFactoryDAL dal = new ManageFactoryDAL(CUtil.GetConnexion());
-                dal.ManageFactoryBO_Delete(id_own);
+                dal.ManageFactoryBO_Delete(id_factory);
             }
             catch (Exception)
             {                

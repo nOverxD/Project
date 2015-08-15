@@ -10,15 +10,18 @@ namespace ChristmasVillageIFAC
 {
     public class UserFAC : UserIFAC
     {
+        /*
+         * Déclaration des variables privées locales
+         */
         private UserBO userFAC;
         private String USER_STATUS_OK = "true";
         private String USER_STATUS_NOK = "false";
 
+        // Implémentation méthode createUser Interface User
         public void createUser(UserBO user)
         {
             try
             {
-                user.capital = UtilitiesBL.capitalDefault;
                 user.status = USER_STATUS_NOK;
                 UserBL.Insert(user);
             }
@@ -27,6 +30,8 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
+
+        // Implémentation méthode checkUniqueUsername Interface User
         public bool checkUniqueUsername(UserBO user)
         {
             try
@@ -38,6 +43,8 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
+
+        // Implémentation méthode searchUser Interface User
         public UserBO searchUser(UserBO user)
         {
             try
@@ -52,6 +59,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode findById Interface User
         public UserBO findById(int id_user)
         {
             try
@@ -66,10 +74,18 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode connexion Interface User
         public String connexion(UserBO user)
         {
             try
             {
+                /*
+                 * Retourne un String en fonction de recherche de l'User
+                 * Si null: Retourne "Utilisateur inconnu."
+                 * Si Username et password correspondent: Retourne "Ok"
+                 * Si status user == "true": Retourne "Utilisateur déjà connecté."
+                 * Si username OK, mais pas password: Retourne "Mot de passe erroné"
+                 */
                 userFAC = new UserBO();
                 userFAC = UserBL.SearchByName(user);
                 if (userFAC == null)
@@ -101,6 +117,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode disconnect Interface User
         public void disconnect(UserBO user)
         {
             try
@@ -114,6 +131,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode updateUser Interface User
         public void updateUser(UserBO user)
         {
             try
@@ -126,6 +144,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode checkConnexion Interface User
         public bool checkConnexion()
         {
             try

@@ -10,6 +10,7 @@ namespace ChristmasVillageFAC
 {
     public class ManageVillageFAC : ManageVillageIFAC
     {
+        // Implémentation méthode createManageVillage Interface ManageVillage
         public void createManageVillage(ManageVillageBO village)
         {
             try
@@ -22,6 +23,7 @@ namespace ChristmasVillageFAC
             }
         }
 
+        // Implémentation méthode findVillageByUser Interface ManageVillage
         public ManageVillageBO findVillageByUser(int id_User)
         {
             try

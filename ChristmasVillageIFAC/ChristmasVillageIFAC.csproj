@@ -47,7 +47,6 @@
     <Compile Include="ManageVillageIFAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserIFAC.cs" />
-    <Compile Include="UtilitiesIFAC.cs" />
     <Compile Include="VillageIFAC.cs" />
   </ItemGroup>
   <ItemGroup>

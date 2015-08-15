@@ -10,6 +10,7 @@ namespace ChristmasVillageFAC
 {
     public class FactoryTypeFAC : FactoryTypeIFAC
     {
+        // Implémentation méthode selectAll Interface FactoryType
         public List<ChristmasVillageBO.FactoryTypeBO> selectAll()
         {
             try

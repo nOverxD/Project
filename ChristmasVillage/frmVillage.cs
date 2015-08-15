@@ -52,6 +52,8 @@ namespace ChristmasVillage
         {
             try
             {
+                tableLayoutPanel.Controls.Clear();
+                newUser = user;
                 lblCapitalUser.Text = user.capital.ToString();
 
                 List<ManageFactoryBO> manageFactoryList;

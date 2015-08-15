@@ -83,24 +83,21 @@ namespace ChristmasVillage
         {
             try
             {
-                using (UtilitiesIFACClient proxyUtilities = new UtilitiesIFACClient())
+                if (GameTool.checkCapital(user.capital))
                 {
-                    if (proxyUtilities.checkCapital(user.capital))
+                    using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
                     {
-                        using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
-                        {
-                            proxyManageFactory.deleteManageFactory(factory.id_factory);
-                        }
+                        proxyManageFactory.deleteManageFactory(factory.id_factory);
+                    }
 
-                        using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
-                        {
-                            proxyFactory.deleteFactory(factory.id_factory);
-                        }
-                    }
-                    else
+                    using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
                     {
-                        MessageBox.Show("Votre capital ne permet pas la suppression.");
+                        proxyFactory.deleteFactory(factory.id_factory);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Votre capital ne permet pas la suppression.");
                 }
             }
             catch (Exception)

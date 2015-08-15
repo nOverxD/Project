@@ -10,6 +10,7 @@ namespace ChristmasVillageIFAC
 {
     public class ManageVillageBL
     {
+        // Méthode Insert ManageVillage
         public static void Insert(ManageVillageBO manageVillage)
         {
             try
@@ -26,6 +27,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode qui retourne un ManageVillage en fonction de ID User
         public static ManageVillageBO SearchVillage(int id_user)
         {
             try

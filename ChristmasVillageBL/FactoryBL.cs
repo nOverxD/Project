@@ -71,7 +71,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        // Méthode retourne la Factory par ID Factory
+        // Méthode retourne la Factory en fonction de ID Factory
         public static FactoryBO SearchById(int id_factory)
         {
             try
@@ -107,7 +107,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        // Méthode 
+        // Methode qui retourne un bool en fonctione du status Factory
         public static bool CheckStatus(FactoryBO factory)
         {
             try
@@ -134,67 +134,5 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
-
-        /*
-        public static int productionResult(FactoryBO factory)
-        {
-            try
-            {
-                FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                FactoryBO newFactory = new FactoryBO();
-                newFactory = (FactoryBO)dal.FactoryBO_FindById(factory.id_factory);
-                return newFactory.toy_current_production;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
-
-        public static void ProductToys(FactoryBO factory)
-        {
-            try
-            {
-                FactoryDAL dal = new FactoryDAL(CUtil.GetConnexion());
-                dal.FactoryBO_Update(
-                        factory.id_factory,
-                        factory.type,
-                        factory.factory_stock,
-                        factory.factory_location,
-                        factory.toy_production_time,
-                        factory.toy_current_production,
-                        factory.status
-                        );
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static void SalesProduct(FactoryBO factory)
-        {
-            try
-            {
-                FactoryDAL dalFactory = new FactoryDAL(CUtil.GetConnexion());
-                dalFactory.FactoryBO_Update(
-                        factory.id_factory,
-                        factory.type,
-                        factory.factory_stock,
-                        factory.factory_location,
-                        factory.toy_production_time,
-                        factory.toy_current_production,
-                        factory.status
-                    );
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        */
     }
 }

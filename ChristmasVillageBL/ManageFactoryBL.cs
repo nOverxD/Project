@@ -10,6 +10,7 @@ namespace ChristmasVillageIFAC
 {
     public class ManageFactoryBL
     {
+        // Méthode Insert ManageFactory
         public static void Insert(ManageFactoryBO manageFactory)
         {
             try
@@ -26,6 +27,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode Delete ManageFactory en fonction de ID Factory
         public static void Delete(int id_factory)
         {
             try
@@ -39,6 +41,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode qui retourne une liste de ManageFactory en fonction de ID Village
         public static List<ManageFactoryBO> SearchFactories(int id_village)
         {
             try

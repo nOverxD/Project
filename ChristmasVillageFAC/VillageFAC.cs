@@ -10,11 +10,11 @@ namespace ChristmasVillageIFAC
 {
     public class VillageFAC : VillageIFAC
     {
+        // Implémentation méthode createVillage Interface Village
         public void createVillage(VillageBO village)
         {
             try
             {
-                village.location = UtilitiesBL.locationDefault;
                 VillageBL.Insert(village);
             }
             catch (Exception)
@@ -23,6 +23,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode updateLocation Interface Village
         public void updateLocation(VillageBO village)
         {
             try
@@ -35,7 +36,8 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public VillageBO findVillage (string villageName)
+        // Implémentation méthode findVillage Interface Village
+        public VillageBO findVillage(string villageName)
         {
             try
             {

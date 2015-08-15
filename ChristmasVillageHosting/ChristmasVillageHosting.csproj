@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChristmasVillageBL\ChristmasVillageBL.csproj">
+      <Project>{165da0c7-a078-49db-88d3-4ed0894505e9}</Project>
+      <Name>ChristmasVillageBL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChristmasVillageBO\ChristmasVillageBO.csproj">
       <Project>{8f382c76-c724-471d-9ebf-aa8ea1942cd1}</Project>
       <Name>ChristmasVillageBO</Name>

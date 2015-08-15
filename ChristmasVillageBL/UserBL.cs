@@ -10,6 +10,7 @@ namespace ChristmasVillageIFAC
 {
     public class UserBL
     {
+        // Méthode Insert User
         public static void Insert(UserBO user)
         {
             try
@@ -30,6 +31,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode Update User
         public static void Update(UserBO user)
         {
             try
@@ -51,6 +53,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode retourne l' User en fonction de ID User
         public static UserBO SearchById(int id_user)
         {
             try
@@ -69,6 +72,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Méthode retourne l' User en fonction de Username
         public static UserBO SearchByName(UserBO user)
         {
             try
@@ -87,7 +91,8 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        public static Boolean checkUniqueUsername(UserBO user)
+        // Methode qui retourne un bool si l'username est déjà connu dans la database
+        public static bool checkUniqueUsername(UserBO user)
         {
             try
             {
@@ -106,6 +111,20 @@ namespace ChristmasVillageIFAC
             }
             catch (Exception)
             {                
+                throw;
+            }
+        }
+
+        // Méthode qui update le status de tous les user à False
+        public static void closeAllAccount()
+        {
+            try
+            {
+                UserDAL dal = new UserDAL(CUtil.GetConnexion());
+                dal.UserBO_CloseAll();
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }

@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChristmasVillageBL
+namespace ChristmasVillage
 {
-    public class UtilitiesBL
+    public class GameTool
     {
         public static string villageName = "ChristmasVillage";
-        public static int locationDefault = 4;
         public static int capitalDefault = 2000;
         public static int minimumCapital = 1075;
-        public static int locationMin = 0;
 
         public static bool checkCapital(int userCapital)
         {
@@ -26,23 +24,16 @@ namespace ChristmasVillageBL
             };
         }
 
-        public static bool checkEmptyLocation(int locations)
-        {
-            if (locations > locationMin)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static int getRandomInt()
+        public int getRandomInt()
         {
             Random random = new Random();
             int number = random.Next(50, 100);
             return number;
+        }
+
+        public DateTime getDate()
+        {
+            return DateTime.Now;
         }
     }
 }

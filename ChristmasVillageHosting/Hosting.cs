@@ -1,4 +1,5 @@
-﻿using ChristmasVillageFAC;
+﻿using ChristmasVillageBL;
+using ChristmasVillageFAC;
 using ChristmasVillageIFAC;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,6 @@ namespace ChristmasVillageHosting
         internal static ServiceHost ServiceManageFactory = null;
         internal static ServiceHost ServiceManageVillage = null;
         internal static ServiceHost ServiceUser = null;
-        internal static ServiceHost ServiceUtilities = null;
         internal static ServiceHost ServiceVillage = null;
 
         public void StartServer()
@@ -41,10 +41,6 @@ namespace ChristmasVillageHosting
             ServiceUser.Open();
             Console.WriteLine("Service : User Started ");
 
-            ServiceUtilities = new ServiceHost(typeof(UtilitiesFAC));
-            ServiceUtilities.Open();
-            Console.WriteLine("Service : Utilities Started ");
-
             ServiceVillage = new ServiceHost(typeof(VillageFAC));
             ServiceVillage.Open();
             Console.WriteLine("Service : Village Started ");
@@ -52,6 +48,7 @@ namespace ChristmasVillageHosting
 
         public void StopServer()
         {
+            UserBL.closeAllAccount();
             if (ServiceFactory != null && ServiceFactory.State != CommunicationState.Closed)
                 ServiceFactory.Close();
             else if (ServiceFactoryType != null && ServiceFactoryType.State != CommunicationState.Closed)
@@ -62,8 +59,6 @@ namespace ChristmasVillageHosting
                 ServiceManageVillage.Close();
             else if (ServiceUser != null && ServiceUser.State != CommunicationState.Closed)
                 ServiceUser.Close();
-            else if (ServiceUtilities != null && ServiceUtilities.State != CommunicationState.Closed)
-                ServiceUtilities.Close();
             else if (ServiceVillage != null && ServiceVillage.State != CommunicationState.Closed)
                 ServiceVillage.Close();
         }

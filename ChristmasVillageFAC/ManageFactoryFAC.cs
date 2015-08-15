@@ -10,6 +10,7 @@ namespace ChristmasVillageFAC
 {
     public class ManageFactoryFAC : ManageFactoryIFAC
     {
+        // Implémentation méthode createManageFactory Interface ManageFactory
         public void createManageFactory(ManageFactoryBO village)
         {
             try
@@ -22,6 +23,7 @@ namespace ChristmasVillageFAC
             }
         }
 
+        // Implémentation méthode findFactoryByVillage Interface ManageFactory
         public List<ManageFactoryBO> findFactoryByVillage(int id_Village)
         {
             try
@@ -34,6 +36,7 @@ namespace ChristmasVillageFAC
             }
         }
 
+        // Implémentation méthode deleteManageFactory Interface ManageFactory
         public void deleteManageFactory(int id_factory)
         {
             try

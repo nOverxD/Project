@@ -46,7 +46,6 @@
     <Compile Include="ManageVillageFAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserFAC.cs" />
-    <Compile Include="UtilitiesFAC.cs" />
     <Compile Include="VillageFAC.cs" />
   </ItemGroup>
   <ItemGroup>

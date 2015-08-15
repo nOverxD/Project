@@ -10,6 +10,7 @@ namespace ChristmasVillageBL
 {
     public class FactoryTypeBL
     {
+        // Méthode qui retourne la liste des FactoryType
         public static List<FactoryTypeBO> selectAll ()
         {
             try
@@ -25,6 +26,7 @@ namespace ChristmasVillageBL
             }
         }
 
+        // Méthode qui retourne un FactoryType en fonction de ID FactoryType
         public static FactoryTypeBO FindById(int factoryTypeId)
         {
             try

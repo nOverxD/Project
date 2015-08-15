@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageDAL
 {
+    /*
+     * FactoryType : Déclaration des statements (stored procédures Database)
+     */
+
     public class FactoryTypeDAL : DataContext
     {
         private static MappingSource mappingSource = new AttributeMappingSource();

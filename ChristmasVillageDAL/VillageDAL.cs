@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageIFAC
 {
+    /*
+     * Village : Déclaration des statements (stored procédures Database)
+     */
+
     public class VillageDAL : DataContext
     {
         private static MappingSource mappingSource = new AttributeMappingSource();

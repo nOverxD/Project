@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageIFAC
 {
+    /*
+     * User : Déclaration des statements (stored procédures Database)
+     */
+
     public class UserDAL : DataContext
     {
         private static MappingSource mappingSource = new AttributeMappingSource();
@@ -60,6 +64,13 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@name", DbType = "varchar(20)")] string Username)
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), Username);
+            return ((ISingleResult<UserBO>)(result.ReturnValue));
+        }
+
+        [Function(Name = "[dbo].[User.CloseAll]")]
+        public ISingleResult<UserBO> UserBO_CloseAll()
+        {
+            var result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
             return ((ISingleResult<UserBO>)(result.ReturnValue));
         }
     }

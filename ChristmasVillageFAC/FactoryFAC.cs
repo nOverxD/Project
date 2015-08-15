@@ -10,6 +10,7 @@ namespace ChristmasVillageIFAC
 {
     public class FactoryFAC : FactoryIFAC
     {
+        // Implémentation méthode createFactory Interface Factory
         public void createFactory(FactoryBO factory)
         {
             try
@@ -22,6 +23,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode getLastFactory Interface Factory
         public FactoryBO getLastFactory()
         {
             try
@@ -34,6 +36,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode deleteFactory Interface Factory
         public void deleteFactory(int id_Factory)
         {
             try
@@ -46,6 +49,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode findFactory Interface Factory
         public FactoryBO findFactory(int id_factory)
         {
             try
@@ -58,18 +62,21 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode productToys Interface Factory
         public void productToys(FactoryBO factory, UserBO user)
         {
             try
             {
+                // Recherche FactoryType en fonction de Factory
                 FactoryTypeBO factoryType = new FactoryTypeBO();
                 factoryType = FactoryTypeBL.FindById(factory.type);
 
+                // Update du capital en fonction des info FactoryType
                 int newCapital = user.capital - factoryType.toy_production_price;
                 user.capital = newCapital;
                 UserBL.Update(user);
 
-                factory.toy_current_production = UtilitiesBL.getRandomInt();
+                // Update du status Factory
                 factory.status = "true";
                 FactoryBL.Update(factory);
             }
@@ -79,17 +86,21 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode salesProduct Interface Factory
         public void salesProduct(FactoryBO factory, UserBO user)
         {
             try
             {
+                // Recherche FactoryType en fonction de Factory
                 FactoryTypeBO factoryType = new FactoryTypeBO();
                 factoryType = FactoryTypeBL.FindById(factory.type);
 
+                // Update du capital en fonction des info FactoryType et du stock
                 int newCapital = user.capital + factory.factory_stock * factoryType.toy_sales_prices;
                 user.capital = newCapital;
                 UserBL.Update(user);
 
+                // Remise à zéro du stock
                 factory.factory_stock = 0;
                 FactoryBL.Update(factory);
             }
@@ -99,6 +110,7 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode checkStatus Interface Factory
         public bool checkStatus(FactoryBO factory)
         {
             try
@@ -110,19 +122,5 @@ namespace ChristmasVillageIFAC
                 throw;
             }
         }
-
-        /*
-        public int productionResult(FactoryBO factory)
-        {
-            try
-            {
-                return FactoryBL.productionResult(factory);
-            }
-            catch (Exception)
-            {                
-                throw;
-            }
-        }
-        */
     }
 }

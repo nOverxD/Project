@@ -97,8 +97,8 @@
     <Compile Include="Proxies\ManageFactoryIFAC.cs" />
     <Compile Include="Proxies\ManageVillageIFAC.cs" />
     <Compile Include="Proxies\UserIFAC.cs" />
-    <Compile Include="Proxies\UtilitiesIFAC.cs" />
     <Compile Include="Proxies\VillageIFAC.cs" />
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>

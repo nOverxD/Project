@@ -29,14 +29,6 @@ namespace ChristmasVillage
         /// <param name="max">100</param>
         /// <param name="includeNegatives"></param>
         /// <returns></returns>
-        public static int RandomRange(int min, int max, bool includeNegatives = false)
-        {
-            if (min >= max) throw new Exception("min can't be greater than max");
-            Random rdm = new Random();
-            int num = 0;
-            while (num < min) num = rdm.Next(max + 1);
-            return num * (rdm.Next() % 2 == 0 ? -1 : 1);
-        }
         private void frmFactoryManage_Load(object sender, EventArgs e)
         {
             //lblNameofToys.txt = Receives the name of Toys 
@@ -44,8 +36,9 @@ namespace ChristmasVillage
         }
         private void cbxTimeProduction_SelectedValueChanged(object sender, EventArgs e)
         {
+            Random random = new Random();
             tbxPriceToys.Text = "75";
-            tbxNbrProduction.Text = (RandomRange(50, 100)).ToString();
+            tbxNbrProduction.Text = (random.Next(50, 100)).ToString();
         }
         /// <summary>
         /// Function button start production of Toys

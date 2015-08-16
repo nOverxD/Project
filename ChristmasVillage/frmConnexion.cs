@@ -12,22 +12,37 @@ using System.Windows.Forms;
 
 namespace ChristmasVillage
 {
+    /// <summary>
+    /// Gestion de la connexion à l'application
+    /// </summary>
     public partial class frmConnexion : Form
     {
+        /// <summary>
+        /// Déclaration des variables
+        /// </summary>
         private UserBO user;
         private frmWelcome objfrmWelcome;
 
+        /// <summary>
+        /// Creation et initalisation des composants de la fenêtre Connexion
+        /// </summary>
+        /// <param name="objfrmWelcome"></param>
         public frmConnexion(frmWelcome objfrmWelcome)
         {
             InitializeComponent();
             this.objfrmWelcome = objfrmWelcome;
             tbxPassword.PasswordChar = '*';
         }
-
+        /// <summary>
+        /// Function pour le bouton de Connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             try
             {
+                //Vérification si les champs sont remplis correctement
                 if (!string.IsNullOrWhiteSpace(tbxUsername.Text) && !string.IsNullOrWhiteSpace(tbxPassword.Text))
                 {
                     using (UserIFACClient proxy = new UserIFACClient())
@@ -48,6 +63,7 @@ namespace ChristmasVillage
 
                             this.Dispose();
                             MessageBox.Show("Welcome back " + newUser.username + " !");
+                            
                         }
                         else
                         {
@@ -69,12 +85,14 @@ namespace ChristmasVillage
                 throw;
             }
         }
-
+        /// <summary>
+        /// Function pour le bouton d'inscription
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubscribe_Click(object sender, EventArgs e)
         {
             frmSubscribe objfrmSubscribe = new frmSubscribe(objfrmWelcome);
-            //objfrmSubscribe.MdiParent = this;
-            //objfrmSubscribe.WindowState = FormWindowState.Maximized;
             objfrmSubscribe.ShowDialog();
         }
     }

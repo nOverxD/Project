@@ -97,7 +97,7 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.lblFactory);
             this.Name = "frmFactory";
-            this.Size = new System.Drawing.Size(190, 196);
+            this.Size = new System.Drawing.Size(193, 203);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

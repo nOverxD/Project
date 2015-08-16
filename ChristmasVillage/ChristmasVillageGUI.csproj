@@ -108,6 +108,9 @@
     <EmbeddedResource Include="frmFactoryAdd.resx">
       <DependentUpon>frmFactoryAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFactoryManage.resx">
+      <DependentUpon>frmFactoryManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSubscribe.resx">
       <DependentUpon>frmSubscribe.cs</DependentUpon>
     </EmbeddedResource>

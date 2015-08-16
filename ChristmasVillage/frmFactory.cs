@@ -16,11 +16,17 @@ namespace ChristmasVillage
 {
     public partial class frmFactory : UserControl
     {
+        /*
+         * Déclaration des variables
+         */
         private FactoryBO factory;
         private UserBO user;
         private frmVillage frmVillage;
         private int position;
 
+        /* 
+         * Initialisation de la Form frmFactory avec position en paramètre
+         */
         public frmFactory(frmVillage frmVillage, int position)
         {
             InitializeComponent();
@@ -36,6 +42,9 @@ namespace ChristmasVillage
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
+        /*
+         * Initialisation de la Form frmFactory avec Factory en paramètre
+         */
         public frmFactory(frmVillage frmVillage, FactoryBO factory)
         {
             InitializeComponent();
@@ -50,6 +59,9 @@ namespace ChristmasVillage
             //pictureBox.ImageLocation = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"\Img\Factory.png");
         }
 
+        /*
+         * Affichage de la Form frmFactoryAdd avec paramètres ID Village et ID User
+         */
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -66,6 +78,9 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Affichage de la Form frmFactoryManage avec paramètres User et Factory
+         */
         private void btnManage_Click(object sender, EventArgs e)
         {
             try
@@ -79,17 +94,26 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Suppression de la Factory
+         */
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
+                /*
+                 * Si capital > capitalMinimum -> suppression
+                 * Sinon: Message "Votre capital ne permet pas la suppression."
+                 */
                 if (GameTool.checkCapital(user.capital))
                 {
+                    // Suppression du lien Factory -> Village
                     using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
                     {
                         proxyManageFactory.deleteManageFactory(factory.id_factory);
                     }
 
+                    // Suppression de la Factory
                     using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
                     {
                         proxyFactory.deleteFactory(factory.id_factory);

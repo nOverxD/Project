@@ -18,6 +18,9 @@ namespace ChristmasVillage
 
         frmWelcome objfrmWelcome;
 
+        /*
+         * Permet de désactiver le bouton close de la Form frmWelcome
+         */
         protected override CreateParams CreateParams
         {
             get
@@ -28,6 +31,9 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Initialisation de la From frmWelcome
+         */
         public frmWelcome()
         {
             InitializeComponent();
@@ -35,6 +41,9 @@ namespace ChristmasVillage
             deconnectMenuItem.Visible = false;
         }
 
+        /*
+         * Chargement de la Form frmWelcome
+         */
         private void frmWelcome_Load(object sender, EventArgs e)
         {
             frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
@@ -43,6 +52,9 @@ namespace ChristmasVillage
             objfrmConnexion.Show();
         }
 
+        /*
+         * Ouverture de la Form frmConnexion lors du clic sur "connexion"
+         */
         private void connexionMenuItem_Click(object sender, EventArgs e)
         {
             frmConnexion objfrmConnexion = new frmConnexion(objfrmWelcome);
@@ -51,6 +63,9 @@ namespace ChristmasVillage
             objfrmConnexion.Show();
         }
 
+        /*
+         * Deconnection du compte User
+         */
         private void deconnectMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -77,6 +92,9 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Fermeture de la Form frmWelcome
+         */
         private void quitMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();

@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillageIFAC
 {
+    /*
+     * Déclaration Interface des méthode pour Village
+     */
+
     [ServiceContract(Namespace = "urn:ChristmasVillageIFAC/VillageIFAC")]
     public interface VillageIFAC
     {

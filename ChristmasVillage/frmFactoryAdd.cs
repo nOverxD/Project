@@ -24,7 +24,7 @@ namespace ChristmasVillage
         private int position;
         private FactoryTypeBO factoryType;
         private List<FactoryTypeBO> factoryTypeList;
-        private List<ManageFactoryBO> manageFactoryList;
+        //private List<ManageFactoryBO> manageFactoryList;
         private frmVillage frmVillage;
 
         /*
@@ -57,12 +57,12 @@ namespace ChristmasVillage
                     cbxFactoryType.Text = " - Choose - ";
                 }
 
-                manageFactoryList = new List<ManageFactoryBO>();
-                using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
-                {
-                    manageFactoryList = new List<ManageFactoryBO>();
-                    manageFactoryList = proxyManageFactory.findFactoryByVillage(id_village);
-                }
+                //manageFactoryList = new List<ManageFactoryBO>();
+                //using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
+                //{
+                //    manageFactoryList = new List<ManageFactoryBO>();
+                //    manageFactoryList = proxyManageFactory.findFactoryByVillage(id_village);
+                //}
             }
             catch (Exception)
             {

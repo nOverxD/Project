@@ -73,7 +73,7 @@ namespace ChristmasVillage
                 using (UserIFACClient proxyUser = new UserIFACClient())
                 {
                     newUser = proxyUser.findById(user.id_user);
-                    lblCapitalUser.Text = user.capital.ToString();
+                    lblCapitalUser.Text = newUser.capital.ToString();
                 }
 
                 List<ManageFactoryBO> manageFactoryList;

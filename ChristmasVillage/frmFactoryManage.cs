@@ -47,12 +47,14 @@ namespace ChristmasVillage
                 // Update status Factory si la date de prod + 1 heure est passée ou pas
                 using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
                 {
+                    factory = proxyFactory.findFactory(factory.id_factory);
+
                     if (proxyFactory.checkStatus(factory))
                     {
                         DateTime timeNow = Utilities.getDate();
                         DateTime timeProd = (DateTime)factory.toy_production_time;
                         DateTime timeProd1Hours = timeProd.AddHours(1);
-                        if (Utilities.compareDate(timeProd, timeNow))
+                        if (Utilities.compareDate(timeProd1Hours, timeNow))
                         {
                             btnProduct.Enabled = false;
                             btnProduct.Text = STATUS_PRODUCTION;

@@ -1,4 +1,5 @@
 ﻿using ChristmasVillageBO;
+using ChristmasVillageGUI.Proxies;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,54 +14,87 @@ namespace ChristmasVillage
 {
     public partial class frmFactoryManage : Form
     {
-        private ChristmasVillageBO.FactoryBO factory;
-        private ChristmasVillageBO.UserBO user;
+        /*
+         * Déclarations des variables
+         */
+        private static String STATUS_OK = "false";
+        private static String STATUS_NOK = "true";
 
+        private FactoryBO factory;
+        private UserBO user;
+        private FactoryTypeBO factoryType;
+        private List<FactoryTypeBO> listFactoryType;
+
+        /*
+         * Initialisation de la Form frmFactoryManage
+         */
         public frmFactoryManage(UserBO user, FactoryBO factory)
         {
             InitializeComponent();
             this.user = user;
             this.factory = factory;
         }
-        /// <summary>
-        /// Function to choose a number between min and max 
-        /// </summary>
-        /// <param name="min">50</param>
-        /// <param name="max">100</param>
-        /// <param name="includeNegatives"></param>
-        /// <returns></returns>
-        public static int RandomRange(int min, int max, bool includeNegatives = false)
-        {
-            if (min >= max) throw new Exception("min can't be greater than max");
-            Random rdm = new Random();
-            int num = 0;
-            while (num < min) num = rdm.Next(max + 1);
-            return num * (rdm.Next() % 2 == 0 ? -1 : 1);
-        }
+
+        /*
+         * Chargement de la Form frmFactoryManage
+         */
         private void frmFactoryManage_Load(object sender, EventArgs e)
         {
-            //lblNameofToys.txt = Receives the name of Toys 
-            
+            try
+            {
+                // Update status Factory si la date de prod + 1 heure est passée ou pas
+                using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
+                {
+                    DateTime timeNow = Utilities.getDate();
+                    factory = proxyFactory.findFactory(factory.id_factory);
+                    DateTime timeProd = (DateTime)factory.toy_production_time.Value.AddHours(1);
+                    if(Utilities.compareDate(timeNow, timeProd))
+                    {
+                        factory.status = STATUS_OK;
+                    }
+                    else
+                    {
+                        factory.status = STATUS_NOK;
+                    }
+                }
+                using (FactoryTypeIFACClient proxyFactoryType = new FactoryTypeIFACClient())
+                {
+                    listFactoryType = new List<FactoryTypeBO>();
+                    listFactoryType = proxyFactoryType.selectAll();
+
+                    factoryType = listFactoryType.Find(type => type.id_factory_type == factory.type);
+                    lblNameofToys.Text = factoryType.name;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
-        private void cbxTimeProduction_SelectedValueChanged(object sender, EventArgs e)
-        {
-            tbxPriceToys.Text = "75";
-            tbxNbrProduction.Text = (RandomRange(50, 100)).ToString();
-        }
-        /// <summary>
-        /// Function button start production of Toys
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+        /*
+         * Permet de lancer la production de Toys d'une Factory
+         */
         private void btnProductionToys_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
+                {
+                    factory.toy_production_time = Utilities.getDate();
+                    factory.toy_current_production = Utilities.getRandomInt();
+                    proxyFactory.productToys(factory, user);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
-        /// <summary>
-        /// Function button pour n'appliquer aucun update
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+        /*
+         * Fermeture de la From frmFactoryManage
+         */
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();

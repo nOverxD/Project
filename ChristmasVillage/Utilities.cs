@@ -10,7 +10,7 @@ namespace ChristmasVillage
     {
         public static string villageName = "ChristmasVillage";
         public static int capitalDefault = 2000;
-        public static int minimumCapital = 1075;
+        public static int minimumCapital = 500;
 
         public static bool checkCapital(int userCapital)
         {

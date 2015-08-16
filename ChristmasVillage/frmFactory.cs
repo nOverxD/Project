@@ -105,7 +105,7 @@ namespace ChristmasVillage
                  * Si capital > capitalMinimum -> suppression
                  * Sinon: Message "Votre capital ne permet pas la suppression."
                  */
-                if (GameTool.checkCapital(user.capital))
+                if (Utilities.checkCapital(user.capital))
                 {
                     // Suppression du lien Factory -> Village
                     using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())

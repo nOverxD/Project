@@ -17,8 +17,6 @@ namespace ChristmasVillage
         /*
          * Déclaration des variables
          */
-        private static int MINIMUM_CAPITAL = 500;
-
         private int id_user;
         private int id_village;
         private int position;
@@ -96,7 +94,7 @@ namespace ChristmasVillage
                  * True: Création factory, création lien factory->village, update user
                  * False: Afficher message "Plus assez d'argent..."
                  */
-                if (capital > MINIMUM_CAPITAL)
+                if (Utilities.checkCapital(capital))
                 {
                     // Création et récupération factory
                     using (FactoryIFACClient proxyFactory = new FactoryIFACClient())

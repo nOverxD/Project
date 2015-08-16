@@ -24,16 +24,33 @@ namespace ChristmasVillage
             };
         }
 
-        public int getRandomInt()
+        public static int getRandomInt()
         {
             Random random = new Random();
             int number = random.Next(50, 100);
             return number;
         }
 
-        public DateTime getDate()
+        public static DateTime getDate()
         {
             return DateTime.Now;
+        }
+
+        public static bool compareDate(DateTime date1, DateTime date2)
+        {
+            int result = DateTime.Compare(date1, date2);
+            if (result == 0)
+            {
+                return true;
+            }
+            else if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

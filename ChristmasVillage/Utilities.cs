@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChristmasVillage
 {
-    public class GameTool
+    public class Utilities
     {
         public static string villageName = "ChristmasVillage";
         public static int capitalDefault = 2000;

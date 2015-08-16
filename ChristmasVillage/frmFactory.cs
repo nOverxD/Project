@@ -83,7 +83,7 @@ namespace ChristmasVillage
         {
             try
             {
-                if (GameTool.checkCapital(user.capital))
+                if (Utilities.checkCapital(user.capital))
                 {
                     using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
                     {

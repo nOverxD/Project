@@ -36,7 +36,7 @@ namespace ChristmasVillage
                         user.username = tbxUsername.Text;
                         user.password = tbxPassword.Text;
                         user.email = tbxEmail.Text;
-                        user.capital = GameTool.capitalDefault;
+                        user.capital = Utilities.capitalDefault;
 
                         if (proxyUser.checkUniqueUsername(user))
                         {

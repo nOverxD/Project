@@ -19,7 +19,7 @@ namespace ChristmasVillage
          */
         private const int CP_NOCLOSE_BUTTON = 0x200;
 
-        public UserBO newUser;
+        public UserBO user;
         public frmFactory objfrmFactory;
         public ManageVillageBO manageVillage;
         public FactoryBO factory;
@@ -44,7 +44,7 @@ namespace ChristmasVillage
         public frmVillage(UserBO newUser, frmWelcome objfrmWelcome)
         {
             InitializeComponent();
-            this.newUser = newUser;
+            this.user = newUser;
             this.objfrmWelcome = objfrmWelcome;
 
             objfrmWelcome.deconnectMenuItem.Visible = true;
@@ -57,7 +57,7 @@ namespace ChristmasVillage
          */
         private void frmVillage_Load(object sender, EventArgs e)
         {
-            reload(newUser);
+            reload(user);
         }
 
         /*
@@ -72,8 +72,8 @@ namespace ChristmasVillage
                 // Récupère User en fonction de ID User
                 using (UserIFACClient proxyUser = new UserIFACClient())
                 {
-                    newUser = proxyUser.findById(user.id_user);
-                    lblCapitalUser.Text = newUser.capital.ToString();
+                    user = proxyUser.findById(user.id_user);
+                    lblCapitalUser.Text = user.capital.ToString();
                 }
 
                 List<ManageFactoryBO> manageFactoryList;

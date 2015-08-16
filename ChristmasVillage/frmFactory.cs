@@ -38,7 +38,7 @@ namespace ChristmasVillage
             lblFactory.Visible = false;
 
             pictureBox.ImageLocation = @"C:\Users\nOverxD\Source\Repos\Project\ChristmasVillage\Img\ForSale.png";
-            //pictureBox.ImageLocation = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"\Img\ForSale.png");
+            //pictureBox.ImageLocation = Image.FromFile(@"\Img\Factory.png").ToString();
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -50,7 +50,7 @@ namespace ChristmasVillage
             InitializeComponent();
             this.frmVillage = frmVillage;
             this.factory = factory;
-            user = frmVillage.newUser;
+            user = frmVillage.user;
 
             btnAdd.Visible = false;
 

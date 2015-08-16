@@ -49,12 +49,18 @@ namespace ChristmasVillage
                 {
                     factory = proxyFactory.findFactory(factory.id_factory);
 
+
+                    /*
+                     * Check le status de Factory
+                     * Si true: Vérifie que la date de production est passée -> oui: factory_stock = toy_current_production, toy_current_production = 0 et status updaté + affichage Jouets produits
+                     *                                                       -> non: les boutons Launch Production et Sale Stock sont bloqués
+                     * Sinon: ne fait rien
+                     */
                     if (proxyFactory.checkStatus(factory))
                     {
                         DateTime timeNow = Utilities.getDate();
                         DateTime timeProd = (DateTime)factory.toy_production_time;
-                        DateTime timeProd1Hours = timeProd.AddHours(1);
-                        if (Utilities.compareDate(timeProd1Hours, timeNow))
+                        if (Utilities.compareDate(timeProd, timeNow))
                         {
                             btnProduct.Enabled = false;
                             btnProduct.Text = STATUS_PRODUCTION;
@@ -68,10 +74,12 @@ namespace ChristmasVillage
                             factory.toy_current_production = 0;
                             factory.status = STATUS_OK;
                             proxyFactory.updateFactory(factory);
-                            MessageBox.Show("Votre usine à produit " + production_result + " jouets.");
+                            MessageBox.Show("Votre usine a produit " + production_result + " jouets.");
                         }
                     }
                 }
+
+                // Affiche les informations: Nom Jouets, Prix Production, Stock et Prix Vente
                 using (FactoryTypeIFACClient proxyFactoryType = new FactoryTypeIFACClient())
                 {
                     listFactoryType = new List<FactoryTypeBO>();
@@ -101,7 +109,10 @@ namespace ChristmasVillage
                 {
                     using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
                     {
-                        factory.toy_production_time = Utilities.getDate();
+                        // Date actuelle + 1 heure
+                        DateTime now = Utilities.getDate();
+                        DateTime now1Hours = now.AddHours(Utilities.productionTime);
+                        factory.toy_production_time = now1Hours;
                         factory.toy_current_production = Utilities.getRandomInt();
                         proxyFactory.productToys(factory, user);
                     }
@@ -120,10 +131,17 @@ namespace ChristmasVillage
          */
         private void btnSale_Click(object sender, EventArgs e)
         {
+            /*
+             * Vérifier que stock est plus grand que 0
+             * Si oui: Affiche "Votre profit est de: prix"
+             * Sinon: Affiche "Votres stock est vide !"
+             */
+
             if (factory.factory_stock != 0)
             {
                 try
                 {
+                    // Calcul du prix de vente
                     int sales = factory.factory_stock * factoryType.toy_sales_prices;
                     using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
                     {

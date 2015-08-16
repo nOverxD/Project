@@ -32,7 +32,7 @@ namespace ChristmasVillage
         }
 
         /*
-         * Initialisation de la From frmWelcome
+         * Initialisation de la Form frmWelcome
          */
         public frmWelcome()
         {
@@ -53,7 +53,7 @@ namespace ChristmasVillage
         }
 
         /*
-         * Ouverture de la Form frmConnexion lors du clic sur "connexion"
+         * Afficheage de la Form frmConnexion avec paramètre frmWelcome
          */
         private void connexionMenuItem_Click(object sender, EventArgs e)
         {
@@ -74,7 +74,7 @@ namespace ChristmasVillage
                 frmVillage objfrmVillage = (frmVillage)activeChild;
 
                 UserBO user = new UserBO();
-                user = objfrmVillage.newUser;
+                user = objfrmVillage.user;
 
                 using (UserIFACClient proxy = new UserIFACClient())
                 {

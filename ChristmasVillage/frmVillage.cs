@@ -14,6 +14,9 @@ namespace ChristmasVillage
 {
     public partial class frmVillage : Form
     {
+        /*
+         * Déclaration des variables
+         */
         private const int CP_NOCLOSE_BUTTON = 0x200;
 
         public UserBO newUser;
@@ -22,6 +25,9 @@ namespace ChristmasVillage
         public FactoryBO factory;
         private frmWelcome objfrmWelcome;
 
+        /*
+         * Permet de désactiver le bouton close de la Form frmVillage
+         */
         protected override CreateParams CreateParams
         {
             get
@@ -32,6 +38,9 @@ namespace ChristmasVillage
             }
         }
 
+        /*
+         * Initialisation de la Form frmVillage
+         */
         public frmVillage(UserBO newUser, frmWelcome objfrmWelcome)
         {
             InitializeComponent();
@@ -43,11 +52,17 @@ namespace ChristmasVillage
             objfrmWelcome.quitMenuItem.Visible = false;
         }
 
+        /*
+         * Chargement de la Form frmVillage
+         */
         private void frmVillage_Load(object sender, EventArgs e)
         {
             reload(newUser);
         }
 
+        /*
+         * Permet de re-charger la Form frmVillage
+         */
         public void reload(UserBO user)
         {
             try
@@ -59,18 +74,21 @@ namespace ChristmasVillage
                 List<ManageFactoryBO> manageFactoryList;
                 List<FactoryBO> factoryList = new List<FactoryBO>();
 
+                // Récupère ManageVillage en fonction de ID User
                 using (ManageVillageIFACClient proxyManageVillage = new ManageVillageIFACClient())
                 {
                     manageVillage = new ManageVillageBO();
                     manageVillage = proxyManageVillage.findVillageByUser(user.id_user);
                 }
 
+                // Récupère la liste des Factory en fonction de ID Village
                 using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
                 {
                     manageFactoryList = new List<ManageFactoryBO>();
                     manageFactoryList = proxyManageFactory.findFactoryByVillage(manageVillage.id_village);
                 }
 
+                // Si liste vide crée les UsersControls frmFactory
                 if (manageFactoryList.Count == 0)
                 {
                     for (int i = 1; i <= 4; i++)
@@ -96,8 +114,10 @@ namespace ChristmasVillage
                     }
                 }
 
+                // Si liste non vide
                 else if (manageFactoryList.Count > 0)
                 {
+                    // Récupération des Factory en fonction de ID Factory
                     foreach (ManageFactoryBO manageFactory in manageFactoryList)
                     {
                         using (FactoryIFACClient proxyFactory = new FactoryIFACClient())
@@ -116,6 +136,7 @@ namespace ChristmasVillage
                     {
                         FactoryBO factory = new FactoryBO();
 
+                        // Si Factory_location == position en traitement création de frmFactory avec Factory en paramètre
                         if (factoryList.Any(c => c.factory_location == locationNumber))
                         {
                             factory = factoryList.Find(fact => fact.factory_location == locationNumber);
@@ -139,6 +160,8 @@ namespace ChristmasVillage
                                     break;
                             }
                         }
+
+                        // Sinon création de frmFactory avec locationNumber en paramètre
                         else
                         {
                             objfrmFactory = new frmFactory(this, locationNumber);

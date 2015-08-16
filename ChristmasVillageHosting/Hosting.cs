@@ -12,6 +12,7 @@ namespace ChristmasVillageHosting
 {
     public class Hosting
     {
+        // Déclaration des différents services
         internal static ServiceHost ServiceFactory = null;
         internal static ServiceHost ServiceFactoryType = null;
         internal static ServiceHost ServiceManageFactory = null;
@@ -19,6 +20,7 @@ namespace ChristmasVillageHosting
         internal static ServiceHost ServiceUser = null;
         internal static ServiceHost ServiceVillage = null;
 
+        // Démarrage des services
         public void StartServer()
         {
             ServiceFactory = new ServiceHost(typeof(FactoryFAC));
@@ -46,6 +48,7 @@ namespace ChristmasVillageHosting
             Console.WriteLine("Service : Village Started ");
         }
 
+        // Fermeture des services et des comptes User ouverts
         public void StopServer()
         {
             UserBL.closeAllAccount();

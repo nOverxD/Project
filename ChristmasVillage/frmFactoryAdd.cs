@@ -17,14 +17,11 @@ namespace ChristmasVillage
         /*
          * Déclaration des variables
          */
-        private static int MINIMUM_CAPITAL = 500;
-
         private int id_user;
         private int id_village;
         private int position;
         private FactoryTypeBO factoryType;
         private List<FactoryTypeBO> factoryTypeList;
-        private List<ManageFactoryBO> manageFactoryList;
         private frmVillage frmVillage;
 
         /*
@@ -55,13 +52,6 @@ namespace ChristmasVillage
                     cbxFactoryType.DisplayMember = "name";
                     cbxFactoryType.ValueMember = "id_factory_type";
                     cbxFactoryType.Text = " - Choose - ";
-                }
-
-                manageFactoryList = new List<ManageFactoryBO>();
-                using (ManageFactoryIFACClient proxyManageFactory = new ManageFactoryIFACClient())
-                {
-                    manageFactoryList = new List<ManageFactoryBO>();
-                    manageFactoryList = proxyManageFactory.findFactoryByVillage(id_village);
                 }
             }
             catch (Exception)
@@ -104,7 +94,7 @@ namespace ChristmasVillage
                  * True: Création factory, création lien factory->village, update user
                  * False: Afficher message "Plus assez d'argent..."
                  */
-                if (capital > MINIMUM_CAPITAL)
+                if (Utilities.checkCapital(capital))
                 {
                     // Création et récupération factory
                     using (FactoryIFACClient proxyFactory = new FactoryIFACClient())

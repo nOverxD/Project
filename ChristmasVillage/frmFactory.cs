@@ -79,13 +79,13 @@ namespace ChristmasVillage
         }
 
         /*
-         * Affichage de la Form frmFactoryManage avec paramètres User et Factory
+         * Affichage de la Form frmFactoryManage avec paramètres frmVillage, User et Factory
          */
         private void btnManage_Click(object sender, EventArgs e)
         {
             try
             {
-                frmFactoryManage objfrmFactoryManage = new frmFactoryManage(user, factory);
+                frmFactoryManage objfrmFactoryManage = new frmFactoryManage(frmVillage, user, factory);
                 objfrmFactoryManage.ShowDialog();
             }
             catch (Exception)
@@ -118,6 +118,7 @@ namespace ChristmasVillage
                     {
                         proxyFactory.deleteFactory(factory.id_factory);
                     }
+                    frmVillage.reload(user);
                 }
                 else
                 {

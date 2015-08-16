@@ -68,8 +68,13 @@ namespace ChristmasVillage
             try
             {
                 tableLayoutPanel.Controls.Clear();
-                newUser = user;
-                lblCapitalUser.Text = user.capital.ToString();
+
+                // Récupère User en fonction de ID User
+                using (UserIFACClient proxyUser = new UserIFACClient())
+                {
+                    newUser = proxyUser.findById(user.id_user);
+                    lblCapitalUser.Text = user.capital.ToString();
+                }
 
                 List<ManageFactoryBO> manageFactoryList;
                 List<FactoryBO> factoryList = new List<FactoryBO>();

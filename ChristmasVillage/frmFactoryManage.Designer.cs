@@ -28,205 +28,182 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNameofToys = new System.Windows.Forms.Label();
-            this.btnProductionToys = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnProduct = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbxPriceToys = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbxNbrProduction = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblToys = new System.Windows.Forms.Label();
+            this.lblProductionPrice = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.lblSalesPrice = new System.Windows.Forms.Label();
+            this.btnSale = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblNameofToys
+            // btnProduct
             // 
-            this.lblNameofToys.AutoSize = true;
-            this.lblNameofToys.Location = new System.Drawing.Point(20, 20);
-            this.lblNameofToys.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNameofToys.Name = "lblNameofToys";
-            this.lblNameofToys.Size = new System.Drawing.Size(67, 20);
-            this.lblNameofToys.TabIndex = 0;
-            this.lblNameofToys.Text = "Name :: ";
+            this.btnProduct.Location = new System.Drawing.Point(143, 86);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(129, 23);
+            this.btnProduct.TabIndex = 1;
+            this.btnProduct.Text = "Launch Production";
+            this.btnProduct.UseVisualStyleBackColor = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProductionToys_Click);
             // 
-            // btnProductionToys
+            // btnCancel
             // 
-            this.btnProductionToys.Location = new System.Drawing.Point(56, 348);
-            this.btnProductionToys.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnProductionToys.Name = "btnProductionToys";
-            this.btnProductionToys.Size = new System.Drawing.Size(138, 35);
-            this.btnProductionToys.TabIndex = 1;
-            this.btnProductionToys.Text = "Production Toys";
-            this.btnProductionToys.UseVisualStyleBackColor = true;
-            this.btnProductionToys.Click += new System.EventHandler(this.btnProductionToys_Click);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(248, 348);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(112, 35);
-            this.btnReturn.TabIndex = 2;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            this.btnCancel.Location = new System.Drawing.Point(103, 242);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblPrice);
+            this.groupBox1.Controls.Add(this.lblProductionPrice);
+            this.groupBox1.Controls.Add(this.lblToys);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbxPriceToys);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.tbxNbrProduction);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(24, 60);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(370, 278);
+            this.groupBox1.Size = new System.Drawing.Size(260, 68);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Toys of Production";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(180, 223);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 26);
-            this.textBox3.TabIndex = 11;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(180, 183);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 26);
-            this.textBox2.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(180, 145);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 26);
-            this.textBox1.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 228);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Datetime End";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 188);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Datetime Start";
+            this.groupBox1.Text = "Production of Toys";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 149);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Status";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Toys :";
             // 
-            // tbxPriceToys
+            // lblToys
             // 
-            this.tbxPriceToys.Location = new System.Drawing.Point(180, 108);
-            this.tbxPriceToys.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbxPriceToys.Name = "tbxPriceToys";
-            this.tbxPriceToys.Size = new System.Drawing.Size(180, 26);
-            this.tbxPriceToys.TabIndex = 5;
+            this.lblToys.AutoSize = true;
+            this.lblToys.Location = new System.Drawing.Point(49, 20);
+            this.lblToys.Name = "lblToys";
+            this.lblToys.Size = new System.Drawing.Size(0, 13);
+            this.lblToys.TabIndex = 1;
             // 
-            // label4
+            // lblProductionPrice
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 72);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Nbr Production";
+            this.lblProductionPrice.AutoSize = true;
+            this.lblProductionPrice.Location = new System.Drawing.Point(104, 42);
+            this.lblProductionPrice.Name = "lblProductionPrice";
+            this.lblProductionPrice.Size = new System.Drawing.Size(0, 13);
+            this.lblProductionPrice.TabIndex = 3;
             // 
-            // tbxNbrProduction
+            // lblPrice
             // 
-            this.tbxNbrProduction.Enabled = false;
-            this.tbxNbrProduction.Location = new System.Drawing.Point(180, 68);
-            this.tbxNbrProduction.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbxNbrProduction.Name = "tbxNbrProduction";
-            this.tbxNbrProduction.Size = new System.Drawing.Size(180, 26);
-            this.tbxNbrProduction.TabIndex = 3;
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(7, 42);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(91, 13);
+            this.lblPrice.TabIndex = 2;
+            this.lblPrice.Text = "Production Price :";
             // 
-            // label3
+            // groupBox2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 112);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Price ";
+            this.groupBox2.Controls.Add(this.lblSalesPrice);
+            this.groupBox2.Controls.Add(this.label);
+            this.groupBox2.Controls.Add(this.lblStock);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 123);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(260, 84);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Stock";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "In Stock :";
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Location = new System.Drawing.Point(66, 20);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(0, 13);
+            this.lblStock.TabIndex = 1;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(6, 48);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(66, 13);
+            this.label.TabIndex = 2;
+            this.label.Text = "Sales Price :";
+            // 
+            // lblSalesPrice
+            // 
+            this.lblSalesPrice.AutoSize = true;
+            this.lblSalesPrice.Location = new System.Drawing.Point(79, 48);
+            this.lblSalesPrice.Name = "lblSalesPrice";
+            this.lblSalesPrice.Size = new System.Drawing.Size(0, 13);
+            this.lblSalesPrice.TabIndex = 3;
+            // 
+            // btnSale
+            // 
+            this.btnSale.Location = new System.Drawing.Point(143, 213);
+            this.btnSale.Name = "btnSale";
+            this.btnSale.Size = new System.Drawing.Size(129, 23);
+            this.btnSale.TabIndex = 5;
+            this.btnSale.Text = "Sale Stock";
+            this.btnSale.UseVisualStyleBackColor = true;
+            this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
             // frmFactoryManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 402);
+            this.ClientSize = new System.Drawing.Size(284, 273);
+            this.Controls.Add(this.btnSale);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.btnProductionToys);
-            this.Controls.Add(this.lblNameofToys);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnProduct);
             this.Name = "frmFactoryManage";
             this.Text = "frmFactorySaleToys";
             this.Load += new System.EventHandler(this.frmFactoryManage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblNameofToys;
-        private System.Windows.Forms.Button btnProductionToys;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnProduct;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbxPriceToys;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxNbrProduction;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblProductionPrice;
+        private System.Windows.Forms.Label lblToys;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblSalesPrice;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSale;
     }
 }

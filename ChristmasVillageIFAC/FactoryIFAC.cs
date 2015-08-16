@@ -19,6 +19,9 @@ namespace ChristmasVillageIFAC
         void createFactory(FactoryBO factory);
 
         [OperationContract]
+        void updateFactory(FactoryBO factory);
+
+        [OperationContract]
         FactoryBO getLastFactory();
 
         [OperationContract]
@@ -35,10 +38,5 @@ namespace ChristmasVillageIFAC
 
         [OperationContract]
         bool checkStatus(FactoryBO factory);
-
-        /*
-        [OperationContract]
-        int productionResult(FactoryBO factory);
-        */
     }
 }

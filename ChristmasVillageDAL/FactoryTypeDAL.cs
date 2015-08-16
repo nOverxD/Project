@@ -31,7 +31,7 @@ namespace ChristmasVillageDAL
         public ISingleResult<FactoryTypeBO> FactoryTypeBO_FindById(
             [Parameter(Name = "@id_factory_type", DbType = "int")] int FactoryTypeId)
         {
-            IExecuteResult result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())));
+            IExecuteResult result = ExecuteMethodCall(this, ((MethodInfo)(MethodBase.GetCurrentMethod())), FactoryTypeId);
             return ((ISingleResult<FactoryTypeBO>)(result.ReturnValue));
         }
     }

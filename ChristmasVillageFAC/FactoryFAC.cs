@@ -23,6 +23,19 @@ namespace ChristmasVillageIFAC
             }
         }
 
+        // Implémentation méthode updateFactory Interface Factory
+        public void updateFactory(FactoryBO factory)
+        {
+            try
+            {
+                FactoryBL.Update(factory);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         // Implémentation méthode getLastFactory Interface Factory
         public FactoryBO getLastFactory()
         {

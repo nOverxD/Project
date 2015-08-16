@@ -119,7 +119,7 @@ namespace ChristmasVillageIFAC
                 listResult = dal.FactoryBO_FindById(factory.id_factory).ToList();
                 result = listResult.FirstOrDefault();
 
-                if (result.status != "true" && result != null)
+                if (result.status == "true")
                 {
                     return true;
                 }

@@ -37,8 +37,7 @@ namespace ChristmasVillage
             btnDelete.Visible = false;
             lblFactory.Visible = false;
 
-            pictureBox.ImageLocation = @"C:\Users\nOverxD\Source\Repos\Project\ChristmasVillage\Img\ForSale.png";
-            //pictureBox.ImageLocation = Image.FromFile(@"\Img\Factory.png").ToString();
+            pictureBox.Image = Resource.ForSale;
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -54,9 +53,8 @@ namespace ChristmasVillage
 
             btnAdd.Visible = false;
 
-            pictureBox.ImageLocation = @"C:\Users\nOverxD\Source\Repos\Project\ChristmasVillage\Img\Factory.png";
+            pictureBox.Image = Resource.Factory;
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            //pictureBox.ImageLocation = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"\Img\Factory.png");
         }
 
         /*

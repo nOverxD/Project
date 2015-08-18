@@ -22,22 +22,9 @@ namespace ChristmasVillageIFAC
 
         [Function(Name = "[dbo].[Village.Insert]")]
         public ISingleResult<VillageBO> VillageBO_Insert(
-            [Parameter(Name = "@name", DbType = "varchar(20)")] string VillageName,
-            [Parameter(Name = "@location", DbType = "int")] int VillageLocations
-            )
+            [Parameter(Name = "@name", DbType = "varchar(20)")] string VillageName)
         {
-            var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), VillageName, VillageLocations);
-            return ((ISingleResult<VillageBO>)result.ReturnValue);
-        }
-
-        [Function(Name = "[dbo].[Village.Update]")]
-        public ISingleResult<VillageBO> VillageBO_Update(
-            [Parameter(Name = "@id_village", DbType = "int")] int VillageId,
-            [Parameter(Name = "@name", DbType = "varchar(20)")] string VillageName,
-            [Parameter(Name = "@location", DbType = "int")] int VillageLocations
-            )
-        {
-            var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), VillageId, VillageName, VillageLocations);
+            var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()), VillageName);
             return ((ISingleResult<VillageBO>)result.ReturnValue);
         }
 

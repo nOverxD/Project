@@ -15,27 +15,7 @@ namespace ChristmasVillageIFAC
             try
             {
                 VillageDAL dalVillage = new VillageDAL(CUtil.GetConnexion());
-                dalVillage.VillageBO_Insert(
-                    village.name,
-                    village.location
-                    );
-            }
-            catch (Exception)
-            {                
-                throw;
-            }
-        }
-
-        public static void Update(VillageBO village)
-        {
-            try
-            {
-                VillageDAL dal = new VillageDAL(CUtil.GetConnexion());
-                dal.VillageBO_Update(
-                    village.id_village,
-                    village.name,
-                    village.location
-                    );
+                dalVillage.VillageBO_Insert(village.name);
             }
             catch (Exception)
             {                

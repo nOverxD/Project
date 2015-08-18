@@ -122,15 +122,14 @@ namespace ChristmasVillage
                         proxyUser.updateUser(user);
                         frmVillage.reload(user);
                     }
-
+                    this.Dispose();
                     MessageBox.Show("Factory successfully created.");
                 }
                 else
                 {
+                    this.Dispose();
                     MessageBox.Show("Vous n'avez plus assez d'argent, économisez !");
                 }
-
-                this.Dispose();
             }
             catch (Exception)
             {

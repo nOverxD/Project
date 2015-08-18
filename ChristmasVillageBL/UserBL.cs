@@ -21,7 +21,6 @@ namespace ChristmasVillageIFAC
                     user.password,
                     user.email,
                     user.capital,
-                    user.connexion,
                     user.status
                     );
             }
@@ -43,7 +42,6 @@ namespace ChristmasVillageIFAC
                     user.password,
                     user.email,
                     user.capital,
-                    user.connexion,
                     user.status
                     );
             }

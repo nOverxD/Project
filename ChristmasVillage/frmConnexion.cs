@@ -12,37 +12,40 @@ using System.Windows.Forms;
 
 namespace ChristmasVillage
 {
-    /// <summary>
-    /// Gestion de la connexion à l'application
-    /// </summary>
+    /*
+     * Gestion de la connexion à l'application
+     */
     public partial class frmConnexion : Form
     {
-        /// <summary>
-        /// Déclaration des variables
-        /// </summary>
+        /*
+         * Déclaration des variables
+         */
         private UserBO user;
         private frmWelcome objfrmWelcome;
 
-        /// <summary>
-        /// Creation et initalisation des composants de la fenêtre Connexion
-        /// </summary>
-        /// <param name="objfrmWelcome"></param>
+        /*
+         * Creation et initalisation des composants de la fenêtre Connexion
+         */
         public frmConnexion(frmWelcome objfrmWelcome)
         {
             InitializeComponent();
             this.objfrmWelcome = objfrmWelcome;
             tbxPassword.PasswordChar = '*';
         }
-        /// <summary>
-        /// Function pour le bouton de Connexion
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+        /*
+         * Permet au User de se Connecter
+         */
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             try
             {
-                //Vérification si les champs sont remplis correctement
+                /*
+                 * Vérification si les champs sont remplis
+                 * Si oui:                 -> ok: Affiche "Welcome back #username !"
+                 *                         -> erreur: Affiche "Errur: #erreur"
+                 * Sinon: Affiche "Veuillez remplir les champs."
+                 */
                 if (!string.IsNullOrWhiteSpace(tbxUsername.Text) && !string.IsNullOrWhiteSpace(tbxPassword.Text))
                 {
                     using (UserIFACClient proxy = new UserIFACClient())
@@ -85,11 +88,10 @@ namespace ChristmasVillage
                 throw;
             }
         }
-        /// <summary>
-        /// Function pour le bouton d'inscription
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+        /*
+         * Affichage de la Form objfrmSubscribe avec paramètre frmWelcome
+         */
         private void btnSubscribe_Click(object sender, EventArgs e)
         {
             frmSubscribe objfrmSubscribe = new frmSubscribe(objfrmWelcome);

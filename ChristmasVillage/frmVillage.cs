@@ -19,7 +19,7 @@ namespace ChristmasVillage
          */
         private const int CP_NOCLOSE_BUTTON = 0x200;
 
-        public UserBO newUser;
+        public UserBO userVillage;
         public frmFactory objfrmFactory;
         public ManageVillageBO manageVillage;
         public FactoryBO factory;
@@ -44,7 +44,7 @@ namespace ChristmasVillage
         public frmVillage(UserBO newUser, frmWelcome objfrmWelcome)
         {
             InitializeComponent();
-            this.newUser = newUser;
+            this.userVillage = newUser;
             this.objfrmWelcome = objfrmWelcome;
 
             objfrmWelcome.deconnectMenuItem.Visible = true;
@@ -57,7 +57,7 @@ namespace ChristmasVillage
          */
         private void frmVillage_Load(object sender, EventArgs e)
         {
-            reload(newUser);
+            reload(userVillage);
         }
 
         /*
@@ -72,8 +72,9 @@ namespace ChristmasVillage
                 // Récupère User en fonction de ID User
                 using (UserIFACClient proxyUser = new UserIFACClient())
                 {
-                    newUser = proxyUser.findById(user.id_user);
-                    lblCapitalUser.Text = newUser.capital.ToString();
+                    user = proxyUser.findById(user.id_user);
+                    userVillage = user;
+                    lblCapitalUser.Text = user.capital.ToString();
                 }
 
                 List<ManageFactoryBO> manageFactoryList;
@@ -99,7 +100,7 @@ namespace ChristmasVillage
                     for (int i = 1; i <= 4; i++)
                     {
                         int position = i;
-                        objfrmFactory = new frmFactory(this, position);
+                        objfrmFactory = new frmFactory(this, user, position);
                         objfrmFactory.Parent = this;
                         switch (position)
                         {
@@ -146,7 +147,7 @@ namespace ChristmasVillage
                         {
                             factory = factoryList.Find(fact => fact.factory_location == locationNumber);
 
-                            objfrmFactory = new frmFactory(this, factory);
+                            objfrmFactory = new frmFactory(this, user, factory);
                             objfrmFactory.Parent = this;
                             int position = factory.factory_location;
                             switch (position)
@@ -169,7 +170,7 @@ namespace ChristmasVillage
                         // Sinon création de frmFactory avec locationNumber en paramètre
                         else
                         {
-                            objfrmFactory = new frmFactory(this, locationNumber);
+                            objfrmFactory = new frmFactory(this, user, locationNumber);
                             objfrmFactory.Parent = this;
                             int position = locationNumber;
                             switch (position)

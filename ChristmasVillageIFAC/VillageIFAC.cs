@@ -19,9 +19,6 @@ namespace ChristmasVillageIFAC
         void createVillage(VillageBO village);
 
         [OperationContract]
-        void updateLocation(VillageBO village);
-
-        [OperationContract]
         VillageBO findVillage(string villageName);
     }
 }

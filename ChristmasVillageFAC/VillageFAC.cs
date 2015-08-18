@@ -23,19 +23,6 @@ namespace ChristmasVillageIFAC
             }
         }
 
-        // Implémentation méthode updateLocation Interface Village
-        public void updateLocation(VillageBO village)
-        {
-            try
-            {
-                VillageBL.Update(village);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         // Implémentation méthode findVillage Interface Village
         public VillageBO findVillage(string villageName)
         {

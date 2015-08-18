@@ -74,7 +74,7 @@ namespace ChristmasVillage
                 frmVillage objfrmVillage = (frmVillage)activeChild;
 
                 UserBO user = new UserBO();
-                user = objfrmVillage.user;
+                user = objfrmVillage.userVillage;
 
                 using (UserIFACClient proxy = new UserIFACClient())
                 {

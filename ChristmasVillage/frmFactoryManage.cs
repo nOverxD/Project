@@ -117,11 +117,12 @@ namespace ChristmasVillage
                         proxyFactory.productToys(factory, user);
                     }
                     this.Dispose();
+                    frmVillage.reload(user);
                     MessageBox.Show("Production Launched !");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(ex.Message);
+                    throw;
                 }
             }
         }

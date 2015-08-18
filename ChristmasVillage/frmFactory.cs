@@ -27,10 +27,11 @@ namespace ChristmasVillage
         /* 
          * Initialisation de la Form frmFactory avec position en paramètre
          */
-        public frmFactory(frmVillage frmVillage, int position)
+        public frmFactory(frmVillage frmVillage, UserBO user, int position)
         {
             InitializeComponent();
             this.frmVillage = frmVillage;
+            this.user = user;
             this.position = position;
 
             btnManage.Visible = false;
@@ -44,12 +45,12 @@ namespace ChristmasVillage
         /*
          * Initialisation de la Form frmFactory avec Factory en paramètre
          */
-        public frmFactory(frmVillage frmVillage, FactoryBO factory)
+        public frmFactory(frmVillage frmVillage, UserBO user, FactoryBO factory)
         {
             InitializeComponent();
             this.frmVillage = frmVillage;
+            this.user = user;
             this.factory = factory;
-            user = frmVillage.user;
 
             btnAdd.Visible = false;
 
@@ -65,7 +66,7 @@ namespace ChristmasVillage
             try
             {
                 int id_village = frmVillage.manageVillage.id_village;
-                int id_user = frmVillage.manageVillage.id_user;
+                int id_user = user.id_user;
 
                 frmFactoryAdd objfrmFactoryAdd = new frmFactoryAdd(frmVillage, id_user, id_village, position);
                 objfrmFactoryAdd.ShowDialog();

@@ -25,14 +25,6 @@ namespace ChristmasVillageGUI.Proxies
         
         void EndcreateVillage(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/updateLocation", ReplyAction="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/updateLocationResponse")]
-        void updateLocation(ChristmasVillageBO.VillageBO village);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/updateLocation", ReplyAction="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/updateLocationResponse")]
-        System.IAsyncResult BeginupdateLocation(ChristmasVillageBO.VillageBO village, System.AsyncCallback callback, object asyncState);
-        
-        void EndupdateLocation(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(Action="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/findVillage", ReplyAction="urn:ChristmasVillageIFAC/VillageIFAC/VillageIFAC/findVillageResponse")]
         ChristmasVillageBO.VillageBO findVillage(string villageName);
         
@@ -89,21 +81,6 @@ namespace ChristmasVillageGUI.Proxies
         public void EndcreateVillage(System.IAsyncResult result)
         {
             base.Channel.EndcreateVillage(result);
-        }
-        
-        public void updateLocation(ChristmasVillageBO.VillageBO village)
-        {
-            base.Channel.updateLocation(village);
-        }
-        
-        public System.IAsyncResult BeginupdateLocation(ChristmasVillageBO.VillageBO village, System.AsyncCallback callback, object asyncState)
-        {
-            return base.Channel.BeginupdateLocation(village, callback, asyncState);
-        }
-        
-        public void EndupdateLocation(System.IAsyncResult result)
-        {
-            base.Channel.EndupdateLocation(result);
         }
         
         public ChristmasVillageBO.VillageBO findVillage(string villageName)

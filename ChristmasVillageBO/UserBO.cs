@@ -19,12 +19,11 @@ namespace ChristmasVillageBO
         private string _password;
         private string _email;
         private int _capital;
-        private int _connexion;
         private string _status;
 
         public UserBO() {}
 
-        public UserBO(int UserId, string UserName, string UserPassword, string UserEmail, int UserCapital, int UserConnexion, string UserStatus)
+        public UserBO(int UserId, string UserName, string UserPassword, string UserEmail, int UserCapital, string UserStatus)
             : this()
         {
             _id_user = UserId;
@@ -32,7 +31,6 @@ namespace ChristmasVillageBO
             _password = UserPassword;
             _email = UserEmail;
             _capital = UserCapital;
-            _connexion = UserConnexion;
             _status = UserStatus;
         }
 
@@ -69,13 +67,6 @@ namespace ChristmasVillageBO
         {
             get { return _capital; }
             set { _capital = value; }
-        }
-
-        [DataMember(Name = "connexion")]
-        public int connexion
-        {
-            get { return _connexion; }
-            set { _connexion = value; }
         }
 
         [DataMember(Name = "status")]

@@ -26,12 +26,11 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@password", DbType = "varchar(20)")] string UserPassword,
             [Parameter(Name = "@email", DbType = "varchar(60)")] string UserMail,
             [Parameter(Name = "@capital", DbType = "int")] int UserCapital,
-            [Parameter(Name = "@connexion", DbType = "int")] int UserConnexion,
             [Parameter(Name = "@status", DbType = "varchar(5)")] string UserStatus
              )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
-                Username, UserPassword, UserMail, UserCapital, UserConnexion, UserStatus);
+                Username, UserPassword, UserMail, UserCapital, UserStatus);
             return ((ISingleResult<UserBO>)result.ReturnValue);
         }
 
@@ -42,12 +41,11 @@ namespace ChristmasVillageIFAC
             [Parameter(Name = "@password", DbType = "varchar(20)")] string UserPassword,
             [Parameter(Name = "@email", DbType = "varchar(60)")] string UserMail,
             [Parameter(Name = "@capital", DbType = "int")] int UserCapital,
-            [Parameter(Name = "@connexion", DbType = "int")] int UserConnexion,
             [Parameter(Name = "@status", DbType = "varchar(5)")] string UserStatus
             )
         {
             var result = ExecuteMethodCall(this, ((MethodInfo)MethodBase.GetCurrentMethod()),
-                UserId, Username, UserPassword, UserMail, UserCapital, UserConnexion, UserStatus);
+                UserId, Username, UserPassword, UserMail, UserCapital, UserStatus);
             return ((ISingleResult<UserBO>)result.ReturnValue);
         }
 

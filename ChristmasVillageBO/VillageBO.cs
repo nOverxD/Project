@@ -16,16 +16,14 @@ namespace ChristmasVillageBO
     {
         private int _id_village;
         private string _name;
-        private int _location;
 
         public VillageBO() {}
 
-        public VillageBO(int VillageId, string VillageName, int VillageLocation)
+        public VillageBO(int VillageId, string VillageName)
             : this()
         {
             _id_village = VillageId;
             _name = VillageName;
-            _location = VillageLocation;
         }
 
         [DataMember(Name = "id_village")]
@@ -40,13 +38,6 @@ namespace ChristmasVillageBO
         {
             get { return _name; }
             set { _name = value; }
-        }
-
-        [DataMember(Name = "location")]
-        public int location
-        {
-            get { return _location; }
-            set { _location = value; }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ChristmasVillage
          * Déclarations des variables
          */
         private static String STATUS_OK = "false";
-        private static String STATUS_PRODUCTION = "En Production";
+        private static String STATUS_PRODUCTION = "In Production";
 
         private FactoryBO factory;
         private UserBO user;
@@ -135,7 +135,7 @@ namespace ChristmasVillage
             /*
              * Vérifier que stock est plus grand que 0
              * Si oui: Affiche "Votre profit est de: prix"
-             * Sinon: Affiche "Votres stock est vide !"
+             * Sinon: Affiche "Votre stock est vide !"
              */
 
             if (factory.factory_stock != 0)
@@ -159,7 +159,7 @@ namespace ChristmasVillage
             }
             else
             {
-                MessageBox.Show("Votres stock est vide !");
+                MessageBox.Show("Votre stock est vide !");
             }
         }
 
